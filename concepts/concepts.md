@@ -20,7 +20,7 @@ The virtual security appliances, which intercept the traffic from the VMs. For I
 This component refers to the security service you intend to deploy such as next-generation IPS or next-generation firewall. You can use the **Service Function Catalog** page to upload corresponding software images for further deployment through OSC.
 
 ## Distributed Appliances
-A distributed appliance, associates the security solution and the virtualization solution. That is, you define a distributed appliance using the virtualization connectors and security manager connector as building blocks.
+A distributed appliance, associates the security solution and the virtualization solution. That is, you define a distributed appliance using the virtualization connectors and security manager connector as building blocks.  
 In a distributed appliance, you specify the following:
 * One security manager connector.
 * The model and version of the security appliance.
@@ -28,11 +28,11 @@ For IPS, this is the version and model of the virtual Sensors, which are later d
 * One or more virtualization connectors.
 * For each virtualization connector, you must select a Manager admin domain. The security appliances are managed under the specified admin domain. In the case of IPS, if you select My Company (root admin domain), all virtual Sensors are managed under My Company in the Manager. In case of firewall, select shared domain in SMC to view the managed devices.
 
-![Distributed Appliance](./images/distributed_appliance.png)
+![Distributed Appliance](./images/distributed_appliance.png)  
 *Distributed Appliance and Virtual Systems*
 
 ## Deployment Specifications
-A deployment specification empowers you to mobilize the objective of your service deployment strategy. Since every implementation varies from another, you can employ a strategy that best suits your requirements. In the meanwhile, OSC continually monitors the infrastructure to make sure that your objectives are implemented.
+A deployment specification empowers you to mobilize the objective of your service deployment strategy. Since every implementation varies from another, you can employ a strategy that best suits your requirements. In the meanwhile, OSC continually monitors the infrastructure to make sure that your objectives are implemented.  
 Examples of what you can achieve through a deployment specification are:
 * Deploy security services only on particular hosts or tenants.
 * Provision more than one instance of a security service on a single host to load balance traffic.
@@ -40,7 +40,7 @@ Examples of what you can achieve through a deployment specification are:
 
 ## Virtual Systems
 A virtualization connector associated with a manager domain is a virtual system.  
-The most common example of a virtual system is the Virtual Security System for IPS and Virtual Security System container for firewall. A Virtual Security System is the logical container object for all deployed virtual security service functions or Virtual Security System instances.  
+The most common example of a virtual system is the Virtual Security System for IPS and Virtual Security System container for firewall. A Virtual Security System is the logical container object for all deployed virtual security service functions or Virtual Security System instances.
 
 ## Agents
 Security services deployed through OSC have the following agents.  
@@ -60,4 +60,4 @@ OSC triggers a job, when you take any of the following actions:
 * Modify the password of the default users.
 
 ## Alarms, Alerts and Archives
-You can now setup alarms that trigger alerts. The alarms can be set for different types of failures like job failures, system failure, or appliance instance failures. Different severity levels can be defined for each type of failure, and also add an email notification to be sent out in case of a failure. An alert is generated for every failure event that occurs. The description for the failure provides an easy way to troubleshoot the failure thereby reducing downtime.   Alerts are generated with different severity level which depends on the severity level defined in the alarm. You can also acknowledge alerts that have been viewed so that you can filter alerts that require attention. You can archive older jobs and alerts. Tasks related to the jobs are also archived. You can either set an auto schedule to archive the jobs and alerts, or manually trigger archiving whenever required. There are different options by which you can set a schedule for archiving. You can also download the previous archived files for analysis.  
+You can now setup alarms that trigger alerts. The alarms can be set for different types of failures like job failures, system failure, or appliance instance failures. Different severity levels can be defined for each type of failure, and also add an email notification to be sent out in case of a failure. An alert is generated for every failure event that occurs. The description for the failure provides an easy way to troubleshoot the failure thereby reducing downtime. Alerts are generated with different severity level which depends on the severity level defined in the alarm. You can also acknowledge alerts that have been viewed so that you can filter alerts that require attention. You can archive older jobs and alerts. Tasks related to the jobs are also archived. You can either set an auto schedule to archive the jobs and alerts, or manually trigger archiving whenever required. There are different options by which you can set a schedule for archiving. You can also download the previous archived files for analysis.  
