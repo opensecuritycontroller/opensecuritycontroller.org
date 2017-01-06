@@ -22,12 +22,12 @@ This guide uses these typographical conventions and icons.
 [Definining Service Functions](./service_function.md)
 
 ### Distributed Appliances
-[Defining Distributed Appliances](./distributed_appliance.md)
-[Defining Deployment Specificactions](./deployment_spec.md)
-[Defining Traffic Policy Mappings](./traffic_policy_mapping.md)
-[Maintaining Appliance Instances](./appliance_instance.md)
-[Deleting a Distributed Appliance in OpenStack](./distributed_appliance_delete_openstack.md)
-[Deleting a Distributed Appliance in VMware](./distributed_appliance_delete_vmware.md)
+[Defining Distributed Appliances](./distributed_appliance.md)  
+[Defining Deployment Specificactions](./deployment_spec.md)  
+[Defining Traffic Policy Mappings](./traffic_policy_mapping.md)  
+[Maintaining Appliance Instances](./appliance_instance.md)  
+[Deleting a Distributed Appliance in OpenStack](./distributed_appliance_delete_openstack.md)  
+[Deleting a Distributed Appliance in VMware](./distributed_appliance_delete_vmware.md)  
 
 
 ### Jobs and Tasks

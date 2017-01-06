@@ -15,5 +15,5 @@ This session presents the information to help investigating issues with OSC or r
 [Debugging OSC](./debug.md)
 
 ### Integration Problems
-[Troubleshooting Problems with OpenStack](./openstack.md)
+[Troubleshooting Problems with OpenStack](./openstack.md)  
 [Troubleshooting Problems with VMware](./vmware.md)

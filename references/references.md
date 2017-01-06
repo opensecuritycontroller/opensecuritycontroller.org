@@ -18,5 +18,5 @@ This section provides the references to the OSC APIs, CLI and plugins SDK.
 
 ### Plugins
 
-[Security Manager SDK](./manager_sdk.md)
+[Security Manager SDK](./manager_sdk.md)  
 [SDN Controller SDK](./sdn_sdk.md)
