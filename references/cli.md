@@ -1,18 +1,32 @@
-## OSC CLI
+# OSC CLI Commands
 
+<<<<<<< Updated upstream
 This section explains the OSC CLI commands, which you can run in normal mode.
 
 ### Contents
 * [clear](#clear)
 * [debug](#debug) TODO: enable? "debug" does nothing
+=======
+This section explains the OSC CLI commands, which you can run in normal mode. For steps on how to access OSC through the OSC CLI, see [Accessing OSC](./gettingstarted/accessing.md).
+
+### Contents
+* [clear](#clear)
+* [debug](#debug) TODO: "enable"? "debug" does nothing
+>>>>>>> Stashed changes
 * [exit](#exit)
 * [help](#help)
 * [history](#history)
 * [list](#list) TODO: shows the same as "help"
 * [ping](#ping)
+<<<<<<< Updated upstream
 * [ping6](#ping6) TODO: "connect: network is unreachable"
 * [reset](#reset)
 * [server restart](#server-restart) TODO: is a restart needed after setting
+=======
+* [ping6](#ping6)
+* [reset](#reset)
+* [server restart](#server-restart)
+>>>>>>> Stashed changes
 * [server start](#server-start)
 * [server status](#server-status)
 * [server stop](#server-stop)
@@ -22,7 +36,11 @@ This section explains the OSC CLI commands, which you can run in normal mode.
 * [set network hostname](#set-network-hostname)
 * [set network ip](#set-network-ip)
 * [set network ntp](#set-network-ntp) TODO: ntpdate: Synchronizing with time server:[FAILED]
+<<<<<<< Updated upstream
 * [set passwd](#set-passwd) TODO: does not update password on web app
+=======
+* [set passwd](#set-passwd)
+>>>>>>> Stashed changes
 * [set time](#set-time)
 * [set timezone](#set-timezone)
 * [show arp](#show-arp)
@@ -41,11 +59,19 @@ This section explains the OSC CLI commands, which you can run in normal mode.
 * [show process](#show-process)
 * [show process monitor](#show-process-monitor)
 * [show system memory](#show-system-memory)
+<<<<<<< Updated upstream
 * [show system uptime](#show-system-uptime) TODO: does not always match web app
 * [show version](#show-version)
 * [shutdown](#shutdown)
 * [traceroute](#traceroute)
 * [traceroute6](#traceroute6) TODO: "connect: network is unreachable"
+=======
+* [show system uptime](#show-system-uptime)
+* [show version](#show-version)
+* [shutdown](#shutdown)
+* [traceroute](#traceroute)
+* [traceroute6](#traceroute6)
+>>>>>>> Stashed changes
 
 ### clear
 Clears only the CLI screen. This command has no impact on the database of OSC.
@@ -86,7 +112,11 @@ Pings an IPv4 network host.
 |`<A.B.C.D>` | a 32-bit IPv4 address written as four eight-bit numbers separated by periods. Each number (A,B,C, and D) is an eight-bit number between 0-255.|
 
 ### ping6
+<<<<<<< Updated upstream
 Pings an IPv6 network host.
+=======
+Pings an IPv6 network host. OSC currently does not support IPv6 addresses.
+>>>>>>> Stashed changes
 
 **Syntax**: `ping6 <A:B:C:D:E:F:G:H>`
 
@@ -196,7 +226,11 @@ Configures Network Time Protocol (NTP) servers as the time source for the OSC ap
 * To view the currently configured NTP server details, use [`show network ntp`](#show-network-ntp) command.
 
 ##set passwd
+<<<<<<< Updated upstream
 Changes the logon password for the OSC appliance. It prompts for the old password and then prompts for a new password. A password must contain at least eight characters and can consist of any alphanumeric character or symbol.
+=======
+Changes the logon password for the OSC appliance. It prompts for the old password and then prompts for a new password. A password must contain at least eight characters and can consist of any alphanumeric character or symbol. This command only changes the password to access OSC through the CLI and not through the OSC web application.
+>>>>>>> Stashed changes
 
 **Syntax**: `set passwd`
 
@@ -360,7 +394,11 @@ Displays the traceroute to host.
 |`<A.B.C.D>` | a 32-bit IPv4 address written as four eight-bit numbers separated by periods. Each number (A,B,C, and D) is an eight-bit number between 0-255.|
 
 ##traceroute6
+<<<<<<< Updated upstream
 Displays the traceroute to host.
+=======
+Displays the traceroute to host. OSC currently does not support IPv6 addresses.
+>>>>>>> Stashed changes
 
 **Syntax**: `traceroute6 <A:B:C:D:E:F:G:H>`
 
