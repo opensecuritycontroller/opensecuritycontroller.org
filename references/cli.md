@@ -4,24 +4,22 @@ This section explains the OSC CLI commands, which you can run in normal mode. Fo
 
 ### Contents
 * [clear](#clear)
-* [debug](#debug) TODO: "enable"? "debug" does nothing
 * [exit](#exit)
 * [help](#help)
 * [history](#history)
-* [list](#list) TODO: shows the same as "help"
+* [list](#list)
 * [ping](#ping)
-* [ping6](#ping6)
 * [reset](#reset)
 * [server restart](#server-restart)
 * [server start](#server-start)
 * [server status](#server-status)
 * [server stop](#server-stop)
 * [set network dns](#set-network-dns)
-* [set network domain](#set-network-domain) TODO: cannot set to empty
-* [set network gateway](#set-network-gateway) TODO: cannot set to empty
+* [set network domain](#set-network-domain)
+* [set network gateway](#set-network-gateway)
 * [set network hostname](#set-network-hostname)
 * [set network ip](#set-network-ip)
-* [set network ntp](#set-network-ntp) TODO: ntpdate: Synchronizing with time server:[FAILED]
+* [set network ntp](#set-network-ntp)
 * [set passwd](#set-passwd)
 * [set time](#set-time)
 * [set timezone](#set-timezone)
@@ -45,17 +43,11 @@ This section explains the OSC CLI commands, which you can run in normal mode. Fo
 * [show version](#show-version)
 * [shutdown](#shutdown)
 * [traceroute](#traceroute)
-* [traceroute6](#traceroute6)
 
 ### clear
 Clears only the CLI screen. This command has no impact on the database of OSC.
 
 **Syntax**: `clear`
-
-### debug
-Helps debug the connection between the OSC appliance and the client computer.
-
-**Syntax**: `debug`
 
 ### exit
 Logs off the current SSH connection with the OSC appliance and closes the SSH client window. 
@@ -72,7 +64,7 @@ Lists all the commands attempted so far on your OSC appliance including unsucces
 **Syntax**: `history`
 
 ### list
-Lists all the commands available in the normal mode along with the description for each command.
+Lists all the commands available in the normal mode along with the description for each command. This command has the same output as the [`help`](#help) command.
 
 **Syntax**: `list`
 
@@ -84,15 +76,6 @@ Pings an IPv4 network host.
 |**Parameter**| **Description**|
 |-------------|----------------|
 |`<A.B.C.D>` | a 32-bit IPv4 address written as four eight-bit numbers separated by periods. Each number (A,B,C, and D) is an eight-bit number between 0-255.|
-
-### ping6
-Pings an IPv6 network host. OSC currently does not support IPv6 addresses.
-
-**Syntax**: `ping6 <A:B:C:D:E:F:G:H>`
-
-|**Parameter**| **Description**|
-|-------------|----------------|
-|`<A:B:C:D:E:F:G:H>` | a 128-bit address written as an octet (eight groups) of four hexadecimal numbers, separated by colons. Each letter represents a group of hexadecimal numbers between 0000-FFFF. You can also use the shorter notations of an IPv6 address.|
 
 ### reset
 Resets the OSC appliance **immediately without confirmation**.
@@ -361,9 +344,3 @@ Displays the traceroute to host.
 
 ##traceroute6
 Displays the traceroute to host. OSC currently does not support IPv6 addresses.
-
-**Syntax**: `traceroute6 <A:B:C:D:E:F:G:H>`
-
-|**Parameter**| **Description**|
-|-------------|----------------|
-|`<A:B:C:D:E:F:G:H>` | a 128-bit address written as an octet (eight groups) of four hexadecimal numbers, separated by colons. Each letter represents a group of hexadecimal numbers between 0000-FFFF. You can also use the shorter notations of an IPv6 address.|
