@@ -7,13 +7,13 @@ The OSC web application is used to set up and manage the OSC virtual appliance. 
 ### Steps to Access the OSC Web Application
 1. Open a supported browser and enter `https://<IP Address of OSC>` as the URL.
 2. In the **Login ID** field, enter the username and corresponding password provided by your OSC administrator.
-If you are setting up OSC for the first time, use the default username and password: `admin` and `admin123` respectively.  
+If you are accessing OSC after the initial setup, use the default username and password: `admin` and `admin123` respectively.  
 ![](./images/osc_web_login.jpg)  
 *Logon Screen*
 3. Click *Log In*.
 4. To log out from the OSC web application, click **Logout** in the top-left corner of the screen.  
 ![](./images/osc_web_logout.jpg)  
-*Position of the Logout Button*
+*OSC Logout*
 
 	>If your OSC web application session is idle for 30 minutes, you are automatically logged out. This setting is not configurable.
 
