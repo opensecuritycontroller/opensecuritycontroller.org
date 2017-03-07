@@ -1,6 +1,6 @@
 ## Debugging OSC
 
-ISC allows for some debug information like executing a query on the database to retrieve information, executing a query on the database to modify information or for getting information on the locks held by the lock manager...
+OSC allows for some debug information like executing a query on the database to retrieve information, executing a query on the database to modify information or for getting information on the locks held by the lock manager...
 TODO: A lof of this will code from the ISC_Debug_Guide.docx
 
 ### Enabling Debug Mode
