@@ -1,5 +1,5 @@
 #Troubleshoot OSC Network Issues  
-This procedure explains how to troubleshoot failure in connecting to OSC using OSC command line or Web Client. If the OSC IP address is not configured according to the local networking requirements network issues might occur.  
+This procedure explains how to troubleshoot failures when connecting to OSC using OSC command line or Web Client. If the OSC IP address is not configured according to the local networking requirements network issues might occur.  
 ## Accessing OSC Console  
 Access OSC console when trouble shooting network issues.OSC console access in VMWare and Openstack environments are shown below.
 ###VMWare Deployments  
