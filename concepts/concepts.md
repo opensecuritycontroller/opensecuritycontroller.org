@@ -1,63 +1,52 @@
-# Concepts
-  
-***
+# OSC Concepts
 
-
-[REF:2.5] To configure OSC to act as a broker, you first define the building blocks. You then use these building blocks to configure OSC so that it can act as a broker between the virtualization provider and security solutions.
+To successfully use OSC, it is important to first understand its main concepts. The OSC main concepts help define its architecture and use cases and are built-upon related industry concepts such as security groups, policies, etc.  
 
 ## Virtualization Connectors
-In this building block, you define the virtualization provider entities. You must confirm that the virtualization provider is accessible to OSC.
-* For VMware, you define the IP address and administrator logon credentials for NSX and vCenter.
-* For OpenStack, you must make sure to define administrator credentials to Horizon, which is the OpenStack user-interface.
+This concept defines the information needed to connect OSC to a virtualization provider - such as OpenStack - and to an SDN controller, for instance, IP addresses and user credentials. The OSC platform supports multiple virtualization connectors enabling the user to orchestrate security appliances on multiple virtualization platforms.  
+
+## Security Groups
+Security groups are used to manage virtual assets and instances such as tenant networks, subnets, and individual virtual machines.  Once a security group is defined, it can be bound to a deployed security service function to protect the grouped assets.  
 
 ## Manager Connectors
-In this building block, you define the management console for managing the security appliances. For IPS, you define the Manager IP address and the root admin logon credentials, which will manage the Virtual Sensors installed in the hosts. For firewall, you define the Security Management Console (SMC) IP address and the API authentication key.
+This concept defines the information needed to connect OSC to security service managers, for instance, IP addresses and user credentials or API keys. The OSC platform supports multiple manager connectors enabling the user to simultaneously orchestrate security appliances provided by different service managers.  
 
-## Appliance Instances
-The virtual security appliances, which intercept the traffic from the VMs. For IPS, Virtual Sensors are the security appliance instances, which are referred to as Virtual Security System instances. For firewall, Virtual Layer 2 Firewalls are the security appliance instances, which are referred to as VSS Container Firewalls. 
+## Policies
+A security policy's role is to define and enforce what assets need to be protected and how those assets are protected. OSC retrieves the policies defined by a security manager by utilizing the manager connector and binds them to a security group along with a security service for enforcement.  
 
-## Security Services
-This component refers to the security service you intend to deploy such as next-generation IPS or next-generation firewall. You can use the **Service Function Catalog** page to upload corresponding software images for further deployment through OSC.
+## Security Service Functions
+Security services such as IPS or next-generation firewall are intended to be deployed to protect the assets contained in a security group. As defined by OSC, a security service function describes the software image file as well as other metadata, such as the function's model and version. Some supported operations include managing service function versions and upgrading or downgrading the software image for deployed appliances.  
 
 ## Distributed Appliances
-A distributed appliance, associates the security solution and the virtualization solution. That is, you define a distributed appliance using the virtualization connectors and security manager connector as building blocks.  
-In a distributed appliance, you specify the following:
-* One security manager connector.
-* The model and version of the security appliance.
-For IPS, this is the version and model of the virtual Sensors, which are later deployed in the ESXi hosts. For firewall, this is the version of the VMware vCenter compatible image of:
-* One or more virtualization connectors.
-* For each virtualization connector, you must select a Manager admin domain. The security appliances are managed under the specified admin domain. In the case of IPS, if you select My Company (root admin domain), all virtual Sensors are managed under My Company in the Manager. In case of firewall, select shared domain in SMC to view the managed devices.
+A distributed appliance associates the managed security services to the virtualization environments needing protection. A distributed appliance is defined by the security service function, one or more virtualization connectors, and a single manager connector. Each relationship between the domains defined by the appliance's manager connector and each virtualization connector represents a [virtual system](#virtual-security-systems).  
 
 ![Distributed Appliance](./images/distributed_appliance.png)  
-*Distributed Appliance and Virtual Systems*
+*Distributed Appliance and Virtual Systems*  
 
 ## Deployment Specifications
-A deployment specification empowers you to mobilize the objective of your service deployment strategy. Since every implementation varies from another, you can employ a strategy that best suits your requirements. In the meanwhile, OSC continually monitors the infrastructure to make sure that your objectives are implemented.  
-Examples of what you can achieve through a deployment specification are:
-* Deploy security services only on particular hosts or tenants.
-* Provision more than one instance of a security service on a single host to load balance traffic.
-* Designate a set of hypervisor to have many security instances so as to handle all traffic flowing to and from VMs to pass through that host.
+A deployment specification enables the user to deploy security services on the virtualization platform. A deployment specification is defined through a distributed appliance and allows the user to specify the deployment target and the number of instances to be deployed. Deployment targets can consist of a group of hosts or entire network tenants.  
 
-## Virtual Systems
-A virtualization connector associated with a manager domain is a virtual system.  
-The most common example of a virtual system is the Virtual Security System for IPS and Virtual Security System container for firewall. A Virtual Security System is the logical container object for all deployed virtual security service functions or Virtual Security System instances.
+## Virtual Security Systems
+A virtual security system (virtual system) is the logical container object for all distributed appliances. This concept refers to the relationship between a single virtualization connector and a domain defined by the manager connector associated with the distributed appliance.  
 
-## Agents
-Security services deployed through OSC have the following agents.  
-* Control Path Agent: This agent is responsible for communication between the security services and the security manager.
-* Data Path Agent: This agent makes sure the traffic from the VMs are routed through the security service for inspection in case of VMware. The data path agent does not manage traffic for Openstack.
+## Traffic Policy Mappings
+Traffic policy mapping represents the relationship between a security policy and a virtual security system. A mapping is created when a user binds a security group to a virtual system providing a security policy.  
+
+## Appliance Instances
+An appliance instance is a single deployment unit of the distributed appliance. Each instance represents a deployed security function which will intercept the traffic between the protected virtual machines.  
 
 ## Jobs and Tasks
-Some of the actions that you perform in OSC are treated as jobs and tasks. The high-level action is treated as a job. For example, synchronizing a distributed appliance is a job. A job might consist of a number of tasks. That is, a job can be broken down into tasks. For example, if synchronizing a distributed appliance is the job, checking the manager connector and validating existing NSX components are some of the tasks. When all tasks are completed successfully, the corresponding job is complete.  
-Jobs and tasks enable you to easily track and troubleshoot your actions in OSC. When you trigger a job, the state, status, start time, completed time, and so on are displayed for the job as well as its component tasks.  
-Certain actions you perform in OSC are tracked as jobs. When you start a job, it triggers one or more background activities in OSC. These background activities are tracked as tasks of that job. Therefore, a job is completed only when all its tasks are successfully completed. Jobs and tasks enable easy tracking and troubleshooting. For example, if a job failed, you just have to look at the failed task to locate the stage at which the job failed. If a job is running for a long time, you can troubleshoot by looking at the task at which the processing is stuck.  
-OSC triggers a job, when you take any of the following actions:
-* Create, edit, synchronize, or delete a manager connector.
-* Create, edit, synchronize, or delete a distributed appliance.
-* Synchronize appliance instances.
-* Appliance instance re-authentication.
-* Upgrade the software for an appliance instance.
-* Modify the password of the default users.
+Some of the actions that are performed in OSC trigger jobs and tasks that perform asynchronous operations against external services such as security managers and the virtualization platform. The set of synchronized operations defines a job while its underlying actions are referred to as tasks. The overall status of the job depends on the status of its tasks.
+* Example: Synchronizing a distributed appliance is a job while checking the connectivity to the security manager is a task.  
 
 ## Alarms, Alerts and Archives
-You can now setup alarms that trigger alerts. The alarms can be set for different types of failures like job failures, system failure, or appliance instance failures. Different severity levels can be defined for each type of failure, and also add an email notification to be sent out in case of a failure. An alert is generated for every failure event that occurs. The description for the failure provides an easy way to troubleshoot the failure thereby reducing downtime. Alerts are generated with different severity level which depends on the severity level defined in the alarm. You can also acknowledge alerts that have been viewed so that you can filter alerts that require attention. You can archive older jobs and alerts. Tasks related to the jobs are also archived. You can either set an auto schedule to archive the jobs and alerts, or manually trigger archiving whenever required. There are different options by which you can set a schedule for archiving. You can also download the previous archived files for analysis.  
+**Alarms** are setup to trigger alerts. Alarms can be set for different types of failures such as job failures, system failures, or appliance instance failures. Different severity levels can be defined for each type of failure.  
+
+**Alerts** are generated for every failure event that occurs. Alerts are generated with different severity levels depending on the severity level defined in the alarm.  
+
+A user can **archive** older jobs and alerts. Tasks related to the archived jobs are also archived. A schedule can be set to automatically archive the jobs and alerts or can be manually triggered to archive whenever required.  
+
+## Plugins
+Plugins facilitate the communication between OSC and the security manager and SDN controllers. There are two types of plugins:
+* **[SDN Controller Plugins](../plugins/sdn_controller_plugin.md)** allow OSC to communicate with the SDN controllers.
+* **[Manager Plugins](../plugins/security_mgr_plugin.md)** allow OSC to communicate with the security managers.  
