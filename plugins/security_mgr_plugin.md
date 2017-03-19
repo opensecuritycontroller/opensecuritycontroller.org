@@ -6,7 +6,7 @@ In addition to supporting manager plugins, OSC also exposes REST endpoints for m
 ![](./images/osc_mgr.png)  
 *OSC and VNF Security Manager*
 
-## Security Manager Plugin APIs
+## Security Manager Plugin SDK
 
 ### Manager Information
 This is the main entry point for all the interactions with the security manager. It provides a way for OSC to instantiate the other manager APIs and basic information like:
@@ -55,6 +55,9 @@ These APIs are used by OSC to retrieve domain information provided by the manage
 
 ### Policies
 These APIs are used by OSC to retrieve policy information provided by the managers.  This set of APIs is optional. 
+
+### Plugin Properties
+In addition to the functionalities mentioned above, this SDK also specificies a set of required properties that must be provided when [registering the plugin implementation as an OSGi service](osgi_plugin.md#exposing-the-service-provided-by-the-plugin). These properties will be used by OSC to identify and correctly use the plugin.  For more details and the full list of required properties see the `javadoc` of the interface `org.osc.sdk.manager.api.ApplianceManagerApi` defined by this SDK.
 
 ## OSC Manager Callback REST APIs
 

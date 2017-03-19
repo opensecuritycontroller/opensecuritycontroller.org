@@ -132,20 +132,31 @@ Declarative Services descriptors can be written by hand, but the simplest way to
 ```
 Note that the annotations are pulled in as a `provided` scope dependency. This is because the annotations are for build-time processing only (step 3 of the scope selection process).
 
-Once the Declarative Services Annotations are available we can simply annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. Note that because the implementation directly implements an interface it will automatically be registered as an OSGi service using this interface. We also need to add a service property to help the OSC server to identify this plugin. The name of the property is `osc.plugin.name` and the value of the property is the name of the plugin.
+Once the Declarative Services Annotations are available we can simply annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. Note that because the implementation directly implements an interface it will automatically be registered as an OSGi service using this interface. We also need to add all the required service properties [](#plugin-properties) to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](sdn_controller_plugin.md#plugin-properties) and [SDN Controller Plugin Properties](sdn_controller_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
+
 
 ```java
-@Component(property=“osc.plugin.name=Example”)
+@Component(
+property={
+        PLUGIN_NAME + "=Example",
+        VENDOR_NAME + "=ExampleVendor",
+        SERVICE_NAME + "=ExampleService",
+        EXTERNAL_SERVICE_NAME + "=ExampleService",
+        AUTHENTICATION_TYPE + "=BASIC_AUTH",
+        NOTIFICATION_TYPE + "=CALLBACK_URL",
+        SYNC_SECURITY_GROUP + ":Boolean=false",
+        PROVIDE_DEVICE_STATUS + ":Boolean=true",
+        SYNC_POLICY_MAPPING + ":Boolean=true"}))
 public class ExampleApplianceManager implements ApplianceManagerApi
 {
-	// ...
+	// …
 }
 ```
 
 > For an **SDN Controller plugin**: 
 > * The `@Component` annotation should be applied to the class implementing the interface `SdnControllerApi`.
 > * You also must add the property `scope=Service.PROTOTYPE` as show below:
-> `@Component(scope=ServiceScope.PROTOTYPE, property="osc.plugin.name=Example")`
+> `@Component(scope=ServiceScope.PROTOTYPE, property={/*…*/})`
 
 When building there will now be a Declarative Services XML descriptor generated and added to the bundle.  
 Note that as of the current specification (Declarative Services 1.3) a component must have a noargument constructor.  
@@ -153,7 +164,8 @@ Note that as of the current specification (Declarative Services 1.3) a component
 ### Startup and Shutdown
 Declarative Services components can only be activated when their mandatory dependencies are available. When a component becomes eligible for activation it is injected with all of its dependencies, however it may not yet be ready for use. Commonly components require some level of initialization after injection has finished. In Declarative Services this can be requested by annotating a startup method with @Activate, for example:
 ```java
-@Component(property=“osc.plugin.name=Example”)
+@Component(
+property={/*…*/})
 public class ExampleApplianceManager implements ApplianceManagerApi
 {
     @Activate
@@ -182,7 +194,7 @@ Deactivate methods should not block or steal the incoming thread as this risks d
 **Giving a specific example** - OSC plugins will often want to use a REST client to communicate with a remote resource. The REST client can be created in the activate method and closed in the deactivate method.
 
 ```java
-@Component(property=“osc.plugin.name=Example”)
+@Component(property={/*…*/})
 public class ExampleApplianceManager implements ApplianceManagerApi
 {
     private Client client;
@@ -258,7 +270,7 @@ This configuration creates a local index XML inside the same folder as the depen
 Once the dependencies have been gathered and the index generated it is time to package up the plugin binary.  
 The OSC plugin packaging format looks a lot like an OSGi bundle, in that it is a zip format archive that contains a manifest with identifying metadata. The metadata identifies the location of the XML index (usually contained within the archive), and if the index is local then the archive will also contain the indexed resources.  
 The following manifest headers are defined for the plugin packaging:
-* Deployment-Name — This provides the name shown in the UI.
+* Deployment-Name — This provides the name shown in the UI. It must also match the value provided in the [property `PLUGIN_NAME` of the plugin declaritive service](#exposing-the-service-provided-by-the-plugin).  
 * Deployment-Type — This provides the type of the plugin, it should be either `SDN` or `MANAGER`.
 * Deployment-SymbolicName — This provides an identifier for the deployment.
 * Deployment-Version — This provides a version for the deployment. If not supplied then the version will default to 0.0.0
