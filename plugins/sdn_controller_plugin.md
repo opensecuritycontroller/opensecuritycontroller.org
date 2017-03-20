@@ -22,4 +22,4 @@ Inspection hooks are used by OSC to create, update or delete traffic redirection
 These set of APIs comprises CRUD operations for inspection books.
 
 ### Plugin Properties
-In addition to the functionalities mentioned above, this SDK also specificies a set of required properties that must be provided when [registering the plugin implementation as an OSGi service](osgi_plugin.md#exposing-the-service-provided-by-the-plugin). These properties will be used by OSC to identify and correctly use the plugin.  For more details and the full list of required properties see the `javadoc` of the interface `org.osc.sdk.controller.api.SdnControllerApi` defined by this SDK.  
+In addition to the functionalities mentioned above, this SDK also specificies a set of required properties that must be provided when [registering the plugin implementation as an OSGi service](osgi_plugin.md#exposing-the-service-provided-by-the-plugin). These properties will be used by OSC to identify and correctly use the plugin.  For more details and the full list of required properties, see the `javadoc` of the interface `org.osc.sdk.controller.api.SdnControllerApi` defined by this SDK.  
