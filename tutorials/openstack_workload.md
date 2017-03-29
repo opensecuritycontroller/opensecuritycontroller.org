@@ -1,6 +1,6 @@
 # Tutorial: Protecting Assets with OSC on OpenStack
 
-Given an existing [OpenStack compatible environment](../gettingstarted/requirements_ost.md) and a [deployed instance of OSC](../gettingstarted/installing_ost.md), this tutorial will walk you through the steps of setting up OSC to protect a single workload instance in OpenStack. These steps will include: deployment of a security appliance instance, definition of the workload under protection, and redirection of the traffic to be protected through the security appliance.
+Given an existing [OpenStack compatible environment](../gettingstarted/requirements.md#openstack) and a [deployed instance of OSC](../gettingstarted/installing_ost.md), this tutorial will walk you through the steps of setting up OSC to protect a single workload instance in OpenStack. These steps will include: deployment of a security appliance instance, definition of the workload under protection, and redirection of the traffic to be protected through the security appliance.
 
 ## Setup Requirements
 
