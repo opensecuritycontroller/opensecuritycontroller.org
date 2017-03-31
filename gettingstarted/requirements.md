@@ -1,4 +1,4 @@
-## OSC Requirements sdfas 
+## OSC Requirement a
 
 OSC's success relies on the communication to and from other services which include an SDN controller, a virtualization provider such as OpenStack, and a security manager. The following are the requirements to be met in order to use OSC: 
 
