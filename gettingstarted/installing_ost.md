@@ -1,4 +1,4 @@
-# Steps to Install OSC in an OpenStack Environment
+## Steps to Install OSC in an OpenStack Environment
 
 1. Log on to OpenStack by entering the assigned OpenStack IP address as the URL within a browser, and then enter the username and password.
 2. In the OpenStack dashboard menu, navigate to **Project** > **Compute** > **Images**.
@@ -14,7 +14,7 @@
 8. Locate the imported image, and then click the ![](./images/openstack_plus_button.jpg) button located to the right of the image. Click **Next**.  
 ![](./images/openstack_instance_source.jpg)  
 *Launch Instance - Source*
-9. Choose the flavor `m1.large` to manage the compute size, memory, and storage capicity, and then click **Next**.  
+9. Choose the flavor `m1.large` to manage the compute size, memory, and storage capacity, and then click **Next**.  
 ![](./images/openstack_instance_flavor.jpg)  
 *Launch Instance - Flavor*
 10. Choose a network, and then click **Next**.  
