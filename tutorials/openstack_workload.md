@@ -24,10 +24,10 @@ For OSC to function successfully, the following minimum network requirements mus
    > **Note**: If the security manager is externally hosted, both a router and an external network are needed for the security manager to communicate to the **Distributed Appliance Instance**. The network should be configured as **shared** and **external**. 
  * One **Inspection Network** for which redirected traffic will be intercepted.  
 
-S#### Tutorial Network Topology
+#### Tutorial Network Topology
 For this tutorial, the network topology in OpenStack should be as follows:  
 
-* `MANAGEMENT NETWORK`: The **Management Network** will be overloaded with the deployment of the `ATTACKER` and `VICTIM`, and used for communication between both the `ATTACKER` and `VICTIM`, the *internal* security manager, and the **Distributed Appliance Instance**. Its configurations consist of one port for the `ATTACKER`, one for the `VICTIM`, and one for the **Distributed Appliance Instance**. 
+e* `MANAGEMENT NETWORK`: The **Management Network** will be overloaded with the deployment of the `ATTACKER` and `VICTIM`, and used for communication between both the `ATTACKER` and `VICTIM`, the *internal* security manager, and the **Distributed Appliance Instance**. Its configurations consist of one port for the `ATTACKER`, one for the `VICTIM`, and one for the **Distributed Appliance Instance**. 
 * `INSPECTION NETWORK`: This network will be used for intercepting traffic sent from the `ATTACKER` to the `VICTIM`. Its configurations consist of one port for the `MANAGEMENT NETWORK`, and one port for the **Distributed Appliance Instance**.
 
 ![Network Topology](./images/network_topology.jpg)  
@@ -77,12 +77,12 @@ For this tutorial, it is assumed that the SDN component and SDN controller plugi
 * The **SDN Component** which is deployed on OpenStack for NSC.
   * TODO: add deployment steps
 
-## Setting up OSC to Protect a Workload
+## Set up OSC to Protect a Workload
 
 ### 1. Upload Plugin
-In OSC, use the left-hand menu to navigate to **Manage** > **Plugins**. 
-* Select the **SDN Controller Plugins** tab and upload the `SDN CONTROLLER NSC PLUGIN`.  
-* Select the **Manager Plugins** tab and upload the `SAMPLE MANAGER PLUGIN`.  
+Use the left-hand menu to navigate to **Manage** > **Plugins** within OSC. 
+* Select the **SDN Controller Plugins** tab, and upload the `SDN CONTROLLER NSC PLUGIN`.  
+* Select the **Manager Plugins** tab, and upload the `SAMPLE MANAGER PLUGIN`.  
 
 ![Upload Plugins](./images/add_plugins.jpg)  
 *Upload SDN Controller and Manager Plugins*
