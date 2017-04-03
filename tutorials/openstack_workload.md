@@ -1,29 +1,34 @@
 # Tutorial: Protecting Assets with OSC on OpenStack
 
-Given an existing [OpenStack compatible environment](../gettingstarted/requirements.md#openstack) and a [deployed instance of OSC](../gettingstarted/installing_ost.md), this tutorial will walk you through the steps of setting up OSC to protect a single workload instance in OpenStack. These steps will include: deployment of a security appliance instance, definition of the workload under protection, and redirection of the traffic to be protected through the security appliance.
+Given an existing [OpenStack compatible environment](../gettingstarted/requirements.md#openstack) and a [deployed instance of OSC](../gettingstarted/installing_ost.md), this tutorial provides the necessary steps of setting up OSC to protect a single workload instance in OpenStack. 
+
+These steps include: 
+* deployment of a security appliance instance
+* definition of the workload under protection
+* redirection of the traffic to be protected through the security appliance
 
 ## Setup Requirements
 
 ### Virtualization Environment  
 
-* In OpenStack, [create a tenant and domain](https://docs.openstack.org/mitaka/install-guide-obs/keystone-users.html). For this tutorial, the tenant will be referred to as `TENANT` with the value "admin" and the domain will be referred to as `REGION` with the value "RegionOne".
-* In OpenStack, create two virtual machines in the `TENANT` and `REGION`. These virtual machines will hereby be referred to as the `ATTACKER` and the `VICTIM`.
+* In OpenStack, [create a tenant and domain](https://docs.openstack.org/mitaka/install-guide-obs/keystone-users.html). This tutorial refers to the tenant as `TENANT`, with the value "admin". The domain is referred to as `REGION`, with the value "RegionOne".
+* In OpenStack, create two virtual machines in the `TENANT` and `REGION`. These virtual machines are hereby referred as the `ATTACKER` and the `VICTIM`.
 
 ### Networks and Connectivity  
-
 #### Minimum Network Requirements  
-For OSC to function successfully, there are minimum network requirements that need to be met.  
+For OSC to function successfully, the following minimum network requirements must be met: 
+
 * Both the `ATTACKER` and `VICTIM` must be able to communicate to each other through HTTP.  
-* Two unique networks:  
+* Must contain two unique networks:  
  * One **Management Network** primarily for communication between the security manager and the **Distributed Appliance Instance**.  
    > **Note**: If the security manager is externally hosted, both a router and an external network are needed for the security manager to communicate to the **Distributed Appliance Instance**. The network should be configured as **shared** and **external**. 
  * One **Inspection Network** for which redirected traffic will be intercepted.  
 
-#### Tutorial Network Topology
+S#### Tutorial Network Topology
 For this tutorial, the network topology in OpenStack should be as follows:  
 
-* `MANAGEMENT NETWORK`: This **Management Network** will be overloaded with the deployment of the `ATTACKER` and `VICTIM` and will be used for communication between both the `ATTACKER` and `VICTIM`, the *internal* security manager, and the **Distributed Appliance Instance**. Its configurations consist of one port for the `ATTACKER`, one for the `VICTIM`, and one for the **Distributed Appliance Instance**. 
-* `INSPECTION NETWORK`: This network will be used for intercepting traffic sent from the `ATTACKER` to the `VICTIM`. Its configurations consist of one port for the `MANAGEMENT NETWORK` and one port for the **Distributed Appliance Instance**.
+* `MANAGEMENT NETWORK`: The **Management Network** will be overloaded with the deployment of the `ATTACKER` and `VICTIM`, and used for communication between both the `ATTACKER` and `VICTIM`, the *internal* security manager, and the **Distributed Appliance Instance**. Its configurations consist of one port for the `ATTACKER`, one for the `VICTIM`, and one for the **Distributed Appliance Instance**. 
+* `INSPECTION NETWORK`: This network will be used for intercepting traffic sent from the `ATTACKER` to the `VICTIM`. Its configurations consist of one port for the `MANAGEMENT NETWORK`, and one port for the **Distributed Appliance Instance**.
 
 ![Network Topology](./images/network_topology.jpg)  
 *Network Topology in OpenStack*  
@@ -31,11 +36,11 @@ For this tutorial, the network topology in OpenStack should be as follows:
 ### Security Appliance and Manager  
 There are two options for obtaining a security appliance image and its corresponding manager plugin. The first option is to use an appliance image and manager plugin provided by a security manager vendor compatible with OSC. The second option is to manually create them. 
 
-For this tutorial, it is assumed that the appliance image and security plugin will be created:  
+For this tutorial, it is assumed that the appliance image and security plugin will be manually created:  
 
 * The [`SAMPLE MANAGER PLUGIN`](https://github.com/opensecuritycontroller/security-mgr-sample-plugin) is a dummy plugin that is available along with OSC. 
-* The `SAMPLE APPLIANCE IMAGE` is a [CirrOS image](http://download.cirros-cloud.net/) that is [manually packaged](../plugins/security_mgr_plugin.md/#packaging-an-appliance). 
- * When packaging the appliance image, use the following data for the meta.json file: 
+* The `SAMPLE APPLIANCE IMAGE` is a [manually packaged](../plugins/security_mgr_plugin.md/#packaging-an-appliance) [CirrOS image](http://download.cirros-cloud.net/). 
+ * Use the following meta.json file data when packaging the appliance image: 
 ```json
 {
 	"metaDataVersion": "1.0",
@@ -61,11 +66,14 @@ For this tutorial, it is assumed that the appliance image and security plugin wi
 ```
 
 ### SDN Controller  
-To implement traffic redirection and SDN notifications through an SDN controller, OSC requires two components. There are two options for obtaining these components: the SDN controller plugin and its corresponding SDN component. The first option is to use an SDN component and SDN controller plugin provided by an SDN controller vendor compatible with OSC. The second option is to manually create them.  
+OSC requires two components to implement traffic redirection and SDN notifications through an SDN controller. There are two options for obtaining these components: 
+* the SDN controller plugin and,
+* the corresponding SDN component. 
+The first option is to use an SDN component and SDN controller plugin provided by an SDN controller vendor compatible with OSC. The second option is to manually create them.  
 
-For this tutorial, it is assumed that the SDN component and SDN controller plugin will be created:  
+For this tutorial, it is assumed that the SDN component and SDN controller plugin will be manually created:  
  
-* The [`SDN CONTROLLER NSC PLUGIN`](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/plugins/plugins.md) which is uploaded on OSC and enables communication between the SDN controller and OSC.
+* The [`SDN CONTROLLER NSC PLUGIN`](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/plugins/plugins.md) is uploaded on OSC, enabling communication between the SDN controller and OSC.
 * The **SDN Component** which is deployed on OpenStack for NSC.
   * TODO: add deployment steps
 
