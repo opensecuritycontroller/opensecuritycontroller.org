@@ -1,4 +1,5 @@
-# OSC Requirements  
+
+## OSC Requirements  
 
 The success of OSC relies on communication to and from other services including an SDN controller, a virtualization provider such as OpenStack, and a security manager. 
 
@@ -21,6 +22,7 @@ A compatible virtualization provider is needed to protect virtual assets. The re
 * OpenStack services such as Keystone, Nova, Neutron, and Glance must be reachable by OSC. 
 * The following minimum network topology:
   * One **Management Network** primarily for communication between the security manager and the distributed appliance instance deployed by OSC.  
+  
      > Note: If the security manager is externally hosted, both a router and an **External Network** are needed for the security manager to communicate to the distributed appliance instance. The network should be configured as *shared* and *external*. 
   * One **Inspection Network** for which redirected traffic will be intercepted. 
 * Both a tenant and domain (region).
