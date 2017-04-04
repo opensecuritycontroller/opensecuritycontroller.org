@@ -67,8 +67,7 @@ For this tutorial, it is assumed that the appliance image and security plugin wi
 
 ### SDN Controller  
 OSC requires two components to implement traffic redirection and SDN notifications through an SDN controller. There are two options for obtaining these components: 
-* the SDN controller plugin and,
-* the corresponding SDN component. 
+* the SDN controller plugin and,* the corresponding SDN component. 
 The first option is to use an SDN component and SDN controller plugin provided by an SDN controller vendor compatible with OSC. The second option is to manually create them.  
 
 For this tutorial, it is assumed that the SDN component and SDN controller plugin will be manually created:  
@@ -101,7 +100,7 @@ Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**,
 
 ### 3. Define Manager Connector  
 Using the left-hand menu, navigate to **Setup** > **Manager Connectors**, and then select **Add**.
->* Enter a name.
+* Enter a name.
 * For the type, select "**ISM**" as described by the `SAMPLE APPLIANCE IMAGE` and the `SAMPLE MANAGER PLUGIN`.
 * Enter the IP address of `1.1.1.1`, and then the credentials of `abc / 123`.
  * **Note**: When using a real security manager, use the real IP address and credentials.
