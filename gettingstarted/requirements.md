@@ -3,12 +3,12 @@
 
 The success of OSC relies on communication to and from other services including an SDN controller, a virtualization provider such as OpenStack, and a security manager. 
 
-To use the OSC, the following requirements must be met: 
+To use OSC, the following requirements must be met: 
 
 ## SDN Controller  
-To implement traffic redirection and SDN notifications, OSC requires two components obtained from an OSC compatible SDN controller vendor such as a: 
-* component installed in the virtualized environment.
-* plugin to be installed in OSC.
+To implement traffic redirection and SDN notifications, OSC requires two components can be obtained by the vendors however, there are other options such as to manually create them: 
+* an SDN controller component installed in the virtualized environment.
+* an SDN controller plugin to be installed in OSC.
 
 ## Security Manager  
 To enforce policies by applying security functions in a virtualized environment, OSC requires these components obtained from an OSC compatible security manager vendor such as a: 
@@ -17,7 +17,7 @@ To enforce policies by applying security functions in a virtualized environment,
 * security manager plugin to be installed in OSC.
 
 ## OpenStack   
-A compatible virtualization provider is needed to protect virtual assets. The requirements for using OpenStack are as follows.
+A compatible virtualization provider is needed to protect virtual assets. The requirements for using OpenStack are as follows:
 * OpenStack **Mitaka** composed of controller, compute, and network nodes.
 * OpenStack services such as Keystone, Nova, Neutron, and Glance must be reachable by OSC. 
 * The following minimum network topology:
