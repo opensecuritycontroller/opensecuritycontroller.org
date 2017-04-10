@@ -1,9 +1,10 @@
 ## Steps to Install OSC in an OpenStack Environment
+Complete the following steps to successfully install OSC in an Openstack environment:
 
 1. Log on to OpenStack by entering the assigned OpenStack IP address as the URL within a browser, and then enter the username and password.
 2. In the OpenStack dashboard menu, navigate to **Project** > **Compute** > **Images**.
 3. Click the ![](./images/openstack_image_creation_button.jpg) button.
-4. Enter the name, source, and format of the image. The image source must be the OSC QCOW image and the format of the image must be `QCOW2 - QEMU Emulator`. Additional fields can be specified if needed.  
+4. Enter the name, source, and format of the image. The image source must be the OSC QCOW image. The format of the image must be `QCOW2 - QEMU Emulator`. Additional fields can be specified if needed.  
 ![](./images/openstack_image_creation.jpg)  
 *Importing an Image*
 5. Once the image is imported, navigate to **Project** > **Compute** > **Instances**.
