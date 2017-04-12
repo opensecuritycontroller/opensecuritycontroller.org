@@ -21,7 +21,7 @@ For OSC to function successfully, the following minimum network requirements mus
 * Both the `ATTACKER` and `VICTIM` must be able to communicate to each other through HTTP.  
 * Must contain two unique networks:  
  * One **Management Network** primarily for communication between the security manager and the **Distributed Appliance Instance**.  
-   > **Note**: If the security manager is externally hosted, both a router and an external network are needed for the security manager to communicate to the **Distributed Appliance Instance**. The network should be configured as **shared** and **external**. 
+   > Note: If the security manager is externally hosted, both a router and an external network are needed for the security manager to communicate to the **Distributed Appliance Instance**. The network should be configured as **shared** and **external**. 
  * One **Inspection Network** for which redirected traffic will be intercepted.  
 
 #### Tutorial Network Topology
