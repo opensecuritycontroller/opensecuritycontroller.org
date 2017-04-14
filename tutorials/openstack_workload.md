@@ -1,6 +1,6 @@
 # Tutorial: Protecting Assets with OSC on OpenStack
 
-Given an existing [OpenStack compatible environment](../gettingstarted/requirements.md#openstack) and a [deployed instance of OSC](../gettingstarted/installing_ost.md), this tutorial provides the necessary steps of setting up OSC to protect a single workload instance in OpenStack. 
+Given an existing [OpenStack compatible environment](../gettingstarted/requirements.md#openstack) and a [deployed instance of OSC](../gettingstarted/installing_ost.md), this tutorial provides the necessary steps for setting up OSC to protect a single workload instance in OpenStack. 
 
 These steps include: 
 * deployment of a security appliance instance
@@ -101,9 +101,9 @@ Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**,
 ### 3. Define Manager Connector  
 Using the left-hand menu, navigate to **Setup** > **Manager Connectors**, and then select **Add**.
 * Enter a name.
-* For the type, select "**ISM**" as described by the `SAMPLE APPLIANCE IMAGE` and the `SAMPLE MANAGER PLUGIN`.
+* For the type, select **ISM** as described by the `SAMPLE APPLIANCE IMAGE` and the `SAMPLE MANAGER PLUGIN`.
 * Enter the IP address of `1.1.1.1`, and then the credentials of `abc / 123`.
- * **Note**: When using a real security manager, use the real IP address and credentials.
+ >Note: When using a real security manager, use the real IP address and credentials.
 
 ![Add Manager Connector](./images/add_mc.jpg)  
 *Add Manager Connector*  
