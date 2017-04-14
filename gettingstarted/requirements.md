@@ -6,7 +6,7 @@ The success of OSC relies on communication to and from other services including 
 To use OSC, the following requirements must be met: 
 
 ## SDN Controller  
-To implement traffic redirection and SDN notifications, OSC requires two components can be obtained by the vendors however, there are other options such as to manually create them: 
+To implement traffic redirection and SDN notifications, OSC requires two components which can be obtained from an OSC compatible SDN controller vendor: 
 * an SDN controller component installed in the virtualized environment.
 * an SDN controller plugin to be installed in OSC.
 
