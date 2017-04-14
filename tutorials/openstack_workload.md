@@ -66,9 +66,12 @@ For this tutorial, it is assumed that the appliance image and security plugin wi
 ```
 
 ### SDN Controller  
-OSC requires two components to implement traffic redirection and SDN notifications through an SDN controller. There are two options for obtaining these components: 
-* the SDN controller plugin and,* the corresponding SDN component. 
-The first option is to use an SDN component and SDN controller plugin provided by an SDN controller vendor compatible with OSC. The second option is to manually create them.  
+OSC requires two components to implement traffic redirection and SDN notifications through an SDN controller:  
+* the SDN controller plugin
+* the corresponding SDN component 
+There are two options for obtaining these components:
+* use an SDN component and SDN controller plugin provided by an SDN controller vendor compatible with OSC 
+* manually create them.  
 
 For this tutorial, it is assumed that the SDN component and SDN controller plugin will be manually created:  
  
