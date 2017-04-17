@@ -22,7 +22,7 @@ OSC can be accessed through the OSC CLI by using an SSH client.
 
 ### Steps to Access OSC through CLI
 1. Open your preferred SSH client.
-2. Enter the IP address of OSC with **22** as the port number.
+2. Enter the IP address of OSC with the port number as `22`.
 3. Start the SSH session.
 4. Enter the username and password of OSC when prompted.
 
