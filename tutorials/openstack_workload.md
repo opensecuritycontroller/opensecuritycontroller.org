@@ -27,7 +27,7 @@ For OSC to function successfully, the following minimum network requirements mus
 #### Tutorial Network Topology
 For this tutorial, the network topology in OpenStack should be as follows:  
 
-* `MANAGEMENT NETWORK`: The **Management Network** will be overloaded with the deployment of the `ATTACKER` and `VICTIM`, and used for communication between both the `ATTACKER` and `VICTIM`, the *internal* security manager, and the **Distributed Appliance Instance**. Its configurations consist of one port for the `ATTACKER`, one for the `VICTIM`, and one for the **Distributed Appliance Instance**. 
+* `MANAGEMENT NETWORK`: This network corresponds to the **Management Network** mentioned above and it will also be overloaded with the deployment of the of the `ATTACKER` and `VICTIM` and used for communication between both the `ATTACKER` and `VICTIM`, the *internal* security manager, and the **Distributed Appliance Instance**. Its configurations consist of one port for the `ATTACKER`, one for the `VICTIM` and one for the **Distributed Appliance Instance**. 
 * `INSPECTION NETWORK`: This network will be used for intercepting traffic sent from the `ATTACKER` to the `VICTIM`. Its configurations consist of one port for the `MANAGEMENT NETWORK`, and one port for the **Distributed Appliance Instance**.
 
 ![Network Topology](./images/network_topology.jpg)  
@@ -39,7 +39,7 @@ There are two options for obtaining a security appliance image and its correspon
 For this tutorial, it is assumed that the appliance image and security plugin will be manually created:  
 
 * The [`SAMPLE MANAGER PLUGIN`](https://github.com/opensecuritycontroller/security-mgr-sample-plugin) is a dummy plugin that is available along with OSC. 
-* The `SAMPLE APPLIANCE IMAGE` is a [manually packaged](../plugins/security_mgr_plugin.md/#packaging-an-appliance) [CirrOS image](http://download.cirros-cloud.net/). 
+* The `SAMPLE APPLIANCE IMAGE` is a [CirrOS image](http://download.cirros-cloud.net/) that is [manually packaged](../plugins/security_mgr_plugin.md/#packaging-an-appliance). 
  * Use the following meta.json file data when packaging the appliance image: 
 ```json
 {
@@ -48,7 +48,7 @@ For this tutorial, it is assumed that the appliance image and security plugin wi
 	"managerType": "ISM",
 	"managerVersion": "1.0",
 	"virtualizationType": "OPENSTACK",
-	"virtualizationVersion": "Icehouse",
+"virtualizationVersion": "Icehouse",
 	"softwareVersion": "0.3.0.5000",
 	"imageName": "cirrosWithTcpDump.qcow2",
 	"minIscVersion": {
@@ -67,14 +67,11 @@ For this tutorial, it is assumed that the appliance image and security plugin wi
 
 ### SDN Controller  
 OSC requires two components to implement traffic redirection and SDN notifications through an SDN controller:  
-* the SDN controller plugin
-* the corresponding SDN component 
-There are two options for obtaining these components:
-* use an SDN component and SDN controller plugin provided by an SDN controller vendor compatible with OSC 
-* manually create them.  
+* use an SDN component and SDN controller plugin provided by an SDN controller vendor compatible with OSC
+* manually create them. 
 
 For this tutorial, it is assumed that the SDN component and SDN controller plugin will be manually created:  
- 
+s 
 * The [`SDN CONTROLLER NSC PLUGIN`](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/plugins/plugins.md) is uploaded on OSC, enabling communication between the SDN controller and OSC.
 * The **SDN Component** which is deployed on OpenStack for NSC.
   * TODO: add deployment steps
@@ -82,7 +79,7 @@ For this tutorial, it is assumed that the SDN component and SDN controller plugi
 ## Set up OSC to Protect a Workload
 
 ### 1. Upload Plugin
-Using the left-hand menu, navigate to **Manage** > **Plugins** within OSC. 
+Within OSC, navigate to **Manage** > **Plugins** using the left-hand menu. 
 * Select the **SDN Controller Plugins** tab, and upload the `SDN CONTROLLER NSC PLUGIN`.  
 * Select the **Manager Plugins** tab, and upload the `SAMPLE MANAGER PLUGIN`.  
 
@@ -93,7 +90,7 @@ Using the left-hand menu, navigate to **Manage** > **Plugins** within OSC.
 Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**, and then select **Add**.
 * Enter a name and then select **OPENSTACK** as the type.
 * Select **NSC** (Network Security Controller) as the type for the SDN Controller.
-** For the Keystone:
+* For the Keystone:
 	* Give the IP address of the `TENANT` environment in OpenStack.
 	* Enter `admin` as the Admin Tenant Name.
 	* Enter the OpenStack administrator credentials.
@@ -105,7 +102,7 @@ Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**,
 Using the left-hand menu, navigate to **Setup** > **Manager Connectors**, and then select **Add**.
 * Enter a name.
 * For the type, select **ISM** as described by the `SAMPLE APPLIANCE IMAGE` and the `SAMPLE MANAGER PLUGIN`.
-* Enter the IP address of `1.1.1.1`, and then the credentials of `abc / 123`.
+* Enter the IP address `1.1.1.1`, and then the credentials of `abc / 123`.
  >Note: When using a real security manager, use the real IP address and credentials.
 
 ![Add Manager Connector](./images/add_mc.jpg)  
@@ -129,11 +126,11 @@ Using the left-hand menu, navigate to **Setup** > **Distributed Appliance**. Und
 *Add Distributed Appliance*
 
 ### 6. Define Deployment Specification  
-Under the same menu, navigate to **Setup** > **Distributed Appliance**. Select **Deployments** from within the **Virtual System** section, and then select **Add**.  
+Under the same menu, navigate to **Setup** > **Distributed Appliance**. Select **Deployments** from within the **Virtual Systems** section, and then select **Add**.  
 * Enter a name.
 * Select the OpenStack `TENANT`.
 * Select the OpenStack `REGION`.
-* Select **By Host** for the **Selection Criterion** and then check the **Enabled** box.
+* Select **By Host** for the **Selection Criterion**, and then check the **Enabled** box.
 * Select the `MANAGEMENT NETWORK` and the `INSPECTION NETWORK`. Do not select a floating IP pool unless you are using an external network with an external security manager.  
 
 ![Add Deployment Specification](./images/add_ds.jpg)  
@@ -153,7 +150,7 @@ Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**,
 *Add Security Group*  
 
 ### 8. Bind Security Group  
-Under the same menu, navigate to **Setup** > **Virtualization Connectors**, then select the newly security group. Select **Bind**.  
+Under the same menu, navigate to **Setup** > **Virtualization Connectors**, then select the newly created security group. Select **Bind**.  
 
 ![](./images/select_sg.jpg)  
 *Select Security Group*  
@@ -177,9 +174,7 @@ After setting up OSC and deploying a **Distributed Appliance Instance**, verify 
 *OpenStack Instances*  
 
 #### Validating Network Redirection
-When using the dummy CirrOS image and when a policy is bound to a security group, no virtual machine can communicate to the protected virtual machine (the `VICTIM`). Any network traffic directed to the `VICTIM` will be intercepted by the **Distributed Appliance Instance** on the `INSPECTION NETWORK`. 
-This behavior is expected for the CirrOS image, which implements a dummy behavior that always blocks traffic to the protected virtual machines. 
-The following provides an example of the network traffic flow observed through the **Distributed Appliance Instance**, when the security group is both bound and unbound.
+In the case of using the dummy CirrOS image, when a policy is bound to a security group, no virtual machine can communicate to the protected virtual machine - the `VICTIM` - and any network traffic directed to the `VICTIM` will be intercepted by the **Distributed Appliance Instance** on the `INSPECTION NETWORK`. This is the expected behavior for the CirrOS image which implements a dummy behavior that always blocks traffic to the protected virtual machines. Let's take a look at the network traffic flow observed through the **Distributed Appliance Instance** when the security group is bound and when it is unbound.
 
 * On OSC, ensure that the security group is [bound](#8.-bind-security-group).
 * In the **Overview** tab for the `VICTIM`, note the `MANAGEMENT NETWORK` IP address. The `ATTACKER` will attempt to send an HTTP request to this address.  
