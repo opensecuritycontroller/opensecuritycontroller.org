@@ -1,14 +1,120 @@
-# Architecture
+# Open Security Controller Architecture
 
+## Overview
 
+### Background
+Datacenter technologies have evolved into Software Defined Infrastructure (SDI) architectures where compute, network and storage resources are centrally managed by intelligent control layers. Similarly, there is a need for a software defined security controller which can automate and orchestrate security services across multiple cloud environments and datacenters. The primary goal for Open Security Controller (OSC) is to be this software defined security orchestrator.
 
-This documents describes the high level architecture of OSC highlighting how it interacts with other systems (OpenStack, VMware, SDN controllers, security managers), its plugin and notification models as well how other systems interact with OSC (callback model). This is basically a written version of Manish's presentation.  
+### SDN/NFV Security Challenges
+This section summarizes security challenges faced by enterprises, cloud service providers and telecommunications providers, which are addressed by OSC.
 
-Out of Scope: Internal details of OSC like db model, synchronization model (tasks and jobs), UI implementation etc. These material should be part of the community document since it is relevant only for people contributing to OSC code base. 
+#### Enterprises
+It is common for enterprise applications to be hosted across multiple datacenter technologies in both private and public clouds. The security administrator needs an ability to configure and validate consistent granular security controls across these cloud environments. The key requirement is to allow the security administrator to centrally define these security controls and associated policies across multiple diverse datacenter environments.
 
+#### Cloud Service Providers
+Cloud service providers want to offer security services as a value-add to their customers. This requires an automated security services orchestration capability where tenants can chose required security controls from an online catalog and associated policies for these controls.
 
+#### Telecommunication Providers
+Telecommunications providers want to reduce time to market and costs for infrastructure by transforming the legacy to SDN/NFV technology. However, security monitoring for the virtualized infrastructure is still a gap. There is a need for a centralized security orchestration solution which fully automates the security monitoring of the virtualized infrastructure.
 
-***
+The Open Security Controller is designed to address these SDN/NFV security challenges by playing a role of a centralized security services orchestration tool across multiple cloud environments. It does so using a modular architecture to interface with:
+*	Multi-vendor virtualized security function managers ([Security Manager Plugins](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/plugins/security_mgr_plugin.md))
+*	Multi-vendors SDN controllers ([SDN Controller Plugins](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/plugins/sdn_controller_plugin.md))
+*	Virtualization infrastructure Managers ([Virtualization Connectors](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/concepts/concepts.md#virtualization-connectors))
 
+## Architecture Overview
+This section covers the key functionalities of OSC, followed by a conceptual architecture of how OSC fits in as a centralized orchestration solution for security services across multiple datacenters.
 
+### Role of Open Security Controller
+*	**Automation and Orchestration for Virtualized Security Functions**:  OSC enables fully automated provisioning, de-provisioning, distribution and delivery of security inside perimeter of the network for virtualized security functions such as virtual Next Gen Firewalls (vNGFW), virtualized IPS (vIPS), virtualized Web App Firewalls (vWAF) and virtualized Application Delivery Controllers (vADC) from multiple vendors.
+*	**Centralized Coordination of Security Policy across multiple cloud environment**: OSC coordinates policies (using metadata like Policy tags and dynamic [OSC security group](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/concepts/concepts.md#security-groups) membership) across multiple virtualization and SDN environments. It is important to understand that OSC does not manage the virtualized security functions or their security policies, which is still done by traditional element or security function manager for each function.
+*	**Abstraction for Infrastructure Interactions for security managers**: OSC acts as an abstraction layer for the security function managers thereby alleviating the need integrating into each SDN controller or virtualization infrastructure managers. OSC achieves this using [Virtualization Connectors](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/concepts/concepts.md#virtualization-connectors) and [SDN Controller Plugins](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/plugins/sdn_controller_plugin.md) via its southbound API’s.
+*	**Dynamic Autoscale Security**: OSC automates dynamically scaling the security services based on workload requirements and configured policies.
+*	**No Vendor Lock-In**: By using a modular plugin architecture for both the security functions (example: virtualized NGFW, IPS etc.) and SDN controllers, OSC provides a vendor agnostic automation solution with a goal to avoid lock-ins using an open API model.
+*	**Policies aligned with application workload**: OSC enables policies to be defined and enforced based on application workload requirements as opposed to traditional perimeter based security in virtualized datacenters.
+*	**Separation of Duties**: OSC enables separation of duties between the security administrator and the Cloud DevOps/Operations teams, allowing security administrator to independently define and validate security controls irrespective of the Cloud/network administrator.
+
+### Conceptual Architecture
+Figure 1 shows how OSC fits in conceptually between the security managers and multiple virtualized environments and security functions.
+
+**Virtualization Infrastructure Management layer**: As illustrated in Figure 1, it is very common to host applications across multiple virtualization environments – examples for these could be one or more Openstack environments, container based environments and various combinations of networking stack (SDN controllers, native networking solutions and variety of orchestration engines). Each environment is different for integrating security controls such as Next Gen firewalls (NGFW), Intrusion Prevention Systems (IPS), Web Application Firewalls (WAF) and Application Delivery Controllers (ADC) and transparently inserting these in the network fabric.
+
+**Security Function Management layer**: In each of these datacenter environments, traditional security function managers (element managers) are used to manage physical security appliances in datacenter to provide controls at the edge of datacenter also known as north-south protection. In addition to these physical appliances, there is a need to seamlessly integrate virtualized security functions/appliances in the diverse virtualized environments.
+
+**Open Security Controller**: Conceptually, OSC fits in the datacenter as a security service orchestration solution to automate deployments and co-ordination of policy based insertion for the virtualized security functions (vNGFW, vIPS, vWAF, vADC etc.). OSC allows a tenant to pick the required controls from a catelog of [Security Service Functions](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/concepts/concepts.md#security-service-functions) and create a logical service which is virtual [Distributed Appliance](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/concepts/concepts.md#distributed-appliances) on how that control will be deployed across the multiple virtualization environments. OSC is abstracting the lower level infrastructure for the security function managers, alleviating the need for them to do point to point integration with each virtualization environment. By doing so, OSC allows the security administrator to define and validate consistent and granular security controls across these environments.
+
+![Open Security Controller Conceptual Architecture](./images/osc_architecture_concept.png)
+**Figure 1: Open Security Controller Conceptual Architecture**
+
+## Architecture Details
+This section describes the details of Open Security Controller architecture and interaction with various system components and API interactions.
+
+Refer to [Open Security Controller Concepts](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/concepts/concepts.md) documentation section for description of the terminology used in this section.
+
+### System Components and API Interactions
+Open Security Controller interacts with various components of the Cloud/Software Defined Infrastructure system to automate and orchestrate the virtualized security functions as visualized in Figure 2.
+
+![Open Security Controller Architecture Details](./images/osc_architecture_details.png)
+**Figure 2: Open Security Controller Architecture Details**
+
+#### Graphical User Interface and North Bound API
+OSC User Interface and its North Bound API allow the security administrator to define policies as they relate to the security services deployment and policy based redirection of network traffic to the virtualized security functions. All actions possible using OSC GUI are also available using OSC’s NB API.
+
+The detailed API documentation can be found in OSC API Documentation (also available live on the deployed OSC server in API-DOC section).
+
+#### Virtualization Connectors
+The Virtualization Connector module within OSC allowing security function managers to work across multiple virtualization environments. The Virtualization connector uses the Virtual Infrastructure Manager (VIM) native API’s such as compute, network, storage, image, identity service to implement the following high level functionality:
+*	Bootstrap information for virtual security appliance to startup and connect to manager
+*	Dynamic Provisioning/De-provisioning based on configured [Deployment Specification](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/concepts/concepts.md#deployment-specifications)
+*	Using Appliance image metadata, retrieve and store images on VIM’s image service
+*	Subscribe to Notification events on infrastructure layer and take required actions
+
+#### SDN Controller Plugins
+The SDN Controller Plugins are used to interface with the networking layer/SDN controller to achieve the following high level functionality.
+*	Policy Based Traffic redirection to redirect traffic for protected workload to the security virtual appliance based on policy
+*	Service Function Chaining using SDN controller API to chain multiple security virtual appliances in the traffic path
+
+Details of the SDN Controller Plugin can be found here [SDN Controller Plugins](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/plugins/sdn_controller_plugin.md)
+
+#### Security Manager Plugins
+Using a modular Manager Plugin, OSC enables interaction with multi-vendor security function manager (example: IPS manager, NGFW manager etc.)
+*	Dynamic policy updates and mapping
+*	Devices and Device Groups
+*	Domain/sub domain updates and mapping
+*	Propagate Security Group information and membership to the managers
+
+Details of the Manager Plugin can be found here [Manager Plugins](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/plugins/security_mgr_plugin.md)
+
+## OSC Questionnaire
+**1)	Is the OSC Open Source?**
+Yes, OSC is available as open source code under Apache 2.0 license agreement. As part of Linux Foundation collaboration project. More details can be found on [opensecuritycontroller.org](http://opensecuritycontroller.org/)
+
+**2)	Does the OSC replace the SDN Controller?**
+No, the OSC does not replace the SDN controller. It works in conjunction with the SDN controller or networking stack and depends on it for traffic steering and service function chaining for security service insertion and ensuring that the traffic is steered to the right security enforcement capability based on security policy.
+
+**3)	Can the OSC work with any SDN controller and do we always need a SDN controller?**
+OSC can work with any SDN controller by implementing the SDN controller plugins to enable this integration. For Openstack environments without a SDN controller, the plan is to integrate with [Networking-SFC](https://docs.openstack.org/developer/networking-sfc/) project via a plugin.
+
+**4)	What is the interaction with VIM? What VIMs do we now and plan to support?**
+Interaction with the VIM is through a Virtualization connector that enables Lifecycle management, definition of Deployment specs, Auto-scaling and HA, Authentication, Image services, Notification for events and Role based access control. OSC currently support Openstack with plan to work with other virtualization environments such as support for Containers.
+
+**5)	What does the integration with security function managers look like?**
+Integration with Security function manager is primarily through the Manger plugin and the (optional) virtual network function plugin. These plugins allow Dynamic policy updates and mapping, Domain/sub domain updates and mapping, provisioning, de-provisioning, heartbeats, instrumentation and real time statistics.
+
+**6)	Does OSC replace the element manager? Does it provide a centralized policy management functionality?**
+No, it does not. The element manager continues to be the entity where policies will be defined and the OSC will ensure the coordination of these policies are performed in an automated manner.
+
+**7)	What is the relationship with OpenStack projects like Networking SFC and Tacker?**
+**Networking-SFC**: OSC is planning to integrate with Networking SFC API’s to perform service insertion natively for Openstack where there is no SDN controller. The relationship is similar functionality to SDN controller plugins for traffic steering and service function chaining.
+**Tacker**: OSC currently does not integrate with Tacker yet but if VNF management for some of the security services (like Firewall or IPS VNF) will migrate to tacker, OSC will simply use Tacker for that functionality versus directly interacting with native Openstack API’s (using Nova, Glance, Neutron etc.). We envision that we would have both models available, depending on the type of VNF and adoption of Tacker.
+
+**8)	What is the relationship of OSC with ETSI MANO and NFVO?**
+OSC’s role in ETSI MANO (Management and Network Orchestration) is that of NFV Security Orchestrator (refer [SEC013](http://www.etsi.org/deliver/etsi_gs/NFV-SEC/001_099/013/03.01.01_60/gs_NFV-SEC013v030101p.pdf) published normative specification developed by SEC working group within ETSI NFV). The core functionalities defined for NFV Security Orchestrator are as follows with details in the SEC0013 specification. Interfaces with other security systems
+•	Orchestrates system wide security policies within the NFVI (NFV Infrastructure)
+•	Acts as a trusted 3rd party that resides independently
+•	Manages NFV SSAs (NFV Security Services Agent) to keep them in a consistent state according to the policy specified
+•	Security functions that can be orchestrated and deployed at system start-up or dynamically
+* 	Facilitates secure bootstrapping of SSAs
+*	Secure pairing up VNFMs and EMs, policy management, integrity assertion
+*	Monitoring of SSAs for failure and remediation
 
