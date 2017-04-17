@@ -5,7 +5,7 @@ After installing the OSC virtual appliance, it can be set up and managed using t
 The OSC web application is used to set up and manage the OSC virtual appliance. It can also be used to configure the OSC virtual appliance for orchestrating a security service.
 
 ### Steps to Access the OSC Web Application
-1. Open a supported browser and enter `https://<IP Address of OSC>` as the URL.
+1. Open a supported browser, and then enter `https://<IP Address of OSC>` as the URL.
 2. In the **Login ID** field, enter the username and corresponding password provided by your OSC administrator.
 If you are accessing OSC after the initial setup, use the default username and password: `admin` and `admin123` respectively.  
 ![](./images/osc_web_login.jpg)  
@@ -21,7 +21,7 @@ If you are accessing OSC after the initial setup, use the default username and p
 OSC can be accessed through the OSC CLI by using an SSH client.
 
 ### Steps to Access OSC through CLI
-1. Open your favorite SSH client.
+1. Open your preferred SSH client.
 2. Enter the IP address of OSC with the port number as `22`.
 3. Start the SSH session.
 4. Enter the username and password of OSC when prompted.
