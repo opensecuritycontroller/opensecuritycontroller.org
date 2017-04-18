@@ -3,9 +3,9 @@
 Given an existing [OpenStack compatible environment](../gettingstarted/requirements.md#openstack) and a [deployed instance of OSC](../gettingstarted/installing_ost.md), this tutorial provides the necessary steps for setting up OSC to protect a single workload instance in OpenStack. 
 
 These steps include: 
-* deployment of a security appliance instance
-* definition of the workload under protection
-* redirection of the traffic to be protected through the security appliance
+* Deployment of a security appliance instance.
+* Definition of the workload under protection.
+* Redirection of the traffic to be protected through the security appliance.
 
 ## Setup Requirements
 
@@ -24,7 +24,7 @@ For OSC to function successfully, the following minimum network requirements mus
    > Note: If the security manager is externally hosted, both a router and an external network are needed for the security manager to communicate to the **Distributed Appliance Instance**. The network should be configured as **shared** and **external**. 
  * One **Inspection Network** for which redirected traffic will be intercepted.  
 
-#### Tutorial Network Topology
+	#### Tutorial Network Topology
 For this tutorial, the network topology in OpenStack should be as follows:  
 
 * `MANAGEMENT NETWORK`: This network corresponds to the **Management Network** mentioned above and it will also be overloaded with the deployment of the of the `ATTACKER` and `VICTIM` and used for communication between both the `ATTACKER` and `VICTIM`, the *internal* security manager, and the **Distributed Appliance Instance**. Its configurations consist of one port for the `ATTACKER`, one for the `VICTIM` and one for the **Distributed Appliance Instance**. 
@@ -48,7 +48,7 @@ For this tutorial, it is assumed that the appliance image and security plugin wi
 	"managerType": "ISM",
 	"managerVersion": "1.0",
 	"virtualizationType": "OPENSTACK",
-"virtualizationVersion": "Icehouse",
+ 	"virtualizationVersion": "Icehouse",
 	"softwareVersion": "0.3.0.5000",
 	"imageName": "cirrosWithTcpDump.qcow2",
 	"minIscVersion": {
@@ -71,7 +71,7 @@ OSC requires two components to implement traffic redirection and SDN notificatio
 * manually create them. 
 
 For this tutorial, it is assumed that the SDN component and SDN controller plugin will be manually created:  
-s 
+ 
 * The [`SDN CONTROLLER NSC PLUGIN`](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/plugins/plugins.md) is uploaded on OSC, enabling communication between the SDN controller and OSC.
 * The **SDN Component** which is deployed on OpenStack for NSC.
   * TODO: add deployment steps
@@ -103,7 +103,7 @@ Using the left-hand menu, navigate to **Setup** > **Manager Connectors**, and th
 * Enter a name.
 * For the type, select **ISM** as described by the `SAMPLE APPLIANCE IMAGE` and the `SAMPLE MANAGER PLUGIN`.
 * Enter the IP address `1.1.1.1`, and then the credentials of `abc / 123`.
- >Note: When using a real security manager, use the real IP address and credentials.
+ 	>Note: When using a real security manager, use the real IP address and credentials.
 
 ![Add Manager Connector](./images/add_mc.jpg)  
 *Add Manager Connector*  
