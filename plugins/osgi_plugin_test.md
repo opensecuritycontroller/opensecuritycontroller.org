@@ -1,11 +1,11 @@
 # Debugging and Testing OSC Plugins
 
-As you have seen, developing and packaging an OSC plugin is a simple process, however it is also important to be able to run automated tests against the plugin code, and to debug the plugin if there are problems. This section describes how to implement unit tests, integration tests, and to run the plugin inside the Eclipse IDE using Bndtools.  
+Developing and packaging an OSC plugin is a simple process however, it is also important to be able to run automated tests against the plugin code, and to debug the plugin if problems arise. This section describes how to implement unit tests, integration tests, and to run the plugin inside the Eclipse IDE using Bndtools.  
 
 ## Unit Testing
 A key advantage of using Declarative Services to register components is that the plugin code can use a pure POJO programming model, and is therefore easy to unit test outside of OSGi using typical JUnit tests.  
-If the plugin component references a service from the service registry then this should be injected in the test setup, and for this reason it is recommended to give injection methods/fields default (i.e. package visibility, and to declare the unit tests for the component in the same package as the component. The separation between the main source and test source directories will ensure that the test code is not packaged into the bundle.  
-When a component does reference other services it is usually best to inject a mock object so that interactions can be stubbed or verified as needed. Common mocking frameworks such as Mockito, PowerMock, EasyMock etc are all suitable. The following test class sets up a component ready for testing in one of its test methods: 
+If the plugin component references a service from the service registry, it should be injected in the test setup. For this reason it is recommended to give injection methods/fields default (i.e. package visibility), and to declare the unit tests for the component in the same package as the component. The separation between the main source and test source directories will ensure that the test code is not packaged into the bundle.  
+When a component does reference other services, it is usually best to inject a mock object so that interactions can be stubbed or verified as needed. Common mocking frameworks such as Mockito, PowerMock, EasyMock etc. are all suitable. The following test class sets up a component ready for testing in one of its test methods: 
 
 ```java
 @RunWith(MockitoJunitRunner.class)
@@ -31,7 +31,10 @@ public class ExampleApplianceManagerTest
 
 ## OSGi Integration Testing
 OSGi Integration testing differs from unit testing, in that it occurs inside an OSGi framework. OSGi Integration testing is used to validate that bundles interact correctly with the OSGi framework, and with other OSGi bundles and services.  
-OSGi integration tests differ from unit tests, in that they do not normally test low level functionality. Integration tests typically perform high-level verification of functions, for example validating that expected services are registered and retrievable. Integration tests are typically defined in a separate maven project from the bundle that they are testing. There are two main ways to run OSGi integration tests.  
+OSGi integration tests differ from unit tests, in that they do not normally test low level functionality. Integration tests typically perform high-level verification of functions, for example validating that expected services are registered and retrievable. Integration tests are typically defined in a separate Maven project from the bundle that they are testing. There are two main ways to run OSGi integration tests:
+
+* OSGi Testing Using The bnd-testing-maven-plugin
+* OSGi Testing Using PAX-Exam
 
 ### OSGi Testing Using The bnd-testing-maven-plugin
 Bndtools and the bnd library have offered in framework integration tests using JUnit for many years, however these features were only available in Ant and Gradle builds. In the latest SNAPSHOT releases bnd has added Maven integration testing support with the `bnd-testingmaven-plugin`.  
