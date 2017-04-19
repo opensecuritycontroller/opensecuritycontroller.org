@@ -1,24 +1,24 @@
 # OSC Concepts
 
-To successfully use OSC, it is important to first understand its main concepts. The OSC main concepts help define its architecture and use cases and are built-upon related industry concepts such as security groups, policies, etc.  
+To successfully use Open Source Controller (OSC), it is important to first understand its main concepts. These concepts help define the architecture and use cases and are built upon related industry concepts such as security groups, policies, etc.  
 
 ## Virtualization Connectors
-This concept defines the information needed to connect OSC to a virtualization provider - such as OpenStack - and to an SDN controller, for instance, IP addresses and user credentials. The OSC platform supports multiple virtualization connectors enabling the user to orchestrate security appliances on multiple virtualization platforms.  
+This concept defines the information needed to connect OSC to virtualization providers such as OpenStack, along with SDN controllers such as IP addresses and user credentials. The OSC platform supports multiple virtualization connectors enabling the user to orchestrate security appliances on multiple virtualization platforms.  
 
 ## Security Groups
-Security groups are used to manage virtual assets and instances such as tenant networks, subnets, and individual virtual machines.  Once a security group is defined, it can be bound to a deployed security service function to protect the grouped assets.  
+Security groups are used to manage virtual assets and instances such as tenant networks, subnets and individual virtual machines.  Once a security group is defined, it can be bound to a deployed security service function to protect the grouped assets.  
 
 ## Manager Connectors
-This concept defines the information needed to connect OSC to security service managers, for instance, IP addresses and user credentials or API keys. The OSC platform supports multiple manager connectors enabling the user to simultaneously orchestrate security appliances provided by different service managers.  
+This concept defines the information needed to connect OSC to security service managers such as IP addresses and user credentials or API keys. The OSC platform supports multiple manager connectors enabling the user to simultaneously orchestrate security appliances provided by different service managers.  
 
 ## Policies
-A security policy's role is to define and enforce what assets need to be protected and how those assets are protected. OSC retrieves the policies defined by a security manager by utilizing the manager connector and binds them to a security group along with a security service for enforcement.  
+A security policy's role is to define and enforce assets that need to be protected and how those assets are protected. OSC retrieves the policies defined by a security manager by utilizing the manager connector and binds them to a security group along with a security service for enforcement.  
 
 ## Security Service Functions
 Security services such as IPS or next-generation firewall are intended to be deployed to protect the assets contained in a security group. As defined by OSC, a security service function describes the software image file as well as other metadata, such as the function's model and version. Some supported operations include managing service function versions and upgrading or downgrading the software image for deployed appliances.  
 
 ## Distributed Appliances
-A distributed appliance associates the managed security services to the virtualization environments needing protection. A distributed appliance is defined by the security service function, one or more virtualization connectors, and a single manager connector. Each relationship between the domains defined by the appliance's manager connector and each virtualization connector represents a [virtual system](#virtual-security-systems).  
+A distributed appliance associates the managed security services to the virtualization environments needing protection. A distributed appliance is defined by the security service function, one or more virtualization connectors and a single manager connector. Each relationship between the domains defined by the appliance's manager connector and each virtualization connector represents a [virtual system](#virtual-security-systems).  
 
 ![Distributed Appliance](./images/distributed_appliance.png)  
 *Distributed Appliance and Virtual Systems*  
@@ -40,11 +40,11 @@ Some of the actions that are performed in OSC trigger jobs and tasks that perfor
 * Example: Synchronizing a distributed appliance is a job while checking the connectivity to the security manager is a task.  
 
 ## Alarms, Alerts and Archives
-**Alarms** are setup to trigger alerts. Alarms can be set for different types of failures such as job failures, system failures, or appliance instance failures. Different severity levels can be defined for each type of failure.  
+Alarms are setup to trigger alerts and can be set for different types of failures such as job failures, system failures, or appliance instance failures. Different severity levels can be defined for each type of failure.  
 
-**Alerts** are generated for every failure event that occurs. Alerts are generated with different severity levels depending on the severity level defined in the alarm.  
+Alerts are generated for every failure event that occurs along with different severity levels depending on the severity level defined in the alarm.  
 
-A user can **archive** older jobs and alerts. Tasks related to the archived jobs are also archived. A schedule can be set to automatically archive the jobs and alerts or can be manually triggered to archive whenever required.  
+A user can archive older jobs and alerts. Tasks related to the archived jobs are also archived. A schedule can be set to automatically archive the jobs and alerts or can be manually triggered to archive whenever required.  
 
 ## Plugins
 Plugins facilitate the communication between OSC and the security manager and SDN controllers. There are two types of plugins:
