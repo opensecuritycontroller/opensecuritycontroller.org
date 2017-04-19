@@ -24,7 +24,7 @@ For OSC to function successfully, the following minimum network requirements mus
    > Note: If the security manager is externally hosted, both a router and an external network are needed for the security manager to communicate to the **Distributed Appliance Instance**. The network should be configured as **shared** and **external**. 
  * One **Inspection Network** for which redirected traffic will be intercepted.  
 
-	#### Tutorial Network Topology
+#### Tutorial Network Topology
 For this tutorial, the network topology in OpenStack should be as follows:  
 
 * `MANAGEMENT NETWORK`: This network corresponds to the **Management Network** mentioned above and it will also be overloaded with the deployment of the of the `ATTACKER` and `VICTIM` and used for communication between both the `ATTACKER` and `VICTIM`, the *internal* security manager, and the **Distributed Appliance Instance**. Its configurations consist of one port for the `ATTACKER`, one for the `VICTIM` and one for the **Distributed Appliance Instance**. 
@@ -66,9 +66,7 @@ For this tutorial, it is assumed that the appliance image and security plugin wi
 ```
 
 ### SDN Controller  
-OSC requires two components to implement traffic redirection and SDN notifications through an SDN controller:  
-* use an SDN component and SDN controller plugin provided by an SDN controller vendor compatible with OSC
-* manually create them. 
+OSC requires two components to implement traffic redirection and SDN notifications through an SDN controller, an SDN component and an SDN controller plugin. You may acquire these from an OSC compatible vendor or you can manually create them.
 
 For this tutorial, it is assumed that the SDN component and SDN controller plugin will be manually created:  
  
