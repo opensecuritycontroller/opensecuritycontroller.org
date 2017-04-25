@@ -12,7 +12,7 @@ Security groups are used to manage virtual assets and instances such as tenant n
 This concept defines the information needed to connect OSC to security service managers such as IP addresses and user credentials or API keys. The OSC platform supports multiple manager connectors enabling the user to simultaneously orchestrate security appliances provided by different service managers.  
 
 ## Policies
-A security policy's role is to define and enforce assets that need to be protected and how those assets are protected. OSC retrieves the policies defined by a security manager by utilizing the manager connector and binds them to a security group along with a security service for enforcement.  
+A security policy's role is to define and enforce assets which need to be protected and how those assets are protected. OSC retrieves the policies defined by a security manager by utilizing the manager connector and binds them to a security group along with a security service for enforcement.  
 
 ## Security Service Functions
 Security services such as IPS or next-generation firewall are intended to be deployed to protect the assets contained in a security group. As defined by OSC, a security service function describes the software image file as well as other metadata, such as the function's model and version. Some supported operations include managing service function versions and upgrading or downgrading the software image for deployed appliances.  
