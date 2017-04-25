@@ -26,8 +26,8 @@ The following work example describes how to develop and assemble an OSC plugin u
 Like the creation of a JAR file, OSGi bundles can be easily created using a standard Maven project. It is important to note that the project needs to add a build plugin to generate the necessary OSGi metadata. Plugin implementors can therefore begin by creating a simple maven project. In the following example, we assume that the plugin project has the group id org.osc.example, and the artifact id `example-manager-impl`.
 
 ### The bnd-maven-plugin
-The **bnd-maven-plugin** uses the bnd library to generate an OSGi manifest for your Maven project. It will also generate other OSGi metadata, such as Declarative Services component descriptors.  
-Adding the **bnd-maven-plugin** to your project is simple. By default, the plugin binds to the processclasses lifecycle phase of your build using the following configuration:  
+The bnd-maven-plugin uses the bnd library to generate an OSGi manifest for your Maven project. It will also generate other OSGi metadata, such as Declarative Services component descriptors.  
+Adding the bnd-maven-plugin to your project is simple. By default, the plugin binds to the processclasses lifecycle phase of your build using the following configuration:  
 ```xml
 <plugin>
     <groupId>biz.aQute.bnd</groupId>
