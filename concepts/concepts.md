@@ -3,7 +3,7 @@
 To successfully use Open Source Controller (OSC), it is important to first understand its main concepts. These concepts help define the architecture and use cases and are built upon related industry concepts such as security groups, policies, etc.  
 
 ## Virtualization Connectors
-This concept defines the information needed to connect OSC to virtualization providers such as OpenStack, along with SDN controllers such as IP addresses and user credentials. The OSC platform supports multiple virtualization connectors enabling the user to orchestrate security appliances on multiple virtualization platforms.  
+This concept defines the information needed to connect OSC to a virtualization provider - such as OpenStack - and to an SDN controller, for instance, IP addresses and user credentials. The OSC platform supports multiple virtualization connectors enabling the user to orchestrate security appliances on multiple virtualization platforms.  
 
 ## Security Groups
 Security groups are used to manage virtual assets and instances such as tenant networks, subnets and individual virtual machines.  Once a security group is defined, it can be bound to a deployed security service function to protect the grouped assets.  
