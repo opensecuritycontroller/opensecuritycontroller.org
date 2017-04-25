@@ -1,8 +1,10 @@
 # OSC Plugins
 
 The OSC plugin model allows integration with VNF security managers and the SDN layer of the virtualized environment.  OSC defines two distinct plugins: 
+
 * Security Manager Plugin 
 * SDN Controller Plugin
+
 Both of these plugins are defined through a set of java interfaces that describe the functionality OSC expects from the plugins.  
 Through this mechanism, OSC can invoke security managers or SDN controller APIs without knowing their details. The implemented plugins bridge the gap between specific APIs exposed by these external services and the interfaces/contract expected by OSC.  
 
@@ -15,10 +17,10 @@ You can download the SDKs directly from the OSC web UI:
 2. Navigate to Manage -> Plugins.
 3. Download the plugin SDK:
 	* For the SDN Controller Plugins SDK:  
-		Select the tab **SDN Controller Plugins**.  
+		Select the **SDN Controller Plugins** tab.  
 		Click **Download SDN Controller Plugin SDK**.
 	* For the Security Manager Plugin SDK:  
-	    Select the tab **Manager Plugins**.  
+	    Select the **Manager Plugins** tab.  
 		Click **Download SDN Controller Plugin SDK**.
 
 ![DownloadSDk](./images/sdk_download.png)  
