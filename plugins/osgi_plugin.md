@@ -9,7 +9,7 @@
 2. OSGi framework:
 	* While this document provides a lot of details on how to create and build a plugin with respect to OSGi, having previous experience with that framework can greatly help. 
 3. Computer Networking:
-	* Knowledge of IP address, DNS and NAT environment
+	* Knowledge of IP address, DNS and NAT environment.
 	* Understanding of web communication.
 4.	REST APIs.
 	* Implementation and consumption of REST APIs.
@@ -95,7 +95,7 @@ For **SDN Controller** plugins:
 </dependency>
 ```
 
-Note that the **API** dependency is pulled in as a `provided` scope dependency because the SDK should be provided by the OSC server (step 1 of the scope selection process) at runtime.  
+Note that the API dependency is pulled in as a `provided` scope dependency because the SDK should be provided by the OSC server (step 1 of the scope selection process) at runtime.  
 The manager plugin implementation can be created automatically in the IDE, and will appear similar to the following:  
 ``` java
 public class ExampleApplianceManager implements ApplianceManagerApi
