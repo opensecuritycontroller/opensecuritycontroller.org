@@ -5,7 +5,7 @@ OSC communicates with the SDN controller through these interfaces to implement t
 
 
 ## SDN Controller Plugin SDK
-Below is a high level description of the functionalities expected to be implemented by the plugin. For more details refer to the SDN Plugin interfaces documentation. 
+Below is a high level description of the functionalities expected to be implemented by the plugin. For more details, refer to the  `javadoc`of the interfaces defined by this SDK. 
 
 ### Status Check
 The plugin must provide information regarding the availability of the SDN controller.
