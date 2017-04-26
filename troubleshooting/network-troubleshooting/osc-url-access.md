@@ -4,7 +4,7 @@ This procedure troubleshoots issues when OSC URL is not accessible using a web b
 1. Ping OSC IP Address:  
    **Command**: `$ ping OSC_IP ADDDRESS`
 2. If pinging OSC succeeds:  
-   * Access the [OSC CLI](../../gettingstarted/accessing.md#accessing-osc-through-cli) through a SSH client [OSC ssh shell](../../gettingstarted/accessing.md#accessing-osc-through-cli). 
+   * Access the [OSC CLI](../../gettingstarted/accessing.md#accessing-osc-through-cli) through a SSH client. 
 
    * Check the server status by using the command [`server status`](../../references/cli.md/#server-status).  
 
