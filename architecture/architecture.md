@@ -18,8 +18,8 @@ Cloud service providers want to offer security services as a value-add to their 
 Telecommunications providers want to reduce time to market and costs for infrastructure by transforming the legacy to SDN/NFV technology. However, security monitoring for the virtualized infrastructure is still a gap. There is a need for a centralized security orchestration solution which fully automates the security monitoring of the virtualized infrastructure.
 
 OSC is designed to address these SDN/NFV security challenges by playing a role of a centralized security services orchestration tool across multiple cloud environments. It does so using a modular architecture to interface with:
-*	Multi-vendor virtualized security function managers ([Security Manager Plugins](../plugins/plugins.md#security_mgr_plugin.md))
-*	Multi-vendors SDN controllers ([SDN Controller Plugins](../plugins/plugins.md#sdn_controller_plugin.md))
+*	Multi-vendor virtualized security function managers ([Security Manager Plugins](../plugins/security_mgr_plugin.md))
+*	Multi-vendors SDN controllers ([SDN Controller Plugins](../plugins/sdn_controller_plugin.md))
 *	Virtualization infrastructure Managers ([Virtualization Connectors](../concepts/concepts.md#virtualization-connectors))
 
 ## Architecture Overview
@@ -27,7 +27,7 @@ This section covers the key functionalities of OSC, followed by a conceptual arc
 
 ### Role of Open Security Controller
 *	**Automation and Orchestration for Virtualized Security Functions**:  OSC enables fully automated provisioning, de-provisioning, distribution and delivery of security inside the perimeter of the network for virtualized security functions such as virtual Next Gen Firewalls (vNGFW), virtualized IPS (vIPS), virtualized Web App Firewalls (vWAF) and virtualized Application Delivery Controllers (vADC) from multiple vendors.
-*	**Centralized Coordination of Security Policy across Multiple Cloud Environments**: OSC coordinates policies (using metadata like Policy tags and dynamic [OSC security group](../concepts/concepts.md#security-groups) membership) across multiple virtualization and SDN environments. It is important to understand that OSC does not manage the virtualized security functions or their security policies, which are still completed by traditional element or security function manager for each function.
+*	**Centralized Coordination of Security Policy across Multiple Cloud Environments**: OSC coordinates policies (using metadata like policy tags and dynamic [OSC security group](../concepts/concepts.md#security-groups) membership) across multiple virtualization and SDN environments. It is important to understand that OSC does not manage the virtualized security functions or their security policies, which are still completed by traditional element or security function manager for each function.
 *	**Abstraction for Infrastructure Interactions for Security Managers**: OSC acts as an abstraction layer for the security function managers, alleviating the need for integration into each SDN controller or virtualization infrastructure manager. OSC achieves this using [Virtualization Connectors](../concepts/concepts.md#virtualization-connectors) and [SDN Controller Plugins](../plugins/plugins.md#sdn_controller_plugin.md) via its southbound APIs.
 *	**Dynamic Autoscale Security**: OSC automates dynamically scaling the security services based on workload requirements and configured policies.
 *	**No Vendor Lock-In**: By using a modular plugin architecture for both the security functions (example: virtualized NGFW, IPS etc.) and SDN controllers, OSC provides a vendor agnostic automation solution with a goal to avoid lock-ins using an open API model.
@@ -73,8 +73,9 @@ The detailed API documentation can be found in OSC API Documentation (also avail
 #### Virtualization Connectors
 The Virtualization Connector module within OSC allows security function managers to work across multiple virtualization environments. The Virtualization Connector uses the Virtual Infrastructure Manager (VIM) native APIs such as compute, network, storage, image, identity service to implement the following high level functionality:
 *	Bootstrap information for virtual security appliance to startup and connect to manager
-*	Dynamic Provisioning/De-provisioning based on configured [Deployment Specification](../concepts/concepts.md#deployment-specifications)       * Using Appliance image metadata, retrieve and store images on VIM’s image service
-*	Subscribe to Notification events on infrastructure layer and take required actions
+*	Dynamic provisioning/de-provisioning based on configured [Deployment Specification](../concepts/concepts.md#deployment-specifications) 
+* Using appliance image metadata, retrieve and store images on VIM’s image service
+*	Subscribe to notification events on infrastructure layer and take required actions
 
 #### SDN Controller Plugins
 The SDN Controller Plugins are used to interface with the networking layer/SDN controller to achieve the following high level functionality:
