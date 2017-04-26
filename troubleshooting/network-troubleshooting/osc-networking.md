@@ -1,9 +1,9 @@
-# Troubleshoot OSC Network Issues #  
+#Troubleshoot OSC Network Issues  
 This procedure explains how to troubleshoot failures when connecting to OSC using OSC command line or Web Client. If the OSC IP address is not configured according to the local networking requirements, network issues might occur.  
 ## Accessing OSC Console  
 Access OSC console when troubleshooting network issues. OSC console access in VMWare and Openstack environments are shown below:
 
-### VMWare Deployments ###  
+### VMWare Deployments  
 For OSC installed on VMware, access the ESXi host by using the native vSphere desktop application or the vSphere web client. 
 Right-click on the Virtual machine and select `Open Console`.
 
@@ -24,4 +24,4 @@ If it is not expected gateway address: [set network gateway](../../references/cl
 
 ***Ping remote server or gateway***  
 After verifying network configurations are correct, ping a remote IP address to test network connectivity by using the command:  
-**Command**: `C>ping REMOTE_IP_ADDRESS`
+**Command**: $ ping OSC_IP_ADDRESS
