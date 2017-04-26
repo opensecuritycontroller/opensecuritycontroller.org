@@ -66,7 +66,7 @@ OSC interacts with various components of the Cloud/Software Defined Infrastructu
 *Figure 2: Open Security Controller Architecture Details*
 
 #### Graphical User Interface and Northbound API
-OSC User Interface and its Northbound API allow the security administrator to define policies as they relate to the security services deployment and policy based redirection of network traffic to the virtualized security functions. All actions possible with using OSC's GUI are also available using OSC’s NB API.
+OSC User Interface and its Northbound API allows the security administrator to define policies as they relate to the security services deployment and policy based redirection of network traffic to the virtualized security functions. All actions possible with using OSC's GUI are also available using OSC’s NB API.
 
 The detailed API documentation can be found in OSC API Documentation (also available live on the deployed OSC server in API-DOC section).
 
@@ -97,7 +97,7 @@ View the [Manager Plugins](https://github.com/opensecuritycontroller/opensecurit
 
 Yes, OSC is available as open source code under the Apache 2.0 license agreement as part of Linux Foundation collaboration project. 
 
-**2)	Does OSC replace the SDN Controller?**
+**2)	Does OSC replace the SDN controller?**
 
 No, OSC does not replace the SDN controller. It works in conjunction with the SDN controller or networking stack depending on it for traffic steering, service function chaining for security service insertion and ensuring that the traffic is steered to the right security enforcement capability based on security policies.
 
