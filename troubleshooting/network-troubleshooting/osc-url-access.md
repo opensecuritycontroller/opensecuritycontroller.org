@@ -14,4 +14,4 @@ If you are still unable to access OSC URL, there may be an environment problem o
    * If the returned status is **Open Security Controller Server is not running**, start the server using the command [`server start`](../../references/cli.md/#server-start).  
 
 3.  If pinging OSC fails: 
-   * Follow [network troubleshooting steps](./osc-networking.md).  
+    * Follow [network troubleshooting steps](./osc-networking.md).  
