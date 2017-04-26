@@ -6,7 +6,7 @@ To successfully use Open Source Controller (OSC), it is important to first under
 This concept defines the information needed to connect OSC to a virtualization provider - such as OpenStack - and to an SDN controller, for instance, IP addresses and user credentials. The OSC platform supports multiple virtualization connectors enabling the user to orchestrate security appliances on multiple virtualization platforms.  
 
 ## Security Groups
-Security groups are used to manage virtual assets and instances such as tenant networks, subnets and individual virtual machines.  Once a security group is defined, it can be bound to a deployed security service function to protect the grouped assets.  
+Security groups are used to manage virtual assets and instances such as tenant networks, subnets, and individual virtual machines.  Once a security group is defined, it can be bound to a deployed security service function to protect the grouped assets.  
 
 ## Manager Connectors
 This concept defines the information needed to connect OSC to security service managers such as IP addresses and user credentials or API keys. The OSC platform supports multiple manager connectors enabling the user to simultaneously orchestrate security appliances provided by different service managers.  
@@ -18,7 +18,7 @@ A security policy's role is to define and enforce assets which need to be protec
 Security services such as IPS or next-generation firewall are intended to be deployed to protect the assets contained in a security group. As defined by OSC, a security service function describes the software image file as well as other metadata, such as the function's model and version. Some supported operations include managing service function versions and upgrading or downgrading the software image for deployed appliances.  
 
 ## Distributed Appliances
-A distributed appliance associates the managed security services to the virtualization environments needing protection. A distributed appliance is defined by the security service function, one or more virtualization connectors and a single manager connector. Each relationship between the domains defined by the appliance's manager connector and each virtualization connector represents a [virtual system](#virtual-security-systems).  
+A distributed appliance associates the managed security services to the virtualization environments needing protection. A distributed appliance is defined by the security service function, one or more virtualization connectors, and a single manager connector. Each relationship between the domains defined by the appliance's manager connector and each virtualization connector represents a [virtual system](#virtual-security-systems).  
 
 ![Distributed Appliance](./images/distributed_appliance.png)  
 *Distributed Appliance and Virtual Systems*  
