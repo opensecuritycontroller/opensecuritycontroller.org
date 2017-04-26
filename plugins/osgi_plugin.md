@@ -70,7 +70,7 @@ These rules for OSGi bundles are no different than those for non-OSGi JARs. When
 
 ## Creating a Simple OSC Plugin
 Now that a basic OSGi project is set up, an OSC plugin implementation is needed. 
-> This tutorial refers mostly to an OSC Manager Plugin however, the process is similar for an SDN Controller plugin. 
+>Note: This tutorial refers mostly to an OSC Manager Plugin however, the process is similar for an SDN Controller plugin. 
 
 
 To implement a plugin, we must make the OSC Plugin API dependency available as a Maven dependency:
@@ -110,13 +110,12 @@ public class ExampleApplianceManager implements ApplianceManagerApi
 }
 ```
 
-> For the an SDN controller plugin, the interface would be `SdnControllerApi`.
+The interface would be `SdnControllerApi`for the an SDN controller plugin. 
 
 
 The various methods of the API should be completed as appropriate, and will likely involve creating other classes that implement parts of the OSC SDK.  
 
 ### Exposing the Service Provided By The Plugin
-
 The OSC plugin implementations are shared with the OSC server runtime using the OSGi service registry. There are a number of ways to register an Object as an OSGi service, but the simplest and most flexible is to use an OSGi compendium specification called, Declarative Services.  
 Declarative Services allows build tools to create standard metadata describing how a component (a managed instance of an object) should be injected with dependencies and/or exposed as an OSGi service.  
 Declarative Services descriptors can be written by hand, but the simplest way to use Declarative Services is to generate the metadata from the standard annotations. The `bnd-maven-plugin` already processes these annotations by default. All that is required is the addition of the dependency:
@@ -152,10 +151,10 @@ public class ExampleApplianceManager implements ApplianceManagerApi
 }
 ```
 
-> For an **SDN Controller plugin**: 
-> * The `@Component` annotation should be applied to the class implementing the `SdnControllerApi` interface.
-> * You must also add the property `scope=Service.PROTOTYPE` as shown below:
-> `@Component(scope=ServiceScope.PROTOTYPE, property={/*…*/})`
+For an **SDN Controller** plugin: 
+* The `@Component` annotation should be applied to the class implementing the `SdnControllerApi` interface.
+* You must also add the property `scope=Service.PROTOTYPE` as shown below:
+`@Component(scope=ServiceScope.PROTOTYPE, property={/*…*/})`
 
 A Declarative Services XML descriptor will be generated and added to the bundle when building.  
 Note that as of the current specification (Declarative Services 1.3), a component must have a noargument constructor.  
@@ -240,7 +239,8 @@ We must also make sure to add our plugin implementation project as a dependency 
     <version>1.0.0</version>
 </dependency>
 ```
-**Indexing The Dependencies**  
+**Indexing The Dependencies**
+
 Once the dependencies for the plugin have been gathered, they must be indexed:
 ```xml
 <plugin>
