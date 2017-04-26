@@ -40,11 +40,11 @@ Some of the actions that are performed in OSC trigger jobs and tasks that perfor
 * Example: Synchronizing a distributed appliance is a job while checking the connectivity to the security manager is a task.  
 
 ## Alarms, Alerts and Archives
-Alarms are setup to trigger alerts and can be set for different types of failures such as job failures, system failures, or appliance instance failures. Different severity levels can be defined for each type of failure.  
+**Alarms** are setup to trigger alerts and can be set for different types of failures such as job failures, system failures, or appliance instance failures. Different severity levels can be defined for each type of failure.  
 
-Alerts are generated for every failure event that occurs along with different severity levels depending on the severity level defined in the alarm.  
+**Alerts** are generated for every failure event that occurs along with different severity levels depending on the severity level defined in the alarm.  
 
-A user can archive older jobs and alerts. Tasks related to the archived jobs are also archived. A schedule can be set to automatically archive the jobs and alerts or can be manually triggered to archive whenever required.  
+A user can **archive** older jobs and alerts. Tasks related to the archived jobs are also archived. A schedule can be set to automatically archive the jobs and alerts or can be manually triggered to archive whenever required.  
 
 ## Plugins
 Plugins facilitate the communication between OSC and the security manager and SDN controllers. There are two types of plugins:
