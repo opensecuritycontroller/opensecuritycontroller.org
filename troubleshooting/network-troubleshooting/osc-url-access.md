@@ -9,7 +9,7 @@ This procedure troubleshoots issues when OSC URL is not accessible using a web b
    * Check the server status by using the command [`server status`](../../references/cli.md/#server-status).  
 
    * If the returned status is **Open Security Controller Server is running**, OSC should be accessible through its URL.  
-If you are still unable to access OSC URL, there may be an environment problem on your client (i.e.: firewall configuration, browser settings, etc).  
+If you are still unable to access OSC URL, there may be an environment problem on your client (e.g.: firewall configuration, browser settings, etc).  
 
    * If the returned status is **Open Security Controller Server is not running**, start the server using the command [`server start`](../../references/cli.md/#server-start).  
 
