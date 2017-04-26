@@ -1,8 +1,8 @@
-# Troubleshooting OSC Web Access #  
-This procedure troubleshoots issues when OSC URL is not accessible using a web browser. An issue with OSC URL access might be due to different reasons. Follow the steps below to debug:
+#Troubleshooting OSC Web Access#  
+This procedure troubleshoots issues when OSC URL is not accessible using a web browser. Issues with OSC URL access might be due to different reasons. Follow the steps below to debug:
 
 1. Ping OSC IP Address:  
-   **Command**: `C>ping OSC_IP_Address`
+   **Command**: $ ping OSC_IP_ADDRESS
 2. If the ping  is **successful**:  
   * Access OSC CLI through an SSH client [OSC ssh shell](../../gettingstarted/accessing.md#accessing-osc-through-cli). 
 
