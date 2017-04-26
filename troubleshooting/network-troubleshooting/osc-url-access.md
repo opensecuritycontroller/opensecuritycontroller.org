@@ -1,4 +1,4 @@
-#Troubleshooting OSC Web Access  
+# Troubleshooting OSC Web Access  
 This procedure troubleshoots issues when OSC URL is not accessible using a web browser. Issues with OSC URL access might be due to different reasons. Follow the steps below to debug:
 
 1. Ping OSC IP Address:  
