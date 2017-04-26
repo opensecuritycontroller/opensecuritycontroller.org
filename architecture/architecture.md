@@ -40,7 +40,7 @@ Figure 1 demonstrates how OSC fits in conceptually between the security managers
 ![Open Security Controller Conceptual Architecture](./images/osc_architecture_concept.png)
 *Figure 1: Open Security Controller Conceptual Architecture*
 
-**Virtualization Infrastructure Management Layer**: As illustrated in Figure 1, it is very common to host applications across multiple virtualization environments. Examples for these could be one or more Openstack environments, container based environments and various combinations of the networking stack (SDN controllers, native networking solutions and variety of orchestration engines). Each environment is different for integrating security controls such as Next Gen firewalls (NGFW), Intrusion Prevention Systems (IPS), Web Application Firewalls (WAF) and Application Delivery Controllers (ADC) and transparently inserting these in the network fabric.
+**Virtualization Infrastructure Management Layer**: As illustrated in Figure 1, it is very common to host applications across multiple virtualization environments. Examples for these could be one or more OpenStack environments, container based environments and various combinations of the networking stack (SDN controllers, native networking solutions and variety of orchestration engines). Each environment is different for integrating security controls such as Next Gen firewalls (NGFW), Intrusion Prevention Systems (IPS), Web Application Firewalls (WAF) and Application Delivery Controllers (ADC) and transparently inserting these in the network fabric.
 
 **Security Function Management Layer**: In each of these datacenter environments, traditional security function managers (element managers) are used to manage physical security appliances in datacenters to provide controls at the edge of datacenters also known as north-south protection. In addition to these physical appliances, there is a need to seamlessly integrate virtualized security functions/appliances in the diverse virtualized environments. 
 
@@ -104,11 +104,11 @@ No, OSC does not replace the SDN controller. It works in conjunction with the SD
 
 **3)	Can OSC work with any SDN controller and do we always need a SDN controller?**
 
-OSC can work with any SDN controller by implementing the SDN controller plugins to enable this integration. For Openstack environments without a SDN controller, the plan is to integrate with [Networking-SFC](https://docs.openstack.org/developer/networking-sfc/) project via a plugin.
+OSC can work with any SDN controller by implementing the SDN controller plugins to enable this integration. For OpenStack environments without a SDN controller, the plan is to integrate with [Networking-SFC](https://docs.openstack.org/developer/networking-sfc/) project via a plugin.
 
 **4)	What is the interaction with VIM? What VIMs do we now and plan to support?**   
 
-Interaction with the VIM is through a Virtualization Connector that enables lifecycle management, definition of deployment specs, auto-scaling and HA, authentication, image services, notifications for events and role-based access control. OSC currently supports Openstack with plans to work with other virtualization environments such as support for containers.
+Interaction with the VIM is through a Virtualization Connector that enables lifecycle management, definition of deployment specs, auto-scaling and HA, authentication, image services, notifications for events and role-based access control. OSC currently supports OpenStack with plans to work with other virtualization environments such as support for containers.
 
 **5)	What does the integration with security function managers look like?**   
 
@@ -120,9 +120,9 @@ No, it does not. The element manager continues to be the entity where policies w
 
 **7)	What is the relationship with OpenStack projects like Networking SFC and Tacker?**
 
-**Networking-SFC**: OSC is planning to integrate with Networking SFC APIs to perform service insertion natively for Openstack where there is no SDN controller. The relationship has similar functionality to SDN controller plugins for traffic steering and service function chaining.
+**Networking-SFC**: OSC is planning to integrate with Networking SFC APIs to perform service insertion natively for OpenStack where there is no SDN controller. The relationship has similar functionality to SDN controller plugins for traffic steering and service function chaining.
 
-**Tacker**: OSC currently does not integrate with Tacker at this time but if VNF management for some of the security services (like Firewall or IPS VNF) will migrate to Tacker, OSC will simply use Tacker for that functionality versus directly interacting with native Openstack APIs (using Nova, Glance, Neutron etc.). We envision that we would have both models available, depending on the type of VNF and adoption of Tacker.
+**Tacker**: OSC currently does not integrate with Tacker at this time but if VNF management for some of the security services (like Firewall or IPS VNF) will migrate to Tacker, OSC will simply use Tacker for that functionality versus directly interacting with native OpenStack APIs (using Nova, Glance, Neutron etc.). We envision that we would have both models available, depending on the type of VNF and adoption of Tacker.
 
 **8)	What is the relationship of OSC with ETSI MANO and NFVO?**
 
