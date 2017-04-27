@@ -17,8 +17,8 @@ Check IP configuration on the OSC management port:   [show network ip](../../ref
 If it is not an expected IP address or netmask change ip-address  [set network ip](../../references/cli.md/#set-network-ip)  
 
 ***Gateway Address***  
-Check network route to view the default gateway ip  [show network route](../../references/cli.md/#show-network-route)  
-If it is not expected gateway address change gateway address [set network gateway](../../references/cli.md/#set-network-gateway)  
+Check network route to view the default gateway ip  [show network route](/references/cli.md/#show-network-route)  
+If it is not expected gateway address change gateway address [set network gateway](/references/cli.md/#set-network-gateway)  
 
 ***Ping remote server or gateway***  
 After verifying network configurations are correct, ping a remote IP address to test network connectivity by using the command  
