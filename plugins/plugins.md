@@ -18,14 +18,14 @@ You can download the SDKs directly from the OSC web UI:
 	    Select the tab "Manager Plugins".  
 		Click "Download SDN Controller Plugin SDK".
 
-![DownloadSDk](./images/sdk_download.png)  
+![DownloadSDk](images/sdk_download.png)  
 *OSC Plugins View*
 
 
 ## Building And Testing OSC Plugins
-The OSC server uses OSGi technology to provide a dynamic plugin model. For details on how to build and test OSC plugins see **[Building OSC Plugins with OSGi](./osgi_plugin.md)**.
+The OSC server uses OSGi technology to provide a dynamic plugin model. For details on how to build and test OSC plugins see **[Building OSC Plugins with OSGi](osgi_plugin.md)**.
 
 ## Plugins
 
-* For more details on the OSC manager plugins see **[Security Manager Plugins](./security_mgr_plugin.md)**.
-* For more details on the OSC SDN controller plugins see **[SDN Controller Plugins](./sdn_controller_plugin.md)**.
+* For more details on the OSC manager plugins see **[Security Manager Plugins](security_mgr_plugin.md)**.
+* For more details on the OSC SDN controller plugins see **[SDN Controller Plugins](sdn_controller_plugin.md)**.

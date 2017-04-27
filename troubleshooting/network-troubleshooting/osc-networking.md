@@ -13,8 +13,8 @@ At the login screen on the console enter the credentials. For credentials contac
 After login successfully, use the CLI prompt to check and configure the network using following IP parameters:  
 
 ***OSC IP Address and Netmask***  
-Check IP configuration on the OSC management port:   [show network ip](../../references/cli.md/#show-network-ip)  
-If it is not an expected IP address or netmask change ip-address  [set network ip](../../references/cli.md/#set-network-ip)  
+Check IP configuration on the OSC management port:   [show network ip](/references/cli.md/#show-network-ip)  
+If it is not an expected IP address or netmask change ip-address  [set network ip](/references/cli.md/#set-network-ip)  
 
 ***Gateway Address***  
 Check network route to view the default gateway ip  [show network route](/references/cli.md/#show-network-route)  

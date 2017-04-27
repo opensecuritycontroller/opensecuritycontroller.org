@@ -1,6 +1,6 @@
 # OSC CLI Commands
 
-This section explains the OSC CLI commands, which you can run in normal mode. For steps on how to access OSC through the OSC CLI, see [Accessing OSC](../gettingstarted/accessing.md).
+This section explains the OSC CLI commands, which you can run in normal mode. For steps on how to access OSC through the OSC CLI, see [Accessing OSC](/gettingstarted/accessing.md).
 
 ### Contents
 * [clear](#clear)

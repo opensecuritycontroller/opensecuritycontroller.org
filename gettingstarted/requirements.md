@@ -41,5 +41,5 @@ To install and access the OSC virtual appliance, the following requirements must
   * Safari 8.0 or newer.
 * Accessibility to the OSC installation file (.ovf).
 * An available IP address, subnet mask, gateway, and DNS server for the OSC virtual appliance.
- * When the OSC virtual appliance is configured with IP settings, it should be [reachable](./accessing.md) from the client machine.
+ * When the OSC virtual appliance is configured with IP settings, it should be [reachable](accessing.md) from the client machine.
 

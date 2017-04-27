@@ -48,5 +48,5 @@ A user can **archive** older jobs and alerts. Tasks related to the archived jobs
 
 ## Plugins
 Plugins facilitate the communication between OSC and the security manager and SDN controllers. There are two types of plugins:
-* **[SDN Controller Plugins](../plugins/sdn_controller_plugin.md)** allow OSC to communicate with the SDN controllers.
-* **[Manager Plugins](../plugins/security_mgr_plugin.md)** allow OSC to communicate with the security managers.  
+* **[SDN Controller Plugins](/plugins/sdn_controller_plugin.md)** allow OSC to communicate with the SDN controllers.
+* **[Manager Plugins](/plugins/security_mgr_plugin.md)** allow OSC to communicate with the security managers.  

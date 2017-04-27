@@ -3,7 +3,7 @@ The OSC Manager Plugin SDK contains the set of APIs that define the functionalit
 OSC communicates with the security manager through these interfaces to implement its orchestration and management capabilities.  
 In addition to supporting manager plugins, OSC also exposes REST endpoints for managers to call back in order to send notifications and query information.  
 
-![](./images/osc_mgr.png)  
+![](images/osc_mgr.png)  
 *OSC and VNF Security Manager*
 
 ## Security Manager Plugin SDK
@@ -151,7 +151,7 @@ The above is just a sample. The manger should be able to provide us with any inf
 ## Packaging An Appliance
 In order for appliance images to be imported in OSC they must be packaged as a *zip* file along with a descriptor file containing information in `json' format:  
 
-![](./images/image_pack.png)  
+![](images/image_pack.png)  
 *Packaging an Appliance Image For OpenStack*
 
 ### OSC Appliance Image Metadata

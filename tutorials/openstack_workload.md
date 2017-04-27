@@ -1,6 +1,6 @@
 # Tutorial: Protecting Assets with OSC on OpenStack
 
-Given an existing [OpenStack compatible environment](../gettingstarted/requirements.md#openstack) and a [deployed instance of OSC](../gettingstarted/installing_ost.md), this tutorial provides the necessary steps for setting up OSC to protect a single workload instance in OpenStack. 
+Given an existing [OpenStack compatible environment](/gettingstarted/requirements.md#openstack) and a [deployed instance of OSC](/gettingstarted/installing_ost.md), this tutorial provides the necessary steps for setting up OSC to protect a single workload instance in OpenStack. 
 
 These steps include: 
 * Deployment of a security appliance instance.
@@ -30,7 +30,7 @@ For this tutorial, the network topology in OpenStack should be as follows:
 * `MANAGEMENT NETWORK`: This network corresponds to the **Management Network** mentioned above and it will also be overloaded with the deployment of the of the `ATTACKER` and `VICTIM` and used for communication between both the `ATTACKER` and `VICTIM`, the *internal* security manager, and the **Distributed Appliance Instance**. Its configurations consist of one port for the `ATTACKER`, one for the `VICTIM` and one for the **Distributed Appliance Instance**. 
 * `INSPECTION NETWORK`: This network will be used for intercepting traffic sent from the `ATTACKER` to the `VICTIM`. Its configurations consist of one port for the `MANAGEMENT NETWORK`, and one port for the **Distributed Appliance Instance**.
 
-![Network Topology](./images/network_topology.jpg)  
+![Network Topology](images/network_topology.jpg)  
 *Network Topology in OpenStack*  
 
 ### Security Appliance and Manager  
@@ -39,7 +39,7 @@ There are two options for obtaining a security appliance image and its correspon
 For this tutorial, it is assumed that the appliance image and security plugin will be manually created:  
 
 * The [`SAMPLE MANAGER PLUGIN`](https://github.com/opensecuritycontroller/security-mgr-sample-plugin) is a dummy plugin that is available along with OSC. 
-* The `SAMPLE APPLIANCE IMAGE` is a [CirrOS image](http://download.cirros-cloud.net/) that is [manually packaged](../plugins/security_mgr_plugin.md/#packaging-an-appliance). 
+* The `SAMPLE APPLIANCE IMAGE` is a [CirrOS image](http://download.cirros-cloud.net/) that is [manually packaged](/plugins/security_mgr_plugin.md/#packaging-an-appliance). 
  * Use the following meta.json file data when packaging the appliance image: 
 ```json
 {
@@ -81,7 +81,7 @@ Within OSC, navigate to **Manage** > **Plugins** using the left-hand menu.
 * Select the **SDN Controller Plugins** tab, and upload the `SDN CONTROLLER NSC PLUGIN`.  
 * Select the **Manager Plugins** tab, and upload the `SAMPLE MANAGER PLUGIN`.  
 
-![Upload Plugins](./images/add_plugins.jpg)  
+![Upload Plugins](images/add_plugins.jpg)  
 *Upload SDN Controller and Manager Plugins*
 
 ### 2. Define Virtualization Connector  
@@ -93,7 +93,7 @@ Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**,
 	* Enter `admin` as the Admin Tenant Name.
 	* Enter the OpenStack administrator credentials.
 
-![Add Virtualization Connector](./images/add_vc.jpg)  
+![Add Virtualization Connector](images/add_vc.jpg)  
 *Add Virtualization Connector*
 
 ### 3. Define Manager Connector  
@@ -103,7 +103,7 @@ Using the left-hand menu, navigate to **Setup** > **Manager Connectors**, and th
 * Enter the IP address `1.1.1.1`, and then the credentials of `abc / 123`.
  	>Note: When using a real security manager, use the real IP address and credentials.
 
-![Add Manager Connector](./images/add_mc.jpg)  
+![Add Manager Connector](images/add_mc.jpg)  
 *Add Manager Connector*  
 
 After adding the manager connector, ensure the **Last Job Status** is **PASSED** and that policies defined in the security manager are populated under **Polices** on the bottom-half of the page.
@@ -120,7 +120,7 @@ Using the left-hand menu, navigate to **Setup** > **Distributed Appliance**. Und
 * Select the **Enabled** box.
 * Using the dropdown menu, select **VLAN** as the **Encapsulation Type**.  
 
-![Add Distributed Appliance](./images/add_da.jpg)  
+![Add Distributed Appliance](images/add_da.jpg)  
 *Add Distributed Appliance*
 
 ### 6. Define Deployment Specification  
@@ -131,7 +131,7 @@ Under the same menu, navigate to **Setup** > **Distributed Appliance**. Select *
 * Select **By Host** for the **Selection Criterion**, and then check the **Enabled** box.
 * Select the `MANAGEMENT NETWORK` and the `INSPECTION NETWORK`. Do not select a floating IP pool unless you are using an external network with an external security manager.  
 
-![Add Deployment Specification](./images/add_ds.jpg)  
+![Add Deployment Specification](images/add_ds.jpg)  
 *Add Deployment Specification*  
 
 After creating a deployment specification, ensure that the **Last Job Status** is **PASSED**.
@@ -144,19 +144,19 @@ Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**,
 * Select **By Type** and **VM** for the **Selection Type**.
 * Observe both virtual machines deployed on OpenStack on the left and select the `VICTIM`. `VICTIM` should be on the right after selection. 
 
-![Add Security Group](./images/add_sg.jpg)  
+![Add Security Group](images/add_sg.jpg)  
 *Add Security Group*  
 
 ### 8. Bind Security Group  
 Under the same menu, navigate to **Setup** > **Virtualization Connectors**, then select the newly created security group. Select **Bind**.  
 
-![](./images/select_sg.jpg)  
+![](images/select_sg.jpg)  
 *Select Security Group*  
 
 * Check the **Enabled** box.
 * Choose an **Inspection Policy** from the dropdown menu.  
 
-![Bind Policy to Security Group](./images/bind.jpg)  
+![Bind Policy to Security Group](images/bind.jpg)  
 *Bind Policy to Security Group*  
 
 After binding, ensure that the **Last Job Status** is **PASSED**.
@@ -168,7 +168,7 @@ After setting up OSC and deploying a **Distributed Appliance Instance**, verify 
 * Log in to OpenStack and navigate to **Project** > **Compute** > **Instances**.  
 * Observe that the **Distributed Appliance Instance** is listed as an instance in addition to the `ATTACKER` and `VICTIM`. Ensure the **Distributed Appliance Instance** image name reflects previous naming actions taken such as the name of the **Distributed Appliance Instance** (myDA) and the name of the image uploaded in the **Service Function Catalog**.  
 
-![OpenStack Instances](./images/ost_instances.jpg)  
+![OpenStack Instances](images/ost_instances.jpg)  
 *OpenStack Instances*  
 
 #### Validating Network Redirection
@@ -185,7 +185,7 @@ In the case of using the dummy CirrOS image, when a policy is bound to a securit
 	* Observe the *redirected* packets coming from the `ATTACKER` IP address on the eth1 interface. This means the binding was a success.
 * Unbind the security group on OSC by unchecking the **Enabled** checkbox.  
 
-![](./images/unbind.jpg)  
+![](images/unbind.jpg)  
 *Unbind the Policy from the Security Group*  
 
 * From the `ATTACKER` console on OpenStack, send another HTTP request to the `VICTIM`.
