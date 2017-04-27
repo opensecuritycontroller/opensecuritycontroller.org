@@ -18,7 +18,7 @@ A security policy's role is to define and enforce what assets need to be protect
 Security services such as IPS or next-generation firewall are intended to be deployed to protect the assets contained in a security group. As defined by OSC, a security service function describes the software image file as well as other metadata, such as the function's model and version. Some supported operations include managing service function versions and upgrading or downgrading the software image for deployed appliances.  
 
 ## Distributed Appliances
-A distributed appliance associates the managed security services to the virtualization environments needing protection. A distributed appliance is defined by the security service function, one or more virtualization connectors, and a single manager connector. Each relationship between the domains defined by the appliance's manager connector and each virtualization connector represents a [virtual system](concepts/concepts.md#virtual-security-systems).  
+A distributed appliance associates the managed security services to the virtualization environments needing protection. A distributed appliance is defined by the security service function, one or more virtualization connectors, and a single manager connector. Each relationship between the domains defined by the appliance's manager connector and each virtualization connector represents a [virtual system](/concepts/concepts.md#virtual-security-systems).  
 
 ![Distributed Appliance](images/distributed_appliance.png)  
 *Distributed Appliance and Virtual Systems*  
