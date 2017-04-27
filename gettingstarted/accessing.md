@@ -1,5 +1,5 @@
 # Accessing OSC
-After installing the OSC virtual appliance, it can be set up and managed using the [OSC web application](#accessing-the-osc-web-application) or accessed using the [OSC CLI](#accessing-osc-through-cli).
+After installing the OSC virtual appliance, it can be set up and managed using the [OSC web application](#user-content-accessing-the-osc-web-application) or accessed using the [OSC CLI](#user-content-accessing-osc-through-cli).
 
 ## Accessing the OSC Web Application
 The OSC web application is used to set up and manage the OSC virtual appliance. It can also be used to configure the OSC virtual appliance for orchestrating a security service.

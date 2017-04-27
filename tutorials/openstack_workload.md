@@ -39,7 +39,7 @@ There are two options for obtaining a security appliance image and its correspon
 For this tutorial, it is assumed that the appliance image and security plugin will be manually created:  
 
 * The [`SAMPLE MANAGER PLUGIN`](https://github.com/opensecuritycontroller/security-mgr-sample-plugin) is a dummy plugin that is available along with OSC. 
-* The `SAMPLE APPLIANCE IMAGE` is a [CirrOS image](http://download.cirros-cloud.net/) that is [manually packaged](/plugins/security_mgr_plugin.md/#packaging-an-appliance). 
+* The `SAMPLE APPLIANCE IMAGE` is a [CirrOS image](http://download.cirros-cloud.net/) that is [manually packaged](/plugins/security_mgr_plugin.md/#user-content-packaging-an-appliance). 
  * Use the following meta.json file data when packaging the appliance image: 
 ```json
 {

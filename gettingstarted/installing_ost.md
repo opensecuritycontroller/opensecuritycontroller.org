@@ -23,4 +23,4 @@ Complete the following steps to successfully install OSC in an Openstack environ
 *Launch Instance - Network*
 11. If needed, continue with setup or click the ![](images/openstack_launch_instance_button.jpg) button.  
 	>Note: If you want the OSC instance to be reachable from an external network, you can [associate floating IP addresses](https://docs.openstack.org/user-guide/cli-manage-ip-addresses.html "OpenStack Docs: Manage IP addresses").
-12. Confirm successful installation by accessing the [CLI](/gettingstarted/accessing.md#accessing-osc-through-cli) as well as the [web application](/gettingstarted/accessing.md#accessing-the-osc-web-application).
+12. Confirm successful installation by accessing the [CLI](/gettingstarted/accessing.md#user-content-accessing-osc-through-cli) as well as the [web application](/gettingstarted/accessing.md#user-content-accessing-the-osc-web-application).
