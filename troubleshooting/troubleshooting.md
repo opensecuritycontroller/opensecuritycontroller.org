@@ -9,10 +9,10 @@ This session presents the information to help investigating issues with OSC or r
 
 ### OSC Logs
 
-[OSC Logs](logs.md)
+[OSC Logs](/troubleshooting/logs.md)
 
 ### OSC Debug
-[Debugging OSC](debug.md)
+[Debugging OSC](/troubleshooting/debug.md)
 
 ### Integration Problems
 [Troubleshooting Problems with OpenStack](/troubleshooting/openstack.md)  
