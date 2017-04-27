@@ -5,11 +5,11 @@ This documents provides basic information about OSC and the steps to install and
 
 ### Overview
 
-[OSC Overview](overview.md)
+[OSC Overview](/gettingstarted/overview.md)
 
 
 
 ### Installation
-[OSC Requirements](requirements.md)  
-[Installing OSC](installling.md)  
-[Accessing OSC](accessing.md)  
+[OSC Requirements](/gettingstarted/requirements.md)  
+[Installing OSC](/gettingstarted/installling.md)  
+[Accessing OSC](/gettingstarted/accessing.md)  

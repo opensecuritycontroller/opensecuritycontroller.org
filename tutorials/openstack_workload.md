@@ -70,7 +70,7 @@ OSC requires two components to implement traffic redirection and SDN notificatio
 
 For this tutorial, it is assumed that the SDN component and SDN controller plugin will be manually created:  
  
-* The [`SDN CONTROLLER NSC PLUGIN`](https://github.com/opensecuritycontroller/opensecuritycontroller.org/blob/master/plugins/plugins.md) is uploaded on OSC, enabling communication between the SDN controller and OSC.
+* The [`SDN CONTROLLER NSC PLUGIN`](/plugins/plugins.md) is uploaded on OSC, enabling communication between the SDN controller and OSC.
 * The **SDN Component** which is deployed on OpenStack for NSC.
   * TODO: add deployment steps
 

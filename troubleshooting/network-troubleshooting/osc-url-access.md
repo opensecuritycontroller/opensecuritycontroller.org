@@ -14,4 +14,4 @@ Otherwise there may be an environment problem on your client (i.e.: firewall con
  2d. If OSC status is `Open Security Controller Server is not running`. Start the server using the command  [server start](/references/cli.md/#server-start).  
 
 3.  If ping has **failed**:  
- 3a. Follow [network troubleshooting steps](./osc-networking.md).  
+ 3a. Follow [network troubleshooting steps](/troubleshooting/network-troubleshooting/osc-networking.md).  

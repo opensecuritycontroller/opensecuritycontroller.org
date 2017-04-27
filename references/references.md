@@ -10,13 +10,13 @@ This section provides the references to the OSC APIs, CLI and plugins SDK.
 
 ### CLI
 
-[OSC CLI](cli.md)
+[OSC CLI](/references/cli.md)
 
 ### APIs
 
-[OSC APIs](api.md)
+[OSC APIs](/references/api.md)
 
 ### Plugins
 
-[Security Manager SDK](manager_sdk.md)  
-[SDN Controller SDK](sdn_sdk.md)
+[Security Manager SDK](/references/manager_sdk.md)  
+[SDN Controller SDK](/references/sdn_sdk.md)

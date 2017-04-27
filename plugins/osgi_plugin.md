@@ -132,7 +132,7 @@ Declarative Services descriptors can be written by hand, but the simplest way to
 ```
 Note that the annotations are pulled in as a `provided` scope dependency. This is because the annotations are for build-time processing only (step 3 of the scope selection process).
 
-Once the Declarative Services Annotations are available we can simply annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. Note that because the implementation directly implements an interface it will automatically be registered as an OSGi service using this interface. We also need to add all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](sdn_controller_plugin.md#plugin-properties) and [SDN Controller Plugin Properties](sdn_controller_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
+Once the Declarative Services Annotations are available we can simply annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. Note that because the implementation directly implements an interface it will automatically be registered as an OSGi service using this interface. We also need to add all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](/plugins/sdn_controller_plugin.md#plugin-properties) and [SDN Controller Plugin Properties](/plugins/sdn_controller_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
 
 
 ```java
@@ -371,4 +371,4 @@ This maven build is now creating a valid plugin suitable for use in the OSC appl
 
 ## Next
 
-**[Debugging and Testing OSC Plugins](./osgi_plugin_test.md)**
+**[Debugging and Testing OSC Plugins](/plugins/osgi_plugin_test.md)**

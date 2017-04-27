@@ -57,7 +57,7 @@ These APIs are used by OSC to retrieve domain information provided by the manage
 These APIs are used by OSC to retrieve policy information provided by the managers.  This set of APIs is optional. 
 
 ### Plugin Properties
-In addition to the functionalities mentioned above, this SDK also specificies a set of required properties that must be provided when [registering the plugin implementation as an OSGi service](osgi_plugin.md#exposing-the-service-provided-by-the-plugin). These properties will be used by OSC to identify and correctly use the plugin.  For more details and the full list of required properties, see the `javadoc` of the interface `org.osc.sdk.manager.api.ApplianceManagerApi` defined by this SDK.
+In addition to the functionalities mentioned above, this SDK also specificies a set of required properties that must be provided when [registering the plugin implementation as an OSGi service](/plugins/osgi_plugin.md#exposing-the-service-provided-by-the-plugin). These properties will be used by OSC to identify and correctly use the plugin.  For more details and the full list of required properties, see the `javadoc` of the interface `org.osc.sdk.manager.api.ApplianceManagerApi` defined by this SDK.
 
 ## OSC Manager Callback REST APIs
 

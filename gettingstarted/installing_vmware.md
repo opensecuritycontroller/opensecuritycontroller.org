@@ -22,7 +22,7 @@ You may be prompted to install and allow access to the VMware Client Integration
 ![](images/vmware_select_datastore.jpg)  
 *Select the Datastore*
 11. In the **Setup networks** section, select the required switch port group.
-	* The switch port group must enable OSC to communicate to the related applications such as the Security Manager, vCenter, NSX, and virtual security appliances. You must also be able to access the [OSC web application](accessing.md#accessing-the-osc-web-application) as well as the [OSC CLI](accessing.md#accessing-osc-through-cli) from your client machine.  
+	* The switch port group must enable OSC to communicate to the related applications such as the Security Manager, vCenter, NSX, and virtual security appliances. You must also be able to access the [OSC web application](/gettingstarted/accessing.md#accessing-the-osc-web-application) as well as the [OSC CLI](/gettingstarted/accessing.md#accessing-osc-through-cli) from your client machine.  
 ![](images/vmware_setup_networks.jpg)  
 *Setup Networks*
 12. In the **Customize template** section, enter the network settings for the OSC appliance as shown below, and then click **Next**.
@@ -39,4 +39,4 @@ To make any changes, click **Back**.
 14. Monitor the installing in the **Recent Tasks** section.  
 ![](images/vmware_recent_tasks.jpg)  
 *Recent Tasks*
-15. Confirm successful installation by accessing the [CLI](accessing.md#accessing-osc-through-cli) as well as the [web application](accessing.md#accessing-the-osc-web-application).
+15. Confirm successful installation by accessing the [CLI](/gettingstarted/accessing.md#accessing-osc-through-cli) as well as the [web application](/gettingstarted/accessing.md#accessing-the-osc-web-application).
