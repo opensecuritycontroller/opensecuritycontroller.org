@@ -7,7 +7,7 @@
 	* Experience with managing and using dependencies in Java.
 	* Experience Object Oriented designing and coding.
 2. OSGi framework:
-	* While this document provides a lot of details on how to create and build a plugin with respect to OSGi, having previous experience with that framework can greatly help. 
+	* Although this document provides details on OSGi plugin creation, previous framework experience is helpful. 
 3. Computer Networking:
 	* Knowledge of IP address, DNS and NAT environment.
 	* Understanding of web communication.
@@ -19,7 +19,7 @@
 2. Java IDE, Eclipse preferred.  
 
 ## Introduction
-The following work example describes how to develop and assemble an OSC plugin using Maven, Eclipse and the Bndtools plugin for [Eclipse](http://bndtools.org). The plugin implementation will be created as a single OSGi bundle, and then packaged up along with its dependencies in a plugin archive suitable for deployment into the OSC server.
+This guide describes how to develop and assemble an OSC plugin using Maven, Eclipse, and the [Bndtools](http://bndtools.org) plugin for Eclipse. The plugin implementation will be created as a single OSGi bundle to be packaged along with its dependencies in a plugin archive suitable for deployment into the OSC server.
 
 
 ## Creating a Maven Project
@@ -27,7 +27,7 @@ Like the creation of a JAR file, OSGi bundles can be easily created using a stan
 
 ### The bnd-maven-plugin
 The bnd-maven-plugin uses the bnd library to generate an OSGi manifest for your Maven project. It will also generate other OSGi metadata, such as Declarative Services component descriptors.  
-Adding the bnd-maven-plugin to your project is simple. By default, the plugin binds to the processclasses lifecycle phase of your build using the following configuration:  
+Adding the bnd-maven-plugin to your project is simple. By default, the plugin binds to the process classes lifecycle phase of your build using the following configuration:  
 ```xml
 <plugin>
     <groupId>biz.aQute.bnd</groupId>
@@ -130,7 +130,7 @@ Declarative Services descriptors can be written by hand, but the simplest way to
 ```
 Note that the annotations are pulled in as a `provided` scope dependency because they are for build-time processing only (step 3 of the scope selection process).
 
-Once the Declarative Services Annotations are available, you can annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. Note that because the implementation directly implements an interface, it will automatically be registered as an OSGi service using this interface. You also need to include all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](sdn_controller_plugin.md#plugin-properties) and [SDN Controller Plugin Properties](sdn_controller_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
+Once the Declarative Services Annotations are available, you can annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. Note that because the implementation directly implements an interface, it will automatically be registered as an OSGi service using this interface. You also need to include all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](security_mgr_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
 
 
 ```java
@@ -157,10 +157,10 @@ For an **SDN Controller** plugin:
 `@Component(scope=ServiceScope.PROTOTYPE, property={/*…*/})`
 
 A Declarative Services XML descriptor will be generated and added to the bundle when building.  
-Note that as of the current specification (Declarative Services 1.3), a component must have a noargument constructor.  
+Note that as of the current specification (Declarative Services 1.3), a component must have a no-argument constructor.  
 
 ### Startup and Shutdown
-Declarative Services components can only be activated when their mandatory dependencies are available. When a component becomes eligible for activation, it may not yet be ready for use although it is injected with all of its dependencies. Components require some level of initialization after injection has finished. In Declarative Services, this can be requested by annotating a startup method with @Activate. For example:
+Declarative Services components can only be activated when their mandatory dependencies are available. When a component becomes eligible for activation, it may not yet be ready for use although it is injected with all of its dependencies. Components require some level of initialization after injection has finished. In Declarative Services, this can be requested by annotating a startup method with `@Activate`. For example:
 ```java
 @Component(property={/*…*/})
 public class ExampleApplianceManager implements ApplianceManagerApi
@@ -188,7 +188,7 @@ The corollary to the Activate method is the Deactivate method, which is marked u
 
 Deactivate methods should not block or steal the incoming thread as this risks deadlocking the system. Furthermore, deactivate methods should halt any threads and close any resources held by the component. Failing to do so can cause leaks in the system, as no other actor is responsible for cleaning up these resources.
 
-**Giving a specific example** - OSC plugins will often want to use a REST client to communicate with a remote resource. The REST client can be created in the activate method and closed in the deactivate method.
+For example, OSC plugins will often want to use a REST client to communicate with a remote resource. The REST client can be created in the activate method and closed in the deactivate method.
 
 ```java
 @Component(property={/*…*/})
@@ -265,16 +265,16 @@ This configuration creates a local index XML inside the same folder as the depen
 
 ### Packaging the Plugin
 
-Once the dependencies have been gathered and the index generated, it is time to package up the plugin binary.  
+Once the dependencies have been gathered and the index generated, it is time to package the plugin binary.  
 The OSC plugin packaging format looks a lot like an OSGi bundle, in that it is a zip format archive that contains a manifest with identifying metadata. The metadata identifies the location of the XML index (usually contained within the archive), and if the index is local, the archive will also contain the indexed resources.  
 The following manifest headers are defined for the plugin packaging:
-* Deployment-Name — This provides the name shown in the UI. It must also match the value provided in the [property `PLUGIN_NAME` of the plugin declaritive service](#exposing-the-service-provided-by-the-plugin).  
-* Deployment-Type — This provides the type of the plugin and should be either `SDN` or `MANAGER`.
-* Deployment-SymbolicName — This provides an identifier for the deployment.
-* Deployment-Version — This provides a version for the deployment. If not supplied, the version will default to 0.0.0
-* Index-Path — This provides a URI to the index XML that should be used when resolving the deployment. URI paths (i.e. URIs with no scheme) are relative to the root of the bundle archive. The default value for this header is `index.xml`.
-* Require-Bundle — Provides a list of bundles that should be resolved and deployed using the index. This header has the same syntax as the standard Require-Bundle header for an OSGi bundle. This list is turned into a set of OSGi requirements, and then added to the list defined by `Require-Capability`.
-* Require-Capability — Provides a list of generic capabilities that should be resolved against the index, and then deployed.
+* `Deployment-Name` — This provides the name shown in the UI. It must also match the value provided in the [property `PLUGIN_NAME` of the plugin declaritive service](#exposing-the-service-provided-by-the-plugin).  
+* `Deployment-Type` — This provides the type of the plugin and should be either `SDN` or `MANAGER`.
+* `Deployment-SymbolicName` — This provides an identifier for the deployment.
+* `Deployment-Version` — This provides a version for the deployment. If not supplied, the version will default to 0.0.0
+* `Index-Path` — This provides a URI to the index XML that should be used when resolving the deployment. URI paths (i.e. URIs with no scheme) are relative to the root of the bundle archive. The default value for this header is `index.xml`.
+* `Require-Bundle` — Provides a list of bundles that should be resolved and deployed using the index. This header has the same syntax as the standard Require-Bundle header for an OSGi bundle. This list is turned into a set of OSGi requirements, and then added to the list defined by `Require-Capability`.
+* `Require-Capability` — Provides a list of generic capabilities that should be resolved against the index, and then deployed.
 
 The following provides information as to how the plugin can be packaged using the `maven-antrun-plugin`
 
@@ -304,7 +304,7 @@ The following provides information as to how the plugin can be packaged using th
     </configuration>
 </plugin>
 ```
-Use caution if you wish to use ${project.version} in the Deployment-Version header. Most Maven release versions are compatible with OSGi version syntax, but SNAPSHOT versions are not. A simple, regular expression can fix up the version if needed. The following two examples demonstrate how to set an `osgi.version` property that works with SNAPSHOT versions.  
+Use caution if you wish to use `${project.version}` in the Deployment-Version header. Most Maven release versions are compatible with OSGi version syntax, but SNAPSHOT versions are not. A simple, regular expression can fix up the version if needed. The following two examples demonstrate how to set an `osgi.version` property that works with SNAPSHOT versions.  
 
 **MAVEN**  
 ```xml
