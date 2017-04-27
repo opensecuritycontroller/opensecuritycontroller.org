@@ -28,7 +28,7 @@ This section covers the key functionalities of OSC, followed by a conceptual arc
 ### Role of Open Security Controller
 *	**Automation and Orchestration for Virtualized Security Functions**:  OSC enables fully automated provisioning, de-provisioning, distribution and delivery of security inside the perimeter of the network for virtualized security functions such as virtual Next Gen Firewalls (vNGFW), virtualized IPS (vIPS), virtualized Web App Firewalls (vWAF) and virtualized Application Delivery Controllers (vADC) from multiple vendors.
 *	**Centralized Coordination of Security Policy across Multiple Cloud Environments**: OSC coordinates policies (using metadata like policy tags and dynamic [OSC security group](../concepts/concepts.md#security-groups) membership) across multiple virtualization and SDN environments. It is important to understand that OSC does not manage the virtualized security functions or their security policies, which are still completed by traditional element or security function manager for each function.
-*	**Abstraction for Infrastructure Interactions for Security Managers**: OSC acts as an abstraction layer for the security function managers, alleviating the need for integration into each SDN controller or virtualization infrastructure manager. OSC achieves this using [Virtualization Connectors](../concepts/concepts.md#virtualization-connectors) and [SDN Controller Plugins](../plugins/plugins.md#sdn_controller_plugin.md) via its southbound APIs.
+*	**Abstraction for Infrastructure Interactions for Security Managers**: OSC acts as an abstraction layer for the security function managers, alleviating the need for integration into each SDN controller or virtualization infrastructure manager. OSC achieves this using [Virtualization Connectors](../concepts/concepts.md#virtualization-connectors) and [SDN Controller Plugins](../plugins/sdn_controller_plugin.md) via its southbound APIs.
 *	**Dynamic Autoscale Security**: OSC automates dynamically scaling the security services based on workload requirements and configured policies.
 *	**No Vendor Lock-In**: By using a modular plugin architecture for both the security functions (example: virtualized NGFW, IPS etc.) and SDN controllers, OSC provides a vendor agnostic automation solution with a goal to avoid lock-ins using an open API model.
 *	**Policies Aligned with Application Workload**: OSC enables policies to be defined and enforced based on application workload requirements as opposed to traditional perimeter based security in virtualized datacenters.
@@ -82,7 +82,7 @@ The SDN Controller Plugins are used to interface with the networking layer/SDN c
 *	Policy Based Traffic redirection to redirect traffic for protected workload to the security virtual appliance based on policy
 *	Service Function Chaining using SDN controller API to chain multiple security virtual appliances in the traffic path
 
-View [SDN Controller Plugins](../plugins/plugins.md#sdn_controller_plugin.md) for more information.
+View [SDN Controller Plugins](../plugins/sdn_controller_plugin.md) for more information.
 
 #### Security Manager Plugins
 Using a modular Manager Plugin, OSC enables interaction with multi-vendor security function manager (example: IPS manager, NGFW manager etc.)
@@ -91,7 +91,7 @@ Using a modular Manager Plugin, OSC enables interaction with multi-vendor securi
 *	Domain/sub domain updates and mapping
 *	Propagate Security Group information and membership to the managers
 
-View the [Manager Plugins](../plugins/plugins.md#security_mgr_plugin.md) for more information.
+View the [Manager Plugins](../plugins/security_mgr_plugin.md) for more information.
 
 ## OSC Questionnaire
 **1)	Is OSC Open Source?**
