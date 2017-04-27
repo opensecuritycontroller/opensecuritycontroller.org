@@ -11,5 +11,5 @@ This documents provides basic information about OSC and the steps to install and
 
 ### Installation
 [OSC Requirements](/gettingstarted/requirements.md)  
-[Installing OSC](/gettingstarted/installling.md)  
+[Installing OSC](/gettingstarted/installing.md)  
 [Accessing OSC](/gettingstarted/accessing.md)  
