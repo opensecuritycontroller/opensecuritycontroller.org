@@ -24,4 +24,6 @@ If it is not expected gateway address: [`set network gateway`](../../references/
 
 #### Ping remote server or gateway  
 After verifying network configurations are correct, ping a remote IP address to test network connectivity by using the command:  
-**Command**: `$ ping OSC_IP_ADDRESS`
+```
+$ ping REMOTE_IP_ADDRESS
+```
