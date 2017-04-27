@@ -20,7 +20,7 @@ Security services such as IPS or next-generation firewall are intended to be dep
 ## Distributed Appliances
 A distributed appliance associates the managed security services to the virtualization environments needing protection. A distributed appliance is defined by the security service function, one or more virtualization connectors, and a single manager connector. Each relationship between the domains defined by the appliance's manager connector and each virtualization connector represents a [virtual system](#virtual-security-systems).  
 
-![Distributed Appliance](./images/distributed_appliance.png)  
+![Distributed Appliance](images/distributed_appliance.png)  
 *Distributed Appliance and Virtual Systems*  
 
 ## Deployment Specifications
