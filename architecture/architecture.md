@@ -20,7 +20,7 @@ Telecommunications providers want to reduce time to market and costs for infrast
 The Open Security Controller is designed to address these SDN/NFV security challenges by playing a role of a centralized security services orchestration tool across multiple cloud environments. It does so using a modular architecture to interface with:
 *	Multi-vendor virtualized security function managers ([Security Manager Plugins](/plugins/security_mgr_plugin.md))
 *	Multi-vendors SDN controllers ([SDN Controller Plugins](/plugins/sdn_controller_plugin.md))
-*	Virtualization infrastructure Managers ([Virtualization Connectors](/concepts/concepts.md#virtualization-connectors))
+*	Virtualization infrastructure Managers ([Virtualization Connectors](/concepts/concepts.md#user-content-virtualization-connectors))
 
 ## Architecture Overview
 This section covers the key functionalities of OSC, followed by a conceptual architecture of how OSC fits in as a centralized orchestration solution for security services across multiple datacenters.
