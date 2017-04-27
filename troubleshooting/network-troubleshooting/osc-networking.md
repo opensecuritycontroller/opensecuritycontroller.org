@@ -22,4 +22,4 @@ If it is not expected gateway address change gateway address [set network gatewa
 
 ***Ping remote server or gateway***  
 After verifying network configurations are correct, ping a remote IP address to test network connectivity by using the command  
-**Command**: `C>ping REMOTE_IP_ADDRESS`
+$ ping REMOTE_IP_ADDRESS
