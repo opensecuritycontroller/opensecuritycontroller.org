@@ -1,4 +1,4 @@
-,# SDN Controllers
+# SDN Controllers
 
 The Open Source Controller (OSC) SDN Plugin SDK contains the set of APIs that define the functionality OSC expects from an SDN controller. 
 OSC communicates with the SDN controller through these interfaces to implement traffic redirection and notify the SDN layer of network changes.  
