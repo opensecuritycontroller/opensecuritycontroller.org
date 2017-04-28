@@ -1,11 +1,11 @@
 # Troubleshoot OSC Network Issues  
 This procedure explains how to troubleshoot failures when [accessing OSC](../../gettingstarted/accessing.md) using the OSC CLI or web application. If the OSC IP address is not configured according to the local networking requirements, network issues might occur.  
 ## Accessing OSC Console  
-Access OSC console when troubleshooting network issues. OSC console access in VMWare and Openstack environments are shown below:
+Access OSC console when troubleshooting network issues. OSC console access in VMware and OpenStack environments are shown below:
 
-### VMWare Deployments  
-For OSC installed on VMware, access the ESXi host by using the native vSphere desktop application or the vSphere web client. 
-Right-click on the Virtual machine and select **Open Console**.
+### VMware Deployments  
+For OSC installed on VMware, access the ESXi host by using the native vSphere desktop application or the vSphere Web Client. 
+Right-click on the virtual machine and select **Open Console**.
 
 ### OpenStack Deployments ###  
 For OSC installation on OpenStack, go to the **Instances**` page on OpenStack Horizon, select the OSC instance to troubleshoot, and then select **Console**.  
@@ -16,13 +16,13 @@ After a successful login, use the CLI prompt to check and configure the network 
 
 #### OSC IP Address and Netmask  
 Check IP configuration on the OSC management port:   [`show network ip`](../../references/cli.md/#show-network-ip)  
-If it is not an expected IP address or netmask change ip-address:  [`set network ip`](../../references/cli.md/#set-network-ip)  
+If the expected IP address and netmask are not shown, configure the IP address:  [`set network ip`](../../references/cli.md/#set-network-ip)  
 
 #### Gateway Address  
-Check network route to view the default gateway IP:  [`show network route`](../../references/cli.md/#show-network-route)  
-If it is not expected gateway address: [`set network gateway`](../../references/cli.md/#set-network-gateway)  
+Check network route to view the default gateway IP address:  [`show network route`](../../references/cli.md/#show-network-route)  
+If the expected gateway address is not shown, configure the gateway address: [`set network gateway`](../../references/cli.md/#set-network-gateway)  
 
-#### Ping remote server or gateway  
+#### Test Connection 
 After verifying network configurations are correct, ping a remote IP address to test network connectivity by using the command:  
 ```
 $ ping REMOTE_IP_ADDRESS
