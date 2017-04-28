@@ -9,7 +9,7 @@ In addition to supporting manager plugins, OSC also exposes REST endpoints for m
 ## Security Manager Plugin SDK
 
 ### Manager Information
-This is the main entry point for all interactions with the security manager. It provides a way for OSC to instantiate the other manager APIs and basic information like:
+This is the main entry point for all interactions with the security manager. It provides a way for OSC to instantiate the other manager APIs and basic information:
 
 * The type of supported authentication.
 * Manager console URL.
@@ -20,7 +20,7 @@ This is the main entry point for all interactions with the security manager. It 
 ### Notifications
 * **Manager Notifications**
 
-The notification APIs allow OSC to subscribe to receive notifications from the manager for any changes made by the customer or the manager. For example, a created/updated policy or an added/modified domain.  
+The notification APIs allow OSC to subscribe to receive notifications from the manager for any changes made by the customer or the manager. An example would be notification of a created/updated policy or an added/modified domain.  
 OSC supports the following subscription types:
 
  * Notifications over a web socket connection established by OSC.
