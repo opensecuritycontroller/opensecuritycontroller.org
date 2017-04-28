@@ -1,25 +1,29 @@
-#Troubleshoot OSC Network Issues  
-This procedure explains how to troubleshoot failures when connecting to OSC using OSC command line or Web Client. If the OSC IP address is not configured according to the local networking requirements network issues might occur.  
+# Troubleshoot OSC Network Issues  
+This procedure explains how to troubleshoot failures when [accessing OSC](../../gettingstarted/accessing.md) using the OSC CLI or web application. If the OSC IP address is not configured according to the local networking requirements, network issues might occur.  
 ## Accessing OSC Console  
-Access OSC console when trouble shooting network issues.OSC console access in VMWare and Openstack environments are shown below.
-###VMWare Deployments  
-For OSC installed on VMware, access the ESXi host by using the native vSphere desktop application or the vSphere web client. 
-Right click on the Virtual machine and select `Open Console`.
-###OpenStack Deployments  
-For OSC installation on OpenStack go to the `Instances` page on OpenStack Horizon, select `OSC instance` and select `Console`.  
+Access OSC console when troubleshooting network issues. OSC console access in VMware and OpenStack environments are shown below:
 
-##IP Configuration Check
-At the login screen on the console enter the credentials. For credentials contact OSC system administrator.  
-After login successfully, use the CLI prompt to check and configure the network using following IP parameters:  
+### VMware Deployments  
+For OSC installed on VMware, access the ESXi host by using the native vSphere desktop application or the vSphere Web Client. 
+Right-click on the virtual machine and select **Open Console**.
 
-***OSC IP Address and Netmask***  
-Check IP configuration on the OSC management port:   [show network ip](../../references/cli.md/#show-network-ip)  
-If it is not an expected IP address or netmask change ip-address  [set network ip](../../references/cli.md/#set-network-ip)  
+### OpenStack Deployments ###  
+For OSC installation on OpenStack, go to the **Instances**` page on OpenStack Horizon, select the OSC instance to troubleshoot, and then select **Console**.  
 
-***Gateway Address***  
-Check network route to view the default gateway ip  [show network route](../../references/cli.md/#show-network-route)  
-If it is not expected gateway address change gateway address [set network gateway](../../references/cli.md/#set-network-gateway)  
+## IP Configuration Check ##
+Enter the credentials at the login screen on the console. Contact OSC system administrator for credentials.  
+After a successful login, use the CLI prompt to check and configure the network using the following IP parameters:  
 
-***Ping remote server or gateway***  
-After verifying network configurations are correct, ping a remote IP address to test network connectivity by using the command  
-**Command**: `C>ping REMOTE_IP_ADDRESS`
+#### OSC IP Address and Netmask  
+Check IP configuration on the OSC management port:   [`show network ip`](../../references/cli.md/#show-network-ip)  
+If the expected IP address and netmask are not shown, configure the IP address:  [`set network ip`](../../references/cli.md/#set-network-ip)  
+
+#### Gateway Address  
+Check network route to view the default gateway IP address:  [`show network route`](../../references/cli.md/#show-network-route)  
+If the expected gateway address is not shown, configure the gateway address: [`set network gateway`](../../references/cli.md/#set-network-gateway)  
+
+#### Test Connection 
+After verifying network configurations are correct, ping a remote IP address to test network connectivity by using the command:  
+```
+$ ping REMOTE_IP_ADDRESS
+```
