@@ -7,7 +7,7 @@
 	* Experience with managing and using dependencies in Java.
 	* Experience Object Oriented designing and coding.
 2. OSGi framework:
-	* Although this document provides details on OSGi plugin creation, previous framework experience is helpful. 
+	* Although this document provides details on OSC plugin creation with respect to OSGi, framework experience is helpful. 
 3. Computer Networking:
 	* Knowledge of IP address, DNS and NAT environment.
 	* Understanding of web communication.
@@ -23,11 +23,11 @@ This guide describes how to develop and assemble an OSC plugin using Maven, Ecli
 
 
 ## Creating a Maven Project
-Like the creation of a JAR file, OSGi bundles can be easily created using a standard Maven project. It is important to note that the project needs to add a build plugin to generate the necessary OSGi metadata. Plugin implementors can therefore begin by creating a simple maven project. In the following example, we assume that the plugin project has the group id org.osc.example, and the artifact id `example-manager-impl`.
+Like the creation of a JAR file, OSGi bundles can be easily created using a standard Maven project. It is important to note that the project needs to add a build plugin to generate the necessary OSGi metadata. In the following example, we assume that the plugin project has the group id org.osc.example, and the artifact id `example-manager-impl`.
 
 ### The bnd-maven-plugin
 The bnd-maven-plugin uses the bnd library to generate an OSGi manifest for your Maven project. It will also generate other OSGi metadata, such as Declarative Services component descriptors.  
-Adding the bnd-maven-plugin to your project is simple. By default, the plugin binds to the process classes lifecycle phase of your build using the following configuration:  
+ Adding the bnd-maven-plugin to your project is simple. By default, the plugin binds to the process classes lifecycle phase of your build using the following configuration:  
 ```xml
 <plugin>
     <groupId>biz.aQute.bnd</groupId>
@@ -59,7 +59,7 @@ The bnd-maven-plugin accepts further configuration from a bnd.bnd file, or is in
 In addition to using the bnd-maven-plugin, it is important to use caution when scoping the dependencies for your OSGi bundle project. In many Maven builds, large numbers of project dependencies are added with no thought for the scope at which they should be included.  
 Correctly scoping a dependency is a relatively simple process, and can be accomplished by the following the steps below:  
 
-1. Is the dependency for an API provided by the platform as in the example of the OSGi framework API, or the OSC plugin API? If yes, then the scope is `provided`.
+1. Is the dependency for an API provided by the platform, such as in the example of the OSGi framework API, or the OSC plugin API? If yes, then the scope is `provided`.
 2. Is the dependency going to be repackaged inside the bundle being built by this project? If yes, then the scope is `provided`.
 3. Is the dependency for a build-time annotation (e.g. OSGi’s @Component)? If yes, then the scope is `provided`.
 4. Is the dependency for a service or specification implementation that is needed at runtime? If yes, then the scope is `runtime`.
@@ -110,7 +110,7 @@ public class ExampleApplianceManager implements ApplianceManagerApi
 }
 ```
 
-The interface would be `SdnControllerApi`for the an SDN controller plugin. 
+The interface would be `SdnControllerApi`for an SDN controller plugin.
 
 
 The various methods of the API should be completed as appropriate, and will likely involve creating other classes that implement parts of the OSC SDK.  
@@ -130,7 +130,7 @@ Declarative Services descriptors can be written by hand, but the simplest way to
 ```
 Note that the annotations are pulled in as a `provided` scope dependency because they are for build-time processing only (step 3 of the scope selection process).
 
-Once the Declarative Services Annotations are available, you can annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. Note that because the implementation directly implements an interface, it will automatically be registered as an OSGi service using this interface. You also need to include all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](security_mgr_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
+Once the Declarative Services Annotations are available, you can annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. Note that because the implementation directly implements an interface, it will automatically be registered as an OSGi service using this interface. You also need to include all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](security_mgr_plugin.md#plugin-properties)  and [SDN Controller Plugin Properties](sdn_controller_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
 
 
 ```java
@@ -160,7 +160,7 @@ A Declarative Services XML descriptor will be generated and added to the bundle 
 Note that as of the current specification (Declarative Services 1.3), a component must have a no-argument constructor.  
 
 ### Startup and Shutdown
-Declarative Services components can only be activated when their mandatory dependencies are available. When a component becomes eligible for activation, it may not yet be ready for use although it is injected with all of its dependencies. Components require some level of initialization after injection has finished. In Declarative Services, this can be requested by annotating a startup method with `@Activate`. For example:
+Declarative Services components can only be activated when their mandatory dependencies are available. When a component becomes eligible for activation, it may not yet be ready for use although it is injected with all of its dependencies. Components may require some level of initialization after injection has finished. In Declarative Services, this can be requested by annotating a startup method with `@Activate`. For example:
 ```java
 @Component(property={/*…*/})
 public class ExampleApplianceManager implements ApplianceManagerApi
