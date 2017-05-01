@@ -5,7 +5,7 @@
 ### Development Skills
 1. Java (J2SE) development:
 	* Experience with managing and using dependencies in Java.
-	* Experience Object Oriented designing and coding.
+	* Experience with Object Oriented design and code.
 2. OSGi framework:
 	* Although this document provides details on OSC plugin creation with respect to OSGi, framework experience is helpful. 
 3. Computer Networking:
