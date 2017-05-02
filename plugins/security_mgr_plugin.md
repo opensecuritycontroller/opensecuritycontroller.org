@@ -155,7 +155,7 @@ applianceName=IPS-353-257
 The above is just a sample. The manager should be able to provide us with any information which it expects to be present in the seed file so it can initialize itself and be able to contact its manager.  
 
 ## Packaging An Appliance
-In order for appliance images to be imported in OSC, they must be packaged as a *zip* file along with a descriptor file containing information in `json' format:  
+In order for appliance images to be imported in OSC, they must be packaged as a ZIP file along with a descriptor file containing information in JSON format:  
 
 ![](./images/image_pack.png)  
 *Packaging an Appliance Image For OpenStack*
