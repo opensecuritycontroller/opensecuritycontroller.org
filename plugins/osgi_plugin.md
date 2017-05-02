@@ -27,7 +27,7 @@ Like the creation of a JAR file, OSGi bundles can be easily created using a stan
 
 ### The bnd-maven-plugin
 The bnd-maven-plugin uses the bnd library to generate an OSGi manifest for your Maven project. It will also generate other OSGi metadata, such as Declarative Services component descriptors.  
- Adding the bnd-maven-plugin to your project is simple. By default, the plugin binds to the process-classes lifecycle phase of your build using the following configuration:  
+Adding the bnd-maven-plugin to your project is simple. By default, the plugin binds to the process-classes lifecycle phase of your build using the following configuration:  
 ```xml
 <plugin>
     <groupId>biz.aQute.bnd</groupId>
@@ -128,7 +128,7 @@ Declarative Services descriptors can be written by hand, but the simplest way to
     <scope>provided</scope>
 </dependency>
 ```
-Note that the annotations are pulled in as a `provided` scope dependency because they are for build-time processing only (step 3 of the scope selection process).
+>Note: The annotations are pulled in as a `provided` scope dependency because they are for build-time processing only (step 3 of the scope selection process).
 
 Once the Declarative Services annotations are available, you can annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. 
 >Note: Because the implementation directly implements an interface, it will automatically be registered as an OSGi service using this interface. You also need to include all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](security_mgr_plugin.md#plugin-properties)  and [SDN Controller Plugin Properties](sdn_controller_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
@@ -231,7 +231,7 @@ To generate a local index for the OSC plugin, it is necessary to gather the plug
 </plugin>
 ```
 
-Note that this task has been configured to put all of the compile and runtime dependencies in the `plugin` sub-folder of the build output. This collection step is a key reason why dependency scopes must be carefully managed. 
+>Note: This task has been configured to put all of the compile and runtime dependencies in the `plugin` sub-folder of the build output. This collection step is a key reason why dependency scopes must be carefully managed. 
 We must also make sure to add our plugin implementation project as a dependency so that the maven-dependency-plugin has some dependencies to gather: 
 ```xml
 <dependency>
