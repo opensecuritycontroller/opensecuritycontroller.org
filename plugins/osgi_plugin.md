@@ -27,11 +27,11 @@ Like the creation of a JAR file, OSGi bundles can be easily created using a stan
 
 ### The bnd-maven-plugin
 The bnd-maven-plugin uses the bnd library to generate an OSGi manifest for your Maven project. It will also generate other OSGi metadata, such as Declarative Services component descriptors.  
- Adding the bnd-maven-plugin to your project is simple. By default, the plugin binds to the 'process-classes' lifecycle phase of your build using the following configuration:  
+ Adding the bnd-maven-plugin to your project is simple. By default, the plugin binds to the process-classes lifecycle phase of your build using the following configuration:  
 ```xml
 <plugin>
     <groupId>biz.aQute.bnd</groupId>
-    <artifactId>bnd-maven-plugin</artifactId>
+    <artifactId>bnd-maven-plugin</artifactId>
     <executions>
         <execution>
             <goals>
@@ -45,7 +45,7 @@ Due to a bug in current versions of the maven-jar, Maven builds do not include m
 ```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>'maven-jar-plugin'</artifactId>
+    <artifactId>maven-jar-plugin</artifactId>
     <configuration>
         <archive>
             <manifestFile>${project.build.outputDirectory}/METAINF/MANIFEST.MF</manifestFile>
@@ -53,7 +53,7 @@ Due to a bug in current versions of the maven-jar, Maven builds do not include m
     </configuration>
 </plugin>
 ```
-The bnd-maven-plugin accepts further configuration from a bnd.bnd file, or is included directly in the pom as CDATA. The use of a bnd.bnd file is preferred, as the Bndtools plugin provides a convenient editor and additional validation. If no special configuration instructions are needed, no bnd file needs to be created. 
+The bnd-maven-plugin accepts further configuration from a bnd.bnd file, or is included directly in the POM file as CDATA. The use of a bnd.bnd file is preferred, as the Bndtools plugin provides a convenient editor and additional validation. If no special configuration instructions are needed, no bnd file needs to be created. 
 
 ### Setting up Maven Dependencies
 In addition to using the bnd-maven-plugin, it is important to use caution when scoping the dependencies for your OSGi bundle project. In many Maven builds, large numbers of project dependencies are added with no thought for the scope at which they should be included.  
