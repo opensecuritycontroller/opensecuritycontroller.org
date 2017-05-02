@@ -9,7 +9,7 @@
 2. OSGi framework:
 	* While this document provides a lot of details on how to create and build a plugin with respect to OSGi, having previous experience with that framework can greatly help. 
 3. Computer Networking:
-	* Knowledge of IP address, DNS and NAT environment
+	* Knowledge of IP address, DNS and NAT environment.
 	* Understanding of web communication.
 4.	REST APIs.
 	* Implementation and consumption of REST APIs.
