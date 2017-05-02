@@ -95,7 +95,7 @@ For **SDN Controller** plugins:
 </dependency>
 ```
 
-Note that the API dependency is pulled in as a `provided` scope dependency because the SDK should be provided by the OSC server (step 1 of the scope selection process) at runtime.  
+>Note: The API dependency is pulled in as a `provided` scope dependency because the SDK should be provided by the OSC server (step 1 of the scope selection process) at runtime.  
 The manager plugin implementation can be created automatically in the IDE, and will appear similar to the following:  
 ``` java
 public class ExampleApplianceManager implements ApplianceManagerApi
@@ -130,7 +130,8 @@ Declarative Services descriptors can be written by hand, but the simplest way to
 ```
 Note that the annotations are pulled in as a `provided` scope dependency because they are for build-time processing only (step 3 of the scope selection process).
 
-Once the Declarative Services Annotations are available, you can annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. Note that because the implementation directly implements an interface, it will automatically be registered as an OSGi service using this interface. You also need to include all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](security_mgr_plugin.md#plugin-properties)  and [SDN Controller Plugin Properties](sdn_controller_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
+Once the Declarative Services annotations are available, you can annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. 
+>Note: Because the implementation directly implements an interface, it will automatically be registered as an OSGi service using this interface. You also need to include all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](security_mgr_plugin.md#plugin-properties)  and [SDN Controller Plugin Properties](sdn_controller_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
 
 
 ```java
@@ -157,7 +158,7 @@ For an **SDN Controller** plugin:
 `@Component(scope=ServiceScope.PROTOTYPE, property={/*…*/})`
 
 A Declarative Services XML descriptor will be generated and added to the bundle when building.  
-Note that as of the current specification (Declarative Services 1.3), a component must have a no-argument constructor.  
+>Note: As of the current specification (Declarative Services 1.3), a component must have a no-argument constructor.  
 
 ### Startup and Shutdown
 Declarative Services components can only be activated when their mandatory dependencies are available. When a component becomes eligible for activation, it may not yet be ready for use although it is injected with all of its dependencies. Components may require some level of initialization after injection has finished. In Declarative Services, this can be requested by annotating a startup method with `@Activate`. For example:
