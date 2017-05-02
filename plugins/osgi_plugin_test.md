@@ -33,8 +33,8 @@ public class ExampleApplianceManagerTest
 OSGi integration testing differs from unit testing, in that it occurs inside an OSGi framework. OSGi integration testing is used to validate that bundles interact correctly with the OSGi framework, and with other OSGi bundles and services.  
 OSGi integration tests differ from unit tests, in that they do not normally test low level functionality. Integration tests typically perform high-level verification of functions, for example validating that expected services are registered and retrievable. Integration tests are typically defined in a separate Maven project from the bundle they are testing. There are two main ways to run OSGi integration tests:
 
-* OSGi Testing Using The bnd-testing-maven-plugin
-* OSGi Testing Using PAX-Exam
+* OSGi Testing Using The `bnd-testing-maven-plugin`
+* OSGi Testing Using PAX Exam
 
 ### OSGi Testing Using The bnd-testing-maven-plugin
 Bndtools and the bnd library have offered in framework integration tests using JUnit for many years however, these features were only available in Ant and Gradle builds. In the latest SNAPSHOT releases, bnd has added Maven integration testing support with the `bnd-testingmaven-plugin`.  
@@ -195,7 +195,7 @@ public class ExampleApplianceManagerIntegrationTest
 }
 ```
 
-### Comparing the bnd-testing-maven-plugin and Pax Exam  
+### Comparing the `bnd-testing-maven-plugin`  and Pax Exam  
 Both the `bnd-testing-maven-plugin` and Pax Exam are powerful tools for running OSGi integration tests in Maven, and either can be used successfully as part of an automated testing infrastructure. There are however, some significant advantages and disadvantages to each approach.  
 The `bnd-testing-maven-plugin` is comparatively new, and does not have a formal release yet however, it is based on a long-standing test runner from the bnd project, and has support in existing versions of Bndtools. Bnd also has the advantage that it supports dependency resolving.  
 This can be used to ensure that all of the bundle metadata is correct, and it avoids having to manually maintain a list of dependencies. Finally, because bnd separates out the framework launch configuration into a separate bndrun file, the test code is cleaner and easier to read. 
@@ -212,7 +212,7 @@ This definition includes:
 
 There are two main options for defining repositories in a plugin build:
 
-**USING A MAVEN POM FILE**
+**Using the Maven POM File**
 ```
 -standalone:
 -plugin.testing = \
@@ -224,7 +224,7 @@ name=Running; \
 location=${.}/target/cached.xml
 ```
 
-**USING A GENERATED PLUGIN INDEX**
+**Using a Generated Plugin Index**
 ```
 -standalone: ${.}/target/plugin/index.xml;name=Running
 ```
