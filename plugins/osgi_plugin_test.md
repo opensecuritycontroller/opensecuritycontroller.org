@@ -212,7 +212,7 @@ This definition includes:
 
 There are two main options for defining repositories in a plugin build:
 
-**USING A MAVEN POM**
+**USING A MAVEN POM FILE**
 ```
 -standalone:
 -plugin.testing = \
@@ -248,7 +248,7 @@ Before resolving, it is also a good idea to enable active time resolution. This 
 -resolve.effective: resolve, active
 ```
 
-The Bndtools resolve operation will then validate that the included repositoryies include the right dependencies to allow the application to run. If so, a list of run bundles is generated and added to the bndrun file. Once a list of run bundles has been added, the bndrun can be launched inside the Bndtools IDE.
+The Bndtools resolve operation will then validate that the included repositories include the right dependencies to allow the application to run. If so, a list of run bundles is generated and added to the bndrun file. Once a list of run bundles has been added, the bndrun can be launched inside the Bndtools IDE.
 
 ### Additional Utilities
 When running inside the IDE, it can be useful to include some additional run requirements for debugging tools. These can be separated from the main run requirements by adding them as a second set of run requirements with a suffix.
