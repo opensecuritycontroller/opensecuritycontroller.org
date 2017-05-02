@@ -14,7 +14,7 @@ The first step towards developing OSC plugins is to download OSC dependencies co
 You can download the SDKs directly from the OSC web UI:
 
 1. Login to OSC web UI.
-2. Navigate to Manage -> Plugins.
+2. Navigate to **Manage** -> **Plugins**.
 3. Download the plugin SDK:
 	* For the SDN Controller Plugins SDK:  
 		Select the **SDN Controller Plugins** tab.  
