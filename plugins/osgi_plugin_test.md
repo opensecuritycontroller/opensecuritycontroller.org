@@ -206,7 +206,7 @@ This definition includes:
 
 In a plugin build there are two main options for defining repositories:
 
-**USING A MAVEN POM**
+**USING A MAVEN POM FILE**
 ```
 -standalone:
 -plugin.testing = \
@@ -223,7 +223,7 @@ location=${.}/target/cached.xml
 -standalone: ${.}/target/plugin/index.xml;name=Running
 ```
 
-> Note that the Bndtools UI can provide help when referencing a generated index  
+> Note: The Bndtools UI can provide help when referencing a generated index.  
 
 Once the repository(ies) that you want to use have been defined then an OSGi framework and Java platform version can be selected using the Bndtools UI:
 ```
