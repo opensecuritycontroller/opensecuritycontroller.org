@@ -33,8 +33,8 @@ public class ExampleApplianceManagerTest
 OSGi integration testing differs from unit testing, in that it occurs inside an OSGi framework. OSGi integration testing is used to validate that bundles interact correctly with the OSGi framework, and with other OSGi bundles and services.  
 OSGi integration tests differ from unit tests, in that they do not normally test low level functionality. Integration tests typically perform high-level verification of functions, for example validating that expected services are registered and retrievable. Integration tests are typically defined in a separate Maven project from the bundle they are testing. There are two main ways to run OSGi integration tests:
 
-"OSGi Testing Using The `bnd-testing-maven-plugin'"
-"OSGi testing using PAX Exam"
+* OSGi Testing Using The `bnd-testing-maven-plugin'
+* OSGi testing using PAX Exam
 
 ### OSGi Testing Using The bnd-testing-maven-plugin
 Bndtools and the bnd library have offered in framework integration tests using JUnit for many years however, these features were only available in Ant and Gradle builds. In the latest SNAPSHOT releases, bnd has added Maven integration testing support with the `bnd-testingmaven-plugin`.  
