@@ -1,4 +1,8 @@
-# OSC Plugins
+# Plugins
+
+Learn how to take advantage of OSC's plugin model to it integrate with SDN controller and security managers.
+
+***
 
 The OSC plugin model allows integration with VNF security managers and the SDN layer of the virtualized environment.  OSC defines two distinct plugins: 
 

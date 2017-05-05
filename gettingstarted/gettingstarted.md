@@ -1,15 +1,9 @@
 # Getting Started
 
-***
-This documents provides basic information about OSC and the steps to install and setup the product.
+New to OSC? Start here to learn how to install and access OSC.
 
-### Overview
+#### [Requirements for Using OSC](/gettingstarted/requirements.md) 
 
-[OSC Overview](/gettingstarted/overview.md)
+#### [Installing the OSC Virtual Appliance](/gettingstarted/installing.md) 
 
-
-
-### Installation
-[OSC Requirements](/gettingstarted/requirements.md)  
-[Installing OSC](/gettingstarted/installing.md)  
-[Accessing OSC](/gettingstarted/accessing.md)  
+#### [Accessing the OSC Service](/gettingstarted/accessing.md) 

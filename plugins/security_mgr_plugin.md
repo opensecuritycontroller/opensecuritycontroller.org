@@ -1,10 +1,9 @@
 # VNF Security Managers
-The OSC Manager Plugin SDK contains the set of APIs that define the functionality OSC expects from a VNF security manager.  
-OSC communicates with the security manager through these interfaces to implement its orchestration and management capabilities.  
-In addition to supporting manager plugins, OSC also exposes REST endpoints for managers to call back in order to send notifications and query information.  
+
+The OSC Manager Plugin SDK contains the set of APIs that define the functionality OSC expects from a VNF security manager. OSC communicates with the security manager through these interfaces to implement its orchestration and management capabilities. In addition to supporting manager plugins, OSC also exposes REST endpoints for managers to call back in order to send notifications and query information.  
 
 ![](images/osc_mgr.png)  
-*OSC and VNF Security Manager*
+*OSC and VNF Security Manager*  
 
 ## Security Manager Plugin SDK
 
@@ -18,7 +17,8 @@ This is the main entry point for all interactions with the security manager. It 
 
 
 ### Notifications
-* **Manager Notifications**
+
+#### Manager Notifications
 
 The notification APIs allow OSC to subscribe to receive notifications from the manager for any changes made by the customer or the manager. An example would be notification of a created/updated policy or an added/modified domain.  
 OSC supports the following subscription types:
@@ -28,7 +28,7 @@ OSC supports the following subscription types:
 
 The plugin implementation can choose to use either of the mechanisms or choose to not implement any notification.
 
-* **OSC Jobs Notification** 
+#### OSC Jobs Notification  
 
 OSC can also provide notifications to the manager for actions which the manager wants to track. OSC provides jobs and tasks notifications to the manager.  
 For example, if the manager needs to propagate a signature file to some devices and wants to track the status of that action (job), then OSC would use the jobs notification APIs to inform the manager about the progress and success/failure of that job.

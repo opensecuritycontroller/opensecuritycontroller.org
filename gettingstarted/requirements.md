@@ -1,5 +1,4 @@
-
-## OSC Requirements  
+# Requirements for Using OSC  
 
 The success of OSC relies on communication to and from other services including an SDN controller, a virtualization provider such as OpenStack, and a security manager. 
 
