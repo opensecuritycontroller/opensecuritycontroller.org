@@ -14,7 +14,7 @@ The plugin must provide information regarding the availability of the SDN contro
 The plugin must implement interfaces to allow for providing connectivity information like the SDN controller IP address, credentials, region, etc.
 
 ### Network Elements
-Network elements are entities used by OSC to define [inspection hooks](#inspection-hooks). They contain information like IP addresses and MAC addresses and can correspond to various network entities like ports or port groups.  
+Network elements are entities used by OSC to define [inspection hooks](#user-content-inspection-hooks). They contain information like IP addresses and MAC addresses and can correspond to various network entities like ports or port groups.  
 This set of APIs comprises CRUD operations for network elements.
 
 ### Inspection Hooks
@@ -22,4 +22,4 @@ Inspection hooks are used by OSC to create, update, or delete traffic redirectio
 This set of APIs comprises CRUD operations for inspection books.
 
 ### Plugin Properties
-In addition to the functionalities mentioned above, this SDK also specificies a set of required properties that must be provided when [registering the plugin implementation as an OSGi service](osgi_plugin.md#exposing-the-service-provided-by-the-plugin). These properties will be used by OSC to identify and correctly use the plugin.  For more details and the full list of required properties, see the `javadoc` of the interface `org.osc.sdk.controller.api.SdnControllerApi` defined by this SDK.  
+In addition to the functionalities mentioned above, this SDK also specificies a set of required properties that must be provided when [registering the plugin implementation as an OSGi service](/plugins/osgi_plugin.md#user-content-exposing-the-service-provided-by-the-plugin). These properties will be used by OSC to identify and correctly use the plugin.  For more details and the full list of required properties, see the `javadoc` of the interface `org.osc.sdk.controller.api.SdnControllerApi` defined by this SDK.  
