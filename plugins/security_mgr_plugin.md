@@ -40,7 +40,7 @@ These APIs allow OSC to manage the devices on the VNF manager. The functionality
 * CRUD operations for devices.
 * Check version validity for appliance upgrades or downgrades. 
 * Retrieve device status.  
-* Retrieve device bootstrap information. For more details, see [Bootstrapping An Appliance](#bootsrapping-an-appliance)
+* Retrieve device bootstrap information. For more details, see [Bootstrapping An Appliance](#user-content-bootsrapping-an-appliance)
 
 ### Policy Mapping
 This set of APIs is used by OSC to perform CRUD operations on policy-tag(VLAN) mapping within the context of a device container.  

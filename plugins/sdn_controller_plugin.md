@@ -14,7 +14,7 @@ The plugin must provide information regarding the availability of the SDN contro
 The plugin must implement interfaces to allow for providing connectivity information like the SDN controller IP address, credentials, region, etc.
 
 ### Network Elements
-Network elements are entities used by OSC to define [inspection hooks](#inspection-hooks). They contain information like IP addresses and MAC addresses and can correspond to various network entities like ports or port groups.  
+Network elements are entities used by OSC to define [inspection hooks](#user-content-inspection-hooks). They contain information like IP addresses and MAC addresses and can correspond to various network entities like ports or port groups.  
 This set of APIs comprises CRUD operations for network elements.
 
 ### Inspection Hooks

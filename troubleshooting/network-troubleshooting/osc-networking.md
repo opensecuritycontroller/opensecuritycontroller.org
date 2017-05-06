@@ -8,12 +8,12 @@ For OSC installed on VMware, access the ESXi host by using the native vSphere de
 Right-click on the virtual machine and select **Open Console**.
 
 #### OSC IP Address and Netmask  
-Check IP configuration on the OSC management port:   [`show network ip`](/references/cli.md/#show-network-ip)  
-If the expected IP address and netmask are not shown, configure the IP address:  [`set network ip`](/references/cli.md/#set-network-ip)  
+Check IP configuration on the OSC management port:   [`show network ip`](/references/cli.md/#user-content-show-network-ip)  
+If the expected IP address and netmask are not shown, configure the IP address:  [`set network ip`](/references/cli.md/#user-content-set-network-ip)  
 
 #### Gateway Address  
 Check network route to view the default gateway IP address:  [`show network route`](/references/cli.md/#show-network-route)  
-If the expected gateway address is not shown, configure the gateway address: [`set network gateway`](/references/cli.md/#set-network-gateway)  
+If the expected gateway address is not shown, configure the gateway address: [`set network gateway`](/references/cli.md/#user-content-set-network-gateway)  
 
 #### Test Connection 
 After verifying network configurations are correct, ping a remote IP address to test network connectivity by using the command:  

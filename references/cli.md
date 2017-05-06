@@ -170,7 +170,7 @@ Reconfigures a static or dynamic IPv4 address for the OSC appliance. If it is a 
 
 **Notes**:
 * The SSH client will need to be closed and another session with the new IP address will need to be opened.
-* The OSC server may need to be started using [`server start`](#server-start).
+* The OSC server may need to be started using [`server start`](#user-content-server-start).
 * The configured IP address is displayed in the **Summary** page of OSC web application.
 * You can also configure the IP address from the **Network Settings** page of OSC web application.
 
@@ -188,7 +188,7 @@ Configures Network Time Protocol (NTP) servers as the time source for the OSC ap
 **Notes**:
 * To remove any existing NTP servers, use the command without any parameters: `set network ntp`.
 * If the hostname of NTP servers is specified, a name server must be configured for OSC appliance to resolve the hostname.
-* To view the currently configured NTP server details, use [`show network ntp`](#show-network-ntp) command.
+* To view the currently configured NTP server details, use [`show network ntp`](#user-content-show-network-ntp) command.
 
 ## set passwd
 Changes the logon password for the OSC appliance. It prompts for the old password and then prompts for a new password. A password must contain at least eight characters and can consist of any alphanumeric character or symbol. This command only changes the password to access OSC through the CLI and not through the OSC web application.
@@ -212,7 +212,7 @@ All parameters are mandatory.
 **Example**: `set time 013006302014`  
 This sets the time to Thursday, January 30, 06:30:00 2014
 
-To view the current time on the OSC appliance, use the [`show clock`](#show-clock) command or the **Summary** page on the OSC web application.
+To view the current time on the OSC appliance, use the [`show clock`](#user-content-show-clock) command or the **Summary** page on the OSC web application.
 
 ## set timesync
 If OSC is deployed in a VMware environment, this command sets the status of VMware time synchronization. The status can either be `enabled` or `disabled`. When it is `enabled`, VMware periodically syncs the time of the host to the time of the guest operating system.
@@ -230,7 +230,7 @@ Sets the time zone on the OSC appliance.
 4. Enter the number corresponding to the time zone you want to select. For example, select 21 to set to Pacific time.  
 5. Press 1 to confirm or 2 to cancel the operation.  
 
-You can use [`show clock`](#show-clock) command or the **Summary** page on the OSC web application to check the current time zone on OSC.
+You can use [`show clock`](#user-content-show-clock) command or the **Summary** page on the OSC web application to check the current time zone on OSC.
 
 ## show arp
 Displays the current Address Resolution Protocol (ARP) entries on the OSC appliance.
@@ -285,7 +285,7 @@ Displays the IP addresses of the currently configured name servers
 
 **Notes**:
 * The **Network Settings** page on the OSC web application displays the name servers.
-* To configure the name servers, use the [`set network dns`](#set-network-dns) command or the **Network Settings** page on the OSC web application.
+* To configure the name servers, use the [`set network dns`](#user-content-set-network-dns) command or the **Network Settings** page on the OSC web application.
 
 ## show network domain
 Displays the network domain to which you have added OSC.
@@ -313,7 +313,7 @@ Displays the IP addresses or the host names of the Network Time Protocol (NTP) s
 
 **Syntax**: `show network ntp`
 
-To configure NTP server details, use [`set network ntp`](#set-network-ntp) command.
+To configure NTP server details, use [`set network ntp`](#user-content-set-network-ntp) command.
 
 ## show network route
 Displays the routes configured on the OSC appliance.
@@ -354,7 +354,7 @@ If OSC is deployed in a VMware environment, this command displays the version an
 **Syntax**: `show vmware`
 
 ## shutdown
-Halts the OSC appliance and powers it off without confirmation. The OSC server may need to be started after this command using [`server start`](#server-start).
+Halts the OSC appliance and powers it off without confirmation. The OSC server may need to be started after this command using [`server start`](#user-content-server-start).
 
 **Syntax**: `shutdown`
 

@@ -131,7 +131,7 @@ Declarative Services descriptors can be written by hand, but the simplest way to
 >Note: The annotations are pulled in as a `provided` scope dependency because they are for build-time processing only (step 3 of the scope selection process).
 
 Once the Declarative Services annotations are available, you can annotate the `ApplianceManagerApi` implementation type with the `@Component` annotation to register it as a component. 
->Note: Because the implementation directly implements an interface, it will automatically be registered as an OSGi service using this interface. You also need to include all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](/plugins/security_mgr_plugin.md#plugin-properties)  and [SDN Controller Plugin Properties](/plugins/sdn_controller_plugin.md#plugin-properties) for more details on the required properties for each of these plugin types.  
+>Note: Because the implementation directly implements an interface, it will automatically be registered as an OSGi service using this interface. You also need to include all the required service properties to allow OSC to identify and correctly use this plugin. See [Security Manager Plugin Properties](/plugins/security_mgr_plugin.md#user-content-plugin-properties)  and [SDN Controller Plugin Properties](/plugins/sdn_controller_plugin.md#user-content-plugin-properties) for more details on the required properties for each of these plugin types.  
 
 ```java
 @Component(
@@ -268,7 +268,7 @@ This configuration creates a local index XML inside the same folder as the depen
 Once the dependencies have been gathered and the index generated, it is time to package the plugin binary.  
 The OSC plugin packaging format looks a lot like an OSGi bundle, in that it is a zip format archive that contains a manifest with identifying metadata. The metadata identifies the location of the XML index (usually contained within the archive), and if the index is local, the archive will also contain the indexed resources.  
 The following manifest headers are defined for the plugin packaging:
-* `Deployment-Name` — This provides the name shown in the UI. It must also match the value provided in the [property `PLUGIN_NAME` of the plugin declaritive service](#exposing-the-service-provided-by-the-plugin).  
+* `Deployment-Name` — This provides the name shown in the UI. It must also match the value provided in the [property `PLUGIN_NAME` of the plugin declaritive service](#user-content-exposing-the-service-provided-by-the-plugin).  
 * `Deployment-Type` — This provides the type of the plugin and should be either `SDN` or `MANAGER`.
 * `Deployment-SymbolicName` — This provides an identifier for the deployment.
 * `Deployment-Version` — This provides a version for the deployment. If not supplied, the version will default to 0.0.0

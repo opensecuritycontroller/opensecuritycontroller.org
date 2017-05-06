@@ -174,7 +174,7 @@ After setting up OSC and deploying a **Distributed Appliance Instance**, verify 
 #### Validating Network Redirection
 In the case of using the dummy CirrOS image, when a policy is bound to a security group, no virtual machine can communicate to the protected virtual machine - the `VICTIM` - and any network traffic directed to the `VICTIM` will be intercepted by the **Distributed Appliance Instance** on the `INSPECTION NETWORK`. This is the expected behavior for the CirrOS image which implements a dummy behavior that always blocks traffic to the protected virtual machines. Let's take a look at the network traffic flow observed through the **Distributed Appliance Instance** when the security group is bound and when it is unbound.
 
-* On OSC, ensure that the security group is [bound](#8.-bind-security-group).
+* On OSC, ensure that the security group is [bound](#user-content-8-bind-security-group).
 * In the **Overview** tab for the `VICTIM`, note the `MANAGEMENT NETWORK` IP address. The `ATTACKER` will attempt to send an HTTP request to this address.  
 * On OpenStack, navigate to **Project** > **Compute** > **Instances**, and then open the `ATTACKER` and **Distributed Appliance** instances in different browser tabs. Ensure the `VICTIM` is powered on.  
 * Switch to the **Console** view for both the `ATTACKER` and **Distributed Appliance** instances.  
