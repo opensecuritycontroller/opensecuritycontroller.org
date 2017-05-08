@@ -36,7 +36,7 @@ This section explains the OSC CLI commands, which you can run in normal mode. Fo
 * [show network domain](#user-content-show-network-domain)
 * [show network hostname](#user-content-show-network-hostname)
 * [show network ip](#user-content-show-network-ip)
-* [show network ntp](*show-network-ntp)
+* [show network ntp](#user-content-show-network-ntp)
 * [show network route](#user-content-show-network-route)
 * [show process](#user-content-show-process)
 * [show process monitor](#user-content-show-process-monitor)
