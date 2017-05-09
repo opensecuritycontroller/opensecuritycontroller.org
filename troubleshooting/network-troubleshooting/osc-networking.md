@@ -7,6 +7,8 @@ Access OSC console when troubleshooting network issues. OSC console access in VM
 For OSC installed on VMware, access the ESXi host by using the native vSphere desktop application or the vSphere Web Client. 
 Right-click on the virtual machine and select **Open Console**.
 
+### OpenStack Deployments ###  
+
 #### OSC IP Address and Netmask  
 Check IP configuration on the OSC management port:   [`show network ip`](/references/cli.md/#user-content-show-network-ip)  
 If the expected IP address and netmask are not shown, configure the IP address:  [`set network ip`](/references/cli.md/#user-content-set-network-ip)  
