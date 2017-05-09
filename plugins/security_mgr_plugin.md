@@ -3,7 +3,7 @@ The OSC Manager Plugin SDK contains the set of APIs that define the functionalit
 OSC communicates with the security manager through these interfaces to implement its orchestration and management capabilities.  
 In addition to supporting manager plugins, OSC also exposes REST endpoints for managers to call back in order to send notifications and query information.  
 
-![](./images/osc_mgr.png)  
+![](images/osc_mgr.png)  
 *OSC and VNF Security Manager*
 
 ## Security Manager Plugin SDK
@@ -40,7 +40,7 @@ These APIs allow OSC to manage the devices on the VNF manager. The functionality
 * CRUD operations for devices.
 * Check version validity for appliance upgrades or downgrades. 
 * Retrieve device status.  
-* Retrieve device bootstrap information. For more details, see [Bootstrapping An Appliance](#bootsrapping-an-appliance)
+* Retrieve device bootstrap information. For more details, see [Bootstrapping An Appliance](#user-content-bootsrapping-an-appliance)
 
 ### Policy Mapping
 This set of APIs is used by OSC to perform CRUD operations on policy-tag(VLAN) mapping within the context of a device container.  
@@ -63,7 +63,7 @@ These APIs are used by OSC to retrieve policy information provided by the manage
 >Note: This set of APIs is optional. 
 
 ### Plugin Properties
-In addition to the functionalities mentioned above, this SDK also specificies a set of required properties that must be provided when [registering the plugin implementation as an OSGi service](osgi_plugin.md#exposing-the-service-provided-by-the-plugin). These properties will be used by OSC to identify and correctly use the plugin.  For more details and the full list of required properties, see the `javadoc` of the interface `org.osc.sdk.manager.api.ApplianceManagerApi` defined by this SDK.
+In addition to the functionalities mentioned above, this SDK also specificies a set of required properties that must be provided when [registering the plugin implementation as an OSGi service](/plugins/osgi_plugin.md#user-content-exposing-the-service-provided-by-the-plugin). These properties will be used by OSC to identify and correctly use the plugin.  For more details and the full list of required properties, see the `javadoc` of the interface `org.osc.sdk.manager.api.ApplianceManagerApi` defined by this SDK.
 
 ## OSC Manager Callback REST APIs
 
@@ -157,7 +157,7 @@ The above is just a sample. The manager should be able to provide us with any in
 ## Packaging An Appliance
 In order for appliance images to be imported in OSC, they must be packaged as a ZIP file along with a descriptor file containing information in JSON format:  
 
-![](./images/image_pack.png)  
+![](images/image_pack.png)  
 *Packaging an Appliance Image For OpenStack*
 
 ### OSC Appliance Image Metadata
