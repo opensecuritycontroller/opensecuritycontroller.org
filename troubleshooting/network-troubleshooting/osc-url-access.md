@@ -1,17 +1,21 @@
-#Troubleshooting OSC Web Access  
-This procedure troubleshoots issues when OSC URL is not accessible using a web browser. OSC URL access problem might be due to couple of reasons. Follow the steps below to debug.
+# Troubleshooting OSC Web Access  
 
-1. Ping OSC IP Address.  
-   **Command**: `C>ping OSC_IP_Address`
-2. If the ping  is **successful**:  
- 2a. Access OSC CLI through an SSH client [OSC ssh shell](../../gettingstarted/accessing.md#accessing-osc-through-cli). 
+This procedure troubleshoots issues when the OSC web application is not accessible using a browser. Issues with accessing the OSC web application might be due to different reasons. Follow the steps below to debug:
 
- 2b. Check the server status by using the command [server status](../../references/cli.md/#server-status).  
+1. Ping OSC IP Address:  
+   ```
+   $ ping OSC_IP ADDDRESS 
+   
+   ```
+2. If pinging OSC succeeds:  
+   * Access the [OSC CLI](/gettingstarted/accessing.md#user-content-accessing-osc-through-cli) through an SSH client. 
 
- 2c. If OSC status is `Open Security Controller Server is running` you should be able to access the OSC URL.  
-Otherwise there may be an environment problem on your client (i.e.: firewall configuration, browser settings, etc).  
+   * Check the server status by using the command [`server status`](/references/cli.md/#user-content-server-status).  
 
- 2d. If OSC status is `Open Security Controller Server is not running`. Start the server using the command  [server start](../../references/cli.md/#server-start).  
+   * If the returned status is **Open Security Controller Server is running**, OSC should be accessible through its URL.  
+If you are still unable to access the OSC web application, there may be an environment problem on your client (e.g.: firewall configuration, browser settings, etc).  
 
-3.  If ping has **failed**:  
- 3a. Follow [network troubleshooting steps](./osc-networking.md).  
+   * If the returned status is **Open Security Controller Server is not running**, start the server using the command [`server start`](/references/cli.md/#user-content-server-start).  
+
+3.  If pinging OSC fails: 
+    * Follow [network troubleshooting steps](/troubleshooting/osc-networking.md).  

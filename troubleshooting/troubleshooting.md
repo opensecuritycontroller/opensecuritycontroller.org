@@ -1,23 +1,15 @@
-# Troubleshooting OSC
+# Troubleshooting 
 
-  
+See these troubleshooting guides if you are experiencing issues.  
 
-***
-This session presents the information to help investigating issues with OSC or related to integration points with other systems. 
+#### [Troubleshooting OSC Web Access](/troubleshooting/network-troubleshooting/osc-url-access.md)  
 
+#### [Troubleshooting OSC Network Issues](/troubleshooting/network-troubleshooting/osc-networking.md)  
 
+### *Coming Soon*
 
-### OSC Logs
+#### Troubleshooting OSC Integration with OpenStack 
 
-[OSC Logs](./logs.md)
+#### Using the OSC Logs 
 
-### OSC Debug
-[Debugging OSC](./debug.md)
-
-### Integration Problems
-[Troubleshooting Problems with OpenStack](./openstack.md)  
-[Troubleshooting Problems with VMware](./vmware.md)
-
-### Access and Network Problems
-[Troubleshooting OSC Web Access](./network-troubleshooting/osc-url-access.md)  
-[Troubleshooting OSC Network Issues](./network-troubleshooting/osc-networking.md)  
+#### Debugging OSC 

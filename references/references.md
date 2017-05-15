@@ -1,22 +1,13 @@
 # References
 
-  
+View these references to OSC APIs, plugin SDKs, and the CLI.
 
-***
+#### [Command Line Interface](/references/cli.md)
 
-This section provides the references to the OSC APIs, CLI and plugins SDK.
+### *Coming Soon*
 
+#### OSC APIs 
 
+#### Security Manager Plugin SDK 
 
-### CLI
-
-[OSC CLI](./cli.md)
-
-### APIs
-
-[OSC APIs](./api.md)
-
-### Plugins
-
-[Security Manager SDK](./manager_sdk.md)  
-[SDN Controller SDK](./sdn_sdk.md)
+#### SDN Controller Plugin SDK 
