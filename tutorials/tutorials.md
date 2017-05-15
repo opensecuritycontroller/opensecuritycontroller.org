@@ -1,21 +1,7 @@
 # Tutorials
 
-  
+Follow these tutorials to learn how to protect your virtual assets with OSC. 
 
-***
+Before you begin, ensure you have followed all steps in [Getting Started](/gettingstarted/gettingstarted.md).  
 
-
-
-Lists tutorials for implementing various scenarios with OSC. **TBD.**
-
-
-
-### VMware
-
-[Protecting Workloads on VMware](/tutorials/vmware_workload.md)  
-
-
-
-### OpenStack
-
-[Protecting Workloads on OpenStack](/tutorials/openstack_workload.md)  
+#### [Protecting Workloads on OpenStack](/tutorials/openstack_workload.md)  

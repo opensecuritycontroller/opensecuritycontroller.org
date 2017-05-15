@@ -5,6 +5,6 @@ OSC is a virtual appliance installed on a hypervisor. You must use the correspon
 Before you begin, ensure the [OSC requirements](/gettingstarted/requirements.md) are met.
 
 
-#### [Steps to Install OSC in an OpenStack Environment](/gettingstarted/installing_ost.md)
+#### [Installing OSC in an OpenStack Environment](/gettingstarted/installing_ost.md)
 
-#### [Steps to Install OSC in a VMware Environment](/gettingstarted/installing_vmware.md)
+#### [Installing OSC in a VMware Environment](/gettingstarted/installing_vmware.md)

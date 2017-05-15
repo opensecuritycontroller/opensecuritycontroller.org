@@ -15,7 +15,9 @@ These steps include:
 * In OpenStack, create two virtual machines in the `TENANT` and `REGION`. These virtual machines are hereby referred as the `ATTACKER` and the `VICTIM`.
 
 ### Networks and Connectivity  
+
 #### Minimum Network Requirements  
+
 For OSC to function successfully, the following minimum network requirements must be met: 
 
 * Both the `ATTACKER` and `VICTIM` must be able to communicate to each other through HTTP.  
@@ -25,6 +27,7 @@ For OSC to function successfully, the following minimum network requirements mus
  * One **Inspection Network** for which redirected traffic will be intercepted.  
 
 #### Tutorial Network Topology
+
 For this tutorial, the network topology in OpenStack should be as follows:  
 
 * `MANAGEMENT NETWORK`: This network corresponds to the **Management Network** mentioned above and it will also be overloaded with the deployment of the of the `ATTACKER` and `VICTIM` and used for communication between both the `ATTACKER` and `VICTIM`, the *internal* security manager, and the **Distributed Appliance Instance**. Its configurations consist of one port for the `ATTACKER`, one for the `VICTIM` and one for the **Distributed Appliance Instance**. 
@@ -34,6 +37,7 @@ For this tutorial, the network topology in OpenStack should be as follows:
 *Network Topology in OpenStack*  
 
 ### Security Appliance and Manager  
+
 There are two options for obtaining a security appliance image and its corresponding manager plugin. The first option is to use an appliance image and manager plugin provided by a security manager vendor compatible with OSC. The second option is to manually create them. 
 
 For this tutorial, it is assumed that the appliance image and security plugin will be manually created:  
@@ -66,6 +70,7 @@ For this tutorial, it is assumed that the appliance image and security plugin wi
 ```
 
 ### SDN Controller  
+
 OSC requires two components to implement traffic redirection and SDN notifications through an SDN controller, an SDN component and an SDN controller plugin. You may acquire these from an OSC compatible vendor or you can manually create them.
 
 For this tutorial, it is assumed that the SDN component and SDN controller plugin will be manually created:  
@@ -77,6 +82,7 @@ For this tutorial, it is assumed that the SDN component and SDN controller plugi
 ## Set up OSC to Protect a Workload
 
 ### 1. Upload Plugin
+
 Within OSC, navigate to **Manage** > **Plugins** using the left-hand menu. 
 * Select the **SDN Controller Plugins** tab, and upload the `SDN CONTROLLER NSC PLUGIN`.  
 * Select the **Manager Plugins** tab, and upload the `SAMPLE MANAGER PLUGIN`.  
@@ -85,6 +91,7 @@ Within OSC, navigate to **Manage** > **Plugins** using the left-hand menu.
 *Upload SDN Controller and Manager Plugins*
 
 ### 2. Define Virtualization Connector  
+
 Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**, and then select **Add**.
 * Enter a name and then select **OPENSTACK** as the type.
 * Select **NSC** (Network Security Controller) as the type for the SDN Controller.
@@ -97,6 +104,7 @@ Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**,
 *Add Virtualization Connector*
 
 ### 3. Define Manager Connector  
+
 Using the left-hand menu, navigate to **Setup** > **Manager Connectors**, and then select **Add**.
 * Enter a name.
 * For the type, select **ISM** as described by the `SAMPLE APPLIANCE IMAGE` and the `SAMPLE MANAGER PLUGIN`.
@@ -109,10 +117,12 @@ Using the left-hand menu, navigate to **Setup** > **Manager Connectors**, and th
 After adding the manager connector, ensure the **Last Job Status** is **PASSED** and that policies defined in the security manager are populated under **Polices** on the bottom-half of the page.
 
 ### 4. Define Service Function  
+
 Using the left-hand menu, navigate to **Setup** > **Service Function Catalog**, and then select **Auto Import**.
 * Browse to the `SAMPLE APPLIANCE IMAGE` and click **OK** to begin uploading the file.
 
 ### 5. Define Distributed Appliance  
+
 Using the left-hand menu, navigate to **Setup** > **Distributed Appliance**. Under **Distributed Appliances**, select **Add**.
 * Enter a name.
 * Choose the previously created **manager connector** for the manager connector.
@@ -124,6 +134,7 @@ Using the left-hand menu, navigate to **Setup** > **Distributed Appliance**. Und
 *Add Distributed Appliance*
 
 ### 6. Define Deployment Specification  
+
 Under the same menu, navigate to **Setup** > **Distributed Appliance**. Select **Deployments** from within the **Virtual Systems** section, and then select **Add**.  
 * Enter a name.
 * Select the OpenStack `TENANT`.
@@ -137,6 +148,7 @@ Under the same menu, navigate to **Setup** > **Distributed Appliance**. Select *
 After creating a deployment specification, ensure that the **Last Job Status** is **PASSED**.
 
 ### 7. Define Security Group  
+
 Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**, then select the virtualization connector that previously was created. Select **Add** on the lower half of the page under **Security Group**.  
 * Enter a name.
 * Select the `TENANT`.
@@ -148,6 +160,7 @@ Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**,
 *Add Security Group*  
 
 ### 8. Bind Security Group  
+
 Under the same menu, navigate to **Setup** > **Virtualization Connectors**, then select the newly created security group. Select **Bind**.  
 
 ![](images/select_sg.jpg)  
@@ -164,6 +177,7 @@ After binding, ensure that the **Last Job Status** is **PASSED**.
 ## Validating Setup and Redirection  
 
 #### OpenStack Instances  
+
 After setting up OSC and deploying a **Distributed Appliance Instance**, verify the **Distributed Appliance Instance** was deployed on OpenStack.  
 * Log in to OpenStack and navigate to **Project** > **Compute** > **Instances**.  
 * Observe that the **Distributed Appliance Instance** is listed as an instance in addition to the `ATTACKER` and `VICTIM`. Ensure the **Distributed Appliance Instance** image name reflects previous naming actions taken such as the name of the **Distributed Appliance Instance** (myDA) and the name of the image uploaded in the **Service Function Catalog**.  
@@ -172,6 +186,7 @@ After setting up OSC and deploying a **Distributed Appliance Instance**, verify 
 *OpenStack Instances*  
 
 #### Validating Network Redirection
+
 In the case of using the dummy CirrOS image, when a policy is bound to a security group, no virtual machine can communicate to the protected virtual machine - the `VICTIM` - and any network traffic directed to the `VICTIM` will be intercepted by the **Distributed Appliance Instance** on the `INSPECTION NETWORK`. This is the expected behavior for the CirrOS image which implements a dummy behavior that always blocks traffic to the protected virtual machines. Let's take a look at the network traffic flow observed through the **Distributed Appliance Instance** when the security group is bound and when it is unbound.
 
 * On OSC, ensure that the security group is [bound](#user-content-8-bind-security-group).

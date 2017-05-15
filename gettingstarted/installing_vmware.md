@@ -1,4 +1,4 @@
-# Steps to Install OSC in a VMware Environment
+# Installing OSC in a VMware Environment
 Complete the following steps to successfull install OSC in a VMWare environment:
 
 1. Log on to vCenter Server using the vSphere Web Client as the root user.
