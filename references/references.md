@@ -4,10 +4,12 @@ View these references to OSC APIs, plugin SDKs, and the CLI.
 
 #### [Command Line Interface](/references/cli.md)
 
-### *Coming Soon*
+***
 
-#### OSC APIs 
+#### Coming Soon:
 
-#### Security Manager Plugin SDK 
+* #### OSC APIs 
 
-#### SDN Controller Plugin SDK 
+* #### Security Manager Plugin SDK 
+
+* #### SDN Controller Plugin SDK 
