@@ -17,7 +17,7 @@ Telecommunications providers want to reduce time to market and costs for infrast
 OSC is designed to address these SDN/NFV security challenges by playing a role of a centralized security services orchestration tool across multiple cloud environments. It does so using a modular architecture to interface with:
 *	Multi-vendor virtualized security function managers ([Security Manager Plugins](/plugins/security_mgr_plugin.md))
 *	Multi-vendors SDN controllers ([SDN Controller Plugins](/plugins/sdn_controller_plugin.md))
-*	Virtualization infrastructure Managers ([Virtualization Connectors](/concepts/concepts.md#user-content-virtualization-connectors))
+*	Virtualization infrastructure Managers ([Virtualization Connectors](/overviewandarchitecture/concepts.md#user-content-virtualization-connectors))
 
 ## Architecture Overview
 This section covers the key functionalities of OSC, followed by a conceptual architecture of how OSC fits in as a centralized orchestration solution for security services across multiple datacenters.
@@ -64,7 +64,7 @@ The detailed API documentation can be found in OSC API Documentation (also avail
 
 #### Virtualization Connectors
 The Virtualization Connector module within OSC allows security function managers to work across multiple virtualization environments. The Virtualization Connector uses the Virtual Infrastructure Manager (VIM) native APIs such as compute, network, storage, image, identity service to implement the following high level functionality:
-*	Bootstrap informoverviewandarchitectureation for virtual security appliance to startup and connect to manager
+*	Bootstrap information for virtual security appliance to startup and connect to manager
 *	Dynamic provisioning/de-provisioning based on configured [Deployment Specification](/overviewandarchitecture/concepts.md#user-content-deployment-specifications) 
 * Using appliance image metadata, retrieve and store images on VIM’s image service
 *	Subscribe to notification events on infrastructure layer and take required actions
