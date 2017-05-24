@@ -6,10 +6,12 @@ See these troubleshooting guides if you are experiencing issues.
 
 #### [Troubleshooting OSC Network Issues](/troubleshooting/network-troubleshooting/osc-networking.md)  
 
-### *Coming Soon*
+***
 
-#### Troubleshooting OSC Integration with OpenStack 
+#### Coming Soon:
 
-#### Using the OSC Logs 
+* #### Troubleshooting OSC Integration with OpenStack 
 
-#### Debugging OSC 
+* #### Using the OSC Logs 
+
+* #### Debugging OSC 
