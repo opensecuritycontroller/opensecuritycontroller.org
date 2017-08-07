@@ -269,7 +269,6 @@ Once the dependencies have been gathered and the index generated, it is time to 
 The OSC plugin packaging format looks a lot like an OSGi bundle, in that it is a zip format archive that contains a manifest with identifying metadata. The metadata identifies the location of the XML index (usually contained within the archive), and if the index is local, the archive will also contain the indexed resources.  
 The following manifest headers are defined for the plugin packaging:
 * `Deployment-Name` — This provides the name shown in the UI. It must also match the value provided in the [property `PLUGIN_NAME` of the plugin declaritive service](#user-content-exposing-the-service-provided-by-the-plugin).  
-* `Deployment-Type` — This provides the type of the plugin and should be either `SDN` or `MANAGER`.
 * `Deployment-SymbolicName` — This provides an identifier for the deployment.
 * `Deployment-Version` — This provides a version for the deployment. If not supplied, the version will default to 0.0.0
 * `Index-Path` — This provides a URI to the index XML that should be used when resolving the deployment. URI paths (i.e. URIs with no scheme) are relative to the root of the bundle archive. The default value for this header is `index.xml`.
