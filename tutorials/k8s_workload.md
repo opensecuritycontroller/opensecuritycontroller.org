@@ -38,7 +38,9 @@ Create the pod:
 $ kubectl create -f ~/attacker-busybox.yaml
 ```
 2. The **protected** pod:  
-The protected pod that will be pinged by the attacker. Observe it has a label which will be used later for creating a security group member in OSC.  
+The protected pod that will be pinged by the attacker.   
+> Note: Observe it has a label (**env: production**) which will be used later for creating a security group member in OSC.  
+
 Create the pod configuration file:  
 ```sh
 $ cat >~/victim-busybox.yaml <<EOL
@@ -148,13 +150,14 @@ Using the OSC api-doc `https://OSC_IP:8090/api-doc -> Operations for Security Fu
 **applianceId:** `APPLIANCE_MODEL_ID`
 ```json
 {
-"parentId":"APPLIANCE_MODEL_ID",
+"parentId":"APPLIANCE_MODEL_ID", # Obtained from the previous step.
 "swVersion":"0.1",
 "virtualizationType":"KUBERNETES",
 "virtualizationVersion":"v1.7",
 "imageUrl":"corfr/tcpdump"
 }
 ```
+> Note:  The `imageUrl: corfr/tcpdump` is the name of the Docker image OSC will deploy to represent a *dummy* container VNF.  This image will be pulled from the public Docker registry when Kubernetes creates the pod(s) for the deployment.  
 
 You should get a response body containing an ID, similar to this `"id":APPLIANCE_SOFTWARE_VERSION_ID`, copy this identifier to be used on later steps.
 
@@ -247,12 +250,12 @@ You should get a response body containing the ID of the create security group, s
 #### 7.3. Add a Label Member  
 Using the OSC api-doc `https://OSC_IP:8090/api-doc -> Operations for Virtualization Connectors`:  
 * `PUT /api/server/v1/virtualizationConnectors/{vcId}/securityGroups/{sgId}/members` with json payload:  
-**vcId**: "VIRTUALIZATION_CONNECTOR_ID"
-**sgId**: "SECURITY_GROUP_ID"
+**vcId**: `VIRTUALIZATION_CONNECTOR_ID`  
+**sgId**: `SECURITY_GROUP_ID`  
 ```json
 {
-	"parentId": VIRTUALIZATION_CONNECTOR_ID,
-	"id": SECURITY_GROUP_ID,
+	"parentId": VIRTUALIZATION_CONNECTOR_ID,  # Obtained from the Virtualization Connector creation.
+	"id": SECURITY_GROUP_ID, # Obtained from the previous step.
 	"members": [
 	 {
 		"name": "env-production",
@@ -262,6 +265,7 @@ Using the OSC api-doc `https://OSC_IP:8090/api-doc -> Operations for Virtualizat
 	]
 }
 ```
+> Note: Observe the label provided above `env=production` is the same label in the **protected** pod (victim-busybox) created previously.  
 
 On the OSC UI you should see the **Last Job Status**  of the created security group is **PASSED**. When clicking on **Membership** you should see one member in the security group with the IP address `70.70.0.2`.  
 
@@ -274,10 +278,10 @@ Using the OSC api-doc `https://OSC_IP:8090/api-doc -> Operations for Virtualizat
 ```json
 	[
 	  {
-	    "virtualSystemId": "VIRTUAL_SYSTEM_ID",
+	    "virtualSystemId": "VIRTUAL_SYSTEM_ID", # Obtained from the creation of the distributed appliance.
 	    "name": "sgbind",
 	    "policyIds": [
-	      "POLICY_ID" # Retrieve from GET /api/server/v1/virtualSystems/{vsId}/policies
+	      "POLICY_ID" # Retrieved from GET /api/server/v1/virtualSystems/{vsId}/policies
 	    ],
 	    "order": 0,
 	    "markedForDeletion": false,
@@ -308,6 +312,14 @@ testds-XX-XXXXXXXXX   1/1       Running
 
 ## Appendix
 
+### Current Limitations
+The orchestration and application of containerized security functions provided by OSC in Kubernetes is currently at an alpha. Below are some the limitations:  
+
+* **UI support:**  The following operations supported by OSC for Kubernetes are not exposed in the UI, being available in the API only: creating/updating virtualization connectors, security groups and deployment specs; importing appliance model and sofware version; binding a security group to a security policy.  
+
+*  **Automatic synchronization with the virtualization environment: ** OSC has the capability of automatically identifying changes in the virtualization environment and reacting to them accordingly.  Common examples of these are any changes on the deployed VNF instances or new workloads coming up that should be protected.  For Kubernetes this fully automated synchronization is not yet implemented. Changes are only detected by OSC when the user manually resyncs the deployment spec or security group using the OSC UI or corresponding APIs.  
+
+  
 ### Network Redirection
 
 When using a real SDN controller plugin, like [Nuage](https://github.com/opensecuritycontroller/osc-nuage-plugin), you should be able to validate the traffic redirection when a policy is bound to a security group. For that you can perform the following steps on your Kubernetes cluster:  
@@ -329,7 +341,7 @@ Node:           minion01
 $ docker ps | grep k8s_attacker-busybox
 ```
 ```sh
-$ docker exec ATTACKER_CONTAINER_ID ping ip add
+$ docker exec ATTACKER_CONTAINER_ID  ip add
 ```
 
 4.  From the SSH session for the `attacker-busybox` ping the protected pod (`victim-busybox`) from within the attacker container:  
