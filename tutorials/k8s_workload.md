@@ -313,11 +313,11 @@ testds-XX-XXXXXXXXX   1/1       Running
 ## Appendix
 
 ### Current Limitations
-The orchestration and application of containerized security functions provided by OSC in Kubernetes is currently at an alpha. Below are some the limitations:  
+The orchestration and application of containerized security functions provided by OSC in Kubernetes is currently *alpha*. Below are some the limitations:  
 
 * **UI support:**  The following operations supported by OSC for Kubernetes are not exposed in the UI, being available in the API only: creating/updating virtualization connectors, security groups and deployment specs; importing appliance model and sofware version; binding a security group to a security policy.  
 
-*  **Automatic synchronization with the virtualization environment: ** OSC has the capability of automatically identifying changes in the virtualization environment and reacting to them accordingly.  Common examples of these are any changes on the deployed VNF instances or new workloads coming up that should be protected.  For Kubernetes this fully automated synchronization is not yet implemented. Changes are only detected by OSC when the user manually resyncs the deployment spec or security group using the OSC UI or corresponding APIs.  
+*  **Automatic synchronization with the virtualization environment:** OSC has the capability of automatically identifying changes in the virtualization environment and reacting to them accordingly.  Common examples of these are any changes on the deployed VNF instances or new workloads coming up that should be protected.  For Kubernetes this fully automated synchronization is not yet implemented. Changes are only detected by OSC when the user manually resyncs the deployment spec or security group using the OSC UI or corresponding APIs.  
 
   
 ### Network Redirection
