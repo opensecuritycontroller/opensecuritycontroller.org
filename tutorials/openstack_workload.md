@@ -84,8 +84,8 @@ For this tutorial, it is assumed that the SDN component and SDN controller plugi
 ### 1. Upload Plugin
 
 Within OSC, navigate to **Manage** > **Plugins** using the left-hand menu. 
-* Select the **SDN Controller Plugins** tab, and upload the `SDN CONTROLLER NSC PLUGIN`.  
-* Select the **Manager Plugins** tab, and upload the `SAMPLE MANAGER PLUGIN`.  
+* Upload the `SDN CONTROLLER NSC PLUGIN`.  
+* Upload the `SAMPLE MANAGER PLUGIN`.  
 
 ![Upload Plugins](images/add_plugins.jpg)  
 *Upload SDN Controller and Manager Plugins*

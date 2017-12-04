@@ -27,6 +27,14 @@ A compatible virtualization provider is needed to protect virtual assets. The re
 * Both a tenant and domain (region).
 * Installed and configured SDN controller.
 
+## Kubernetes   
+OSC is also capabale of protecting containerized workloads orchestrated by Kubernetes. The requirements for using Kubernetes are as follows:
+* Kubernetes 1.7
+* Proxy to Kubernetes API server on port `8080`:
+```sh
+$ kubectl proxy --port=8080 --address=10.0.0.13 --accept-hosts '.*' &
+```
+ 
 ## OSC Virtual Appliance
 To install and access the OSC virtual appliance, the following requirements must be met:
 
