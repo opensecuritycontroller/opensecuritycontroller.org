@@ -254,8 +254,8 @@ Using the OSC api-doc `https://OSC_IP:8090/api-doc -> Operations for Virtualizat
 **sgId**: `SECURITY_GROUP_ID`  
 ```json
 {
-	"parentId": VIRTUALIZATION_CONNECTOR_ID,  # Obtained from the Virtualization Connector creation.
-	"id": SECURITY_GROUP_ID, # Obtained from the previous step.
+	"parentId": "VIRTUALIZATION_CONNECTOR_ID",  # Obtained from the Virtualization Connector creation.
+	"id": "SECURITY_GROUP_ID", # Obtained from the previous step.
 	"members": [
 	 {
 		"name": "env-production",
@@ -341,7 +341,7 @@ Node:           minion01
 $ docker ps | grep k8s_attacker-busybox
 ```
 ```sh
-$ docker exec ATTACKER_CONTAINER_ID  ip add
+$ docker exec ATTACKER_CONTAINER_ID ip add
 ```
 
 4.  From the SSH session for the `attacker-busybox` ping the protected pod (`victim-busybox`) from within the attacker container:  
