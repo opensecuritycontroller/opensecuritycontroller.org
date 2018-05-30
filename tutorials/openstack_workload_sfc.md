@@ -73,13 +73,13 @@ For this tutorial, it is assumed that the appliance image and security plugin wi
 
 ### SDN Controller  
 
-OSC requires two components to implement traffic redirection and SDN notifications through an SDN controller, an SDN component and an SDN controller plugin. You may acquire these from an OSC compatible vendor or you can manually create them.
+OSC requires two components to implement traffic redirection and SDN notifications through an SDN controller, an SDN component and an SDN controller plugin.
 
 For this tutorial, it is assumed that the SDN component and SDN controller plugin will be manually created:  
  
 * The [`SDN CONTROLLER NSFC PLUGIN`](/plugins/plugins.md) is uploaded on OSC, enabling communication between the SDN controller and OSC.
-* The **SDN Component** which is deployed on OpenStack for NSFC.
-  * TODO: add deployment steps
+* The **SDN Component** is used in this tutorial is Neutron Servcice Function Chain
+
 
 ## Set up OSC to Protect a Workload
 
@@ -105,61 +105,7 @@ Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**,
 ![Add Virtualization Connector](images/add_VC_neutron_SFC.jpg)  
 *Add Virtualization Connector*
 
-### 3. Define Manager Connector  
-
-Using the left-hand menu, navigate to **Setup** > **Manager Connectors**, and then select **Add**.
-* Enter a name.
-* For the type, select **ISM** as described by the `SAMPLE APPLIANCE IMAGE` and the `SAMPLE MANAGER PLUGIN`.
-* Enter the IP address `1.1.1.1`, and then the credentials of `abc / 123`.
- 	>Note: When using a real security manager, use the real IP address and credentials.
-
-![Add Manager Connector](images/add_mc.jpg)  
-*Add Manager Connector*  
-
-After adding the manager connector, ensure the **Last Job Status** is **PASSED** and that policies defined in the security manager are populated under **Polices** on the bottom-half of the page.
-
-### 4. Define Service Function  
-
-Using the left-hand menu, navigate to **Setup** > **Service Function Catalog**, and then select **Auto Import**.
-* Browse to the `SAMPLE APPLIANCE IMAGE` and click **OK** to begin uploading the file.
-
-### 5. Define Distributed Appliance  
-
-Using the left-hand menu, navigate to **Setup** > **Distributed Appliance**. Under **Distributed Appliances**, select **Add**.
-* Enter a name.
-* Choose the previously created **manager connector** for the manager connector.
-* Choose the `SAMPLE APPLIANCE IMAGE` that was previously imported into the security function catalog.
-* Select the **Enabled** box.
-* Using the dropdown menu, select **VLAN** as the **Encapsulation Type**.  
-
-![Add Distributed Appliance](images/add_da.jpg)  
-*Add Distributed Appliance*
-
-### 6. Define Deployment Specification  
-
-Under the same menu, navigate to **Setup** > **Distributed Appliance**. Select **Deployments** from within the **Virtual Systems** section, and then select **Add**.  
-* Enter a name.
-* Select the OpenStack `TENANT`.
-* Select the OpenStack `REGION`.
-* Select **By Host** for the **Selection Criterion**, and then check the **Enabled** box.
-* Select the `MANAGEMENT NETWORK` and the `INSPECTION NETWORK`. Do not select a floating IP pool unless you are using an external network with an external security manager.  
-
-![Add Deployment Specification](images/add_ds.jpg)  
-*Add Deployment Specification*  
-
-After creating a deployment specification, ensure that the **Last Job Status** is **PASSED**.
-
-### 7. Define Security Group  
-
-Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**, then select the virtualization connector that previously was created. Select **Add** on the lower half of the page under **Security Group**.  
-* Enter a name.
-* Select the `TENANT`.
-* Select the `REGION`.
-* Select **By Type** and **VM** for the **Selection Type**.
-* Observe both virtual machines deployed on OpenStack on the left and select the `VICTIM`. `VICTIM` should be on the right after selection. 
-
-![Add Security Group](images/add_sg.jpg)  
-*Add Security Group*  
+### Define Manager Connector, Service Function, Distributed Appliance, Deployment Specification and Security Group. Please follow steps 3,4,5,6,7 from the tutorial for [protecting openstack workloads](openstack_workload.md) 
 
 ### 8. Define a Service Function Chain
 At present we can create a service function only through REST APIs, there is no support in OSC UI for defining SFC.
@@ -187,7 +133,7 @@ At present binding to security group is supported only through REST APIs.
 * For binding security group you need following parameters: virtualization connector id(vcId), security group id(sgId),
 service function chain id(sfcId) and enter the json content in body using model schema as reference
 * Select  Parameter Content Type as `application/json`
-![Bind to security group](images/sfc_binding_sg.jpg)  
+![Bind to security group](images/sg_binding_sfc.jpg)  
 *bind sfc to security group*
 * Ensure you get response with status 200
 * In OSC UI After binding, ensure that the **Last Job Status** is **PASSED**.
@@ -211,7 +157,7 @@ After setting up OSC and deploying a **Distributed Appliance Instance**, verify 
 * Log in to OpenStack and navigate to **Project** > **Compute** > **Instances**.  
 * Observe that the **Distributed Appliance Instance** is listed as an instance in addition to the `ATTACKER` and `VICTIM`. Ensure the **Distributed Appliance Instance** image name reflects previous naming actions taken such as the name of the **Distributed Appliance Instance** (myDA) and the name of the image uploaded in the **Service Function Catalog**.  
 
-![OpenStack Instances](images/os_instances_sfc.jpg)  
+![OpenStack Instances](images/os_vms_sfc.jpg)  
 *OpenStack Instances*  
 
 #### Validating Network Redirection
@@ -237,3 +183,15 @@ In the case of using the dummy CirrOS image, when a policy is bound to a securit
 	* The HTTP request should be successful now that the security group is unbound.
 * From the **Distributed Appliance Instance**, there should be no redirected traffic from the `ATTACKER`.
 
+## Creating Chain of services.
+For creating chain of services, more than one Distributed Appliance need to be created. A service function chain can have multiple distributed appliances which are chained together. The service function chain can have one or more distributed appliances each having different security appliance. 
+Steps to create chain of services
+#### 1. Import different security appliance image, refer step 4 from the tutorial for [protecting openstack workloads](openstack_workload.md)
+#### 2. Create another DA and DS refer steps 5 and 6 from the tutorial for [protecting openstack workloads](openstack_workload.md)
+#### 3. Update Service Function Chain using REST API by adding virtual system id of newly created Distributed Appliance
+![Update Service Function Chain](images/update_sfc.jpg)
+*update api for sfc*
+* To get virtual sytemids use GET API for Distributed appliance.
+
+#### 4. Update the binding of security group with sfc. 
+Refer step 9 described above by adding both the virtual systems in the json body, the number of virtual systems included in the json body should be equal to the number of virtual systems in sfc.
