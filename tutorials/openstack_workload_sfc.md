@@ -105,7 +105,11 @@ Using the left-hand menu, navigate to **Setup** > **Virtualization Connectors**,
 ![Add Virtualization Connector](images/add_VC_neutron_SFC.jpg)  
 *Add Virtualization Connector*
 
-### Define Manager Connector, Service Function, Distributed Appliance, Deployment Specification and Security Group. Please follow steps 3,4,5,6,7 from the tutorial for [protecting openstack workloads](openstack_workload.md) 
+### 3. [Define Manager Connector](openstack_workload.md#3-define-manager-connector) 
+### 4. [Define Service Function](openstack_workload.md#4-define-service-function) 
+### 5. [Define Distributed Appliance](openstack_workload.md#5-define-distributed-appliance) 
+### 6. [Define Deployment Specification](openstack_workload.md#6-define-deployment-specification) 
+### 7. [Define Security Group](openstack_workload.md#7-define-security-group) 
 
 ### 8. Define a Service Function Chain
 At present we can create a service function only through REST APIs, there is no support in OSC UI for defining SFC.
@@ -191,7 +195,7 @@ Steps to create chain of services
 #### 3. Update Service Function Chain using REST API by adding virtual system id of newly created Distributed Appliance
 ![Update Service Function Chain](images/update_sfc.jpg)
 *update api for sfc*
-* To get virtual sytemids use GET API for Distributed appliance.
+* To get virtual system id's use GET API for Distributed appliance.
 
 #### 4. Update the binding of security group with sfc. 
 Refer step 9 described above by adding both the virtual systems in the json body, the number of virtual systems included in the json body should be equal to the number of virtual systems in sfc.
