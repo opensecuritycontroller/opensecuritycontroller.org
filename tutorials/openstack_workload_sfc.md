@@ -193,7 +193,7 @@ Steps to create chain of services
 #### 1. Import different security appliance image, refer step 4 from the tutorial for [protecting openstack workloads](openstack_workload.md)
 #### 2. Create another DA and DS refer steps 5 and 6 from the tutorial for [protecting openstack workloads](openstack_workload.md)
 #### 3. Update Service Function Chain using REST API by adding virtual system id of newly created Distributed Appliance
-![Update Service Function Chain](images/update_sfc.jpg)
+![Update Service Function Chain](images/update_sfc.jpg) 
 *update api for sfc*
 * To get virtual system id's use GET API for Distributed appliance.
 
