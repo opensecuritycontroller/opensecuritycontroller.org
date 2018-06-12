@@ -123,7 +123,7 @@ Create a SFC as below
 * Enter the json body as below. Use model schema at right side as reference 
 
 ![Create Service Fucntion Chain](images/SFC_Post_API.jpg)  
-*Create Service Fucntion Chain* 
+*Create Service Function Chain* 
 
 * To get the virtual system ids use get API call from Distributed Appliance API
 * Click on Try it out
@@ -137,8 +137,8 @@ At present binding to security group is supported only through REST APIs.
 * For binding security group you need following parameters: virtualization connector id(vcId), security group id(sgId),
 service function chain id(sfcId) and enter the json content in body using model schema as reference
 * Select  Parameter Content Type as `application/json`
-![Bind to security group](images/sg_binding_sfc.jpg)  
-*bind sfc to security group*
+![Bind to security group](images/sfc_binding_with_sg.jpg)  
+*Bind SFC to Security Group*
 * Ensure you get response with status 200
 * In OSC UI After binding, ensure that the **Last Job Status** is **PASSED**.
 
@@ -193,9 +193,11 @@ Steps to create chain of services
 #### 1. Import different security appliance image, refer step 4 from the tutorial for [protecting openstack workloads](openstack_workload.md)
 #### 2. Create another DA and DS refer steps 5 and 6 from the tutorial for [protecting openstack workloads](openstack_workload.md)
 #### 3. Update Service Function Chain using REST API by adding virtual system id of newly created Distributed Appliance
-![Update Service Function Chain](images/update_sfc.jpg) 
-*update api for sfc*
-* To get virtual system id's use GET API for Distributed appliance.
+![Update Service Function Chain](images/update_sfc.jpg)  
+ *Update API for SFC*  
+* To get virtual system id's use GET API for Distributed appliance.  
+* The order of virtual system ids in json body determines the order of service functions in sfc  
 
 #### 4. Update the binding of security group with sfc. 
-Refer step 9 described above by adding both the virtual systems in the json body, the number of virtual systems included in the json body should be equal to the number of virtual systems in sfc.
+* Refer step 9 described above for updating the sfc binding with sg.
+* Need to pass multiple virtual systems information in the json body as a list. Each Virtual system should include of one or more policy ids of the policies that it supports. 
